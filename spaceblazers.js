@@ -20,7 +20,7 @@ function preload() {
 	spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(90, 0));
 	spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(90, 0));
 	spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(90, 0));
-	asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(75, 0));
+    asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(75, 0), err => console.log('Error loading asteroid image:', err));
 }
 
 // Setup
@@ -203,6 +203,7 @@ function Spaceship(r, lives) {
 
 // Asteroid Class
 function Asteroid(r) {
+    console.log("Creating new asteroid");  // Log when a new asteroid is created
 	let spawnEdge = floor(random(4)); // 0: top, 1: right, 2: bottom, 3: left
 	if (spawnEdge === 0) {
 		this.pos = createVector(random(width), -r);
@@ -220,6 +221,7 @@ function Asteroid(r) {
 	this.hit = false;
 	this.alpha = 255;
 	this.show = function() {
+        console.log("Showing asteroid");  // Log when an asteroid's show method is called
 		tint(255, this.alpha);
 		image(asteroidImg, this.pos.x - this.r, this.pos.y - this.r);
 		noTint();
