@@ -58,12 +58,12 @@ function draw() {
 	}
 
 	if (gameState === "start") {
-		textSize(48);
+		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
-		text("SPACE BLAZERS!", width / 2, height / 2);
-		textSize(24);
-		text("Click to Demand Trade", width / 2, height / 2 + 50);
+		text("Space Blazers", width / 2, height / 2);
+		textSize(20);
+		text("Click to Demand a Trade", width / 2, height / 2 + 50);
 	} else if (gameState === "play") {
     if(!gameStarted) {
       setTimeout(function() {
