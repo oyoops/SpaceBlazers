@@ -29,7 +29,7 @@ function preload() {
 // Setup
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    spaceship = new Spaceship(spaceshipImg.width / 2, 3);
+    spaceship = new Spaceship(spaceshipImg.width / 2, 5);
     button = createButton('Try Again');
     button.position(width / 2 - button.width / 2, height / 2 - button.height / 2);
     button.mousePressed(resetGame);
@@ -51,7 +51,7 @@ function setup() {
 
 // Main Draw Function
 function draw() {
-	if (score >= 5) {
+	if (score >= 20) {
 		background(50);
 	} else {
 		background(0);
@@ -61,9 +61,9 @@ function draw() {
 		textSize(48);
 		textAlign(CENTER, CENTER);
 		fill(255);
-		text("Space Blazers", width / 2, height / 2);
+		text("SPACE BLAZERS!", width / 2, height / 2);
 		textSize(24);
-		text("Click to Start", width / 2, height / 2 + 50);
+		text("Click to Demand Trade", width / 2, height / 2 + 50);
 	} else if (gameState === "play") {
     if(!gameStarted) {
       setTimeout(function() {
@@ -169,8 +169,8 @@ function draw() {
 
 		// Draw lives
 		fill(255);
-		textSize(24);
-		text("LIVES:", 10, 30);
+		textSize(30);
+		text("FAN GOODWILL: ", 10, 30);
 		for (let i = 0; i < spaceship.lives; i++) {
 			text("❤️", 90 + i * 30, 30);
 		}
@@ -178,8 +178,8 @@ function draw() {
 		// Draw score and team
 		textSize(24);
 		textAlign(RIGHT);
-		text("SCORE: " + score, width - 30, 30);
-		text("TEAM: " + team, width - 30, 60);
+		text("CRONIN KILLS: " + score, width - 30, 30);
+		text("DESTINATION:  " + team, width - 30, 60);
 
 		// ...for reverting spaceship back to normal after damage-rcvd image
 		if (spaceship.timer > 0) {
@@ -188,7 +188,6 @@ function draw() {
 				spaceship.img = spaceshipImg;
 			}
 		}
-
 	}
 }
 
@@ -199,6 +198,7 @@ function mousePressed() {
   } else if (gameState === "play" && !gameOver) {
     let bullet = new Bullet(spaceship.pos, createVector(mouseX, mouseY));
     bullets.push(bullet);
+    spaceship.lives--;
   }
 }
 
@@ -278,7 +278,7 @@ function Bullet(spos, epos) {
 	this.pos = createVector(spos.x, spos.y);
 	this.vel = p5.Vector.sub(epos, spos);
 	this.vel.setMag(2);
-	this.r = 8;
+	this.r = 12;
 	this.show = function() {
 		push();
 		textSize(this.r * 2);
@@ -302,7 +302,7 @@ function Bullet(spos, epos) {
 }
 
 function resetGame() {
-	spaceship = new Spaceship(spaceshipImg.width / 2, 3);
+	spaceship = new Spaceship(spaceshipImg.width / 2, 5);
 	spaceship.pos = createVector(width / 2, height / 2);
 	asteroids = [];
 	for (let i = 0; i < 5; i++) {
