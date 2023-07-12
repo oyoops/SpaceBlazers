@@ -25,6 +25,15 @@ function preload() {
 
 // Setup
 function setup() {
+    createCanvas(windowWidth, windowHeight);
+    spaceship = new Spaceship(spaceshipImg.width / 2, 3);
+    button = createButton('Try Again');
+    button.position(width / 2 - button.width / 2, height / 2 - button.height / 2);
+    button.mousePressed(resetGame);
+    button.hide();
+}
+/*
+function setup() {
 	createCanvas(800, 600);
 	spaceship = new Spaceship(spaceshipImg.width / 2, 3);
 	for(let i=0; i<5; i++) {
@@ -35,6 +44,7 @@ function setup() {
 	button.mousePressed(resetGame);
 	button.hide();
 }
+*/
 
 // Main Draw Function
 function draw() {
