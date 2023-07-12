@@ -79,33 +79,35 @@ function draw() {
 
 		spaceship.show();
 		spaceship.move();
-
-        /*
+        
         // Generate asteroids
         if (frameCount >= 60 && frameCount % asteroidGenerationTime == 0) {
-			asteroids.push(new Asteroid(asteroidImg.width / 2));
+			asteroids.push(new Asteroid(asteroidImg.width / 2, createVector(mouseX, mouseY)));
 			timeElapsed += asteroidGenerationTime;
 			if (timeElapsed >= 600) { // 10 seconds
 				asteroidGenerationTime /= 2;
 				timeElapsed = 0;
 			}
 		}
-        */
+        
         // Simplified asteroid generation logic
         //if (frameCount % 60 == 0) {  // Every 60 frames (or 1 second), create a new asteroid
-        //    asteroids.push(new Asteroid(asteroidImg.width / 2));
+        //    asteroids.push(new Asteroid(asteroidImg.width / 2, createVector(mouseX, mouseY)));
         //}
         // Display and move each asteroid
         //for (let i = asteroids.length - 1; i >= 0; i--) {
         //    asteroids[i].show();
         //    asteroids[i].move();
         //}
-            // Generate asteroids
+
+        /*
+        // Generate asteroids
         asteroidCounter++;
         if (asteroidCounter >= asteroidGenerationRate) {
-            asteroids.push(new Asteroid(asteroidImg.width / 2));
+            asteroids.push(new Asteroid(asteroidImg.width / 2, createVector(mouseX, mouseY)));
             asteroidCounter = 0;
         }
+        */
 
 		// Bullet and asteroid interaction
 		for (let i = bullets.length - 1; i >= 0; i--) {
@@ -151,11 +153,19 @@ function draw() {
 
 		// Determine current score --> team
 		let team = "Portland Trail-Blazers";
-		if (score >= 10) {
-			team = "Miami Heat";
-		} else if (score >= 5) {
-			team = "Sacramento Kings";
-		}
+		if (score >= 20) {
+			team = "Miami HEAT";
+        } else if (score >= 15) {
+			team = "Brooklyn Nets";
+		} else if (score >= 10) {
+			team = "Philadelphia 76ers";
+		} else if (score >= 6) {
+			team = "Boston Celtics";
+        } else if (score >= 5) {
+			team = "Retire Early";
+        } else {
+            team = "Portland Trail-Blazers"
+        }
 
 		// Draw lives
 		fill(255);
@@ -223,7 +233,7 @@ function Asteroid(r) {
         this.pos = createVector(-r, random(height));
     }
 
-    this.vel = p5.Vector.sub(createVector(width / 2, height / 2), this.pos);
+    this.vel = p5.Vector.sub(target, this.pos);
     this.vel.setMag(random(1, 3)); // random speed between 1 and 3
     this.r = r;
     this.hit = false;
