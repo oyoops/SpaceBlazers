@@ -17,6 +17,7 @@ let score = 0;
 let gameStarted = false;
 
 function preload() {
+    console.log("Starting!!");
 	spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(90, 0));
 	spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(90, 0));
 	spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(90, 0));
