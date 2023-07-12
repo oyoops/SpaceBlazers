@@ -212,23 +212,25 @@ function Spaceship(r, lives) {
 
 // Asteroid Class
 function Asteroid(r) {
-    console.log("Creating new asteroid");  // Log when a new asteroid is created
-	let spawnEdge = floor(random(4)); // 0: top, 1: right, 2: bottom, 3: left
-	if (spawnEdge === 0) {
-		this.pos = createVector(random(width), -r);
-	} else if (spawnEdge === 1) {
-		this.pos = createVector(width + r, random(height));
-	} else if (spawnEdge === 2) {
-		this.pos = createVector(random(width), height + r);
-	} else if (spawnEdge === 3) {
-		this.pos = createVector(-r, random(height));
-	}
+    // Ensure that the asteroid is not spawning on the spaceship
+    do {
+        let spawnEdge = floor(random(4)); // 0: top, 1: right, 2: bottom, 3: left
+        if (spawnEdge === 0) {
+            this.pos = createVector(random(width), -r);
+        } else if (spawnEdge === 1) {
+            this.pos = createVector(width + r, random(height));
+        } else if (spawnEdge === 2) {
+            this.pos = createVector(random(width), height + r);
+        } else if (spawnEdge === 3) {
+            this.pos = createVector(-r, random(height));
+        }
+    } while (this.hits(spaceship));
 
-	this.vel = p5.Vector.sub(createVector(width / 2, height / 2), this.pos);
-	this.vel.setMag(random(1, 3)); // random speed between 1 and 3
-	this.r = r;
-	this.hit = false;
-	this.alpha = 255;
+    this.vel = p5.Vector.sub(createVector(width / 2, height / 2), this.pos);
+    this.vel.setMag(random(1, 3)); // random speed between 1 and 3
+    this.r = r;
+    this.hit = false;
+    this.alpha = 255;
 	this.show = function() {
         console.log("Showing asteroid");  // Log when an asteroid's show method is called
 		tint(255, this.alpha);
