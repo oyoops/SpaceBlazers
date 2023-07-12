@@ -212,25 +212,23 @@ function Spaceship(r, lives) {
 
 // Asteroid Class
 function Asteroid(r) {
-    // Ensure that the asteroid is not spawning on the spaceship
-    do {
-        let spawnEdge = floor(random(4)); // 0: top, 1: right, 2: bottom, 3: left
-        if (spawnEdge === 0) {
-            this.pos = createVector(random(width), -r);
-        } else if (spawnEdge === 1) {
-            this.pos = createVector(width + r, random(height));
-        } else if (spawnEdge === 2) {
-            this.pos = createVector(random(width), height + r);
-        } else if (spawnEdge === 3) {
-            this.pos = createVector(-r, random(height));
-        }
-    } while (this.hits(spaceship));
+    let spawnEdge = floor(random(4)); // 0: top, 1: right, 2: bottom, 3: left
+    if (spawnEdge === 0) {
+        this.pos = createVector(random(width), -r);
+    } else if (spawnEdge === 1) {
+        this.pos = createVector(width + r, random(height));
+    } else if (spawnEdge === 2) {
+        this.pos = createVector(random(width), height + r);
+    } else if (spawnEdge === 3) {
+        this.pos = createVector(-r, random(height));
+    }
 
     this.vel = p5.Vector.sub(createVector(width / 2, height / 2), this.pos);
     this.vel.setMag(random(1, 3)); // random speed between 1 and 3
     this.r = r;
     this.hit = false;
     this.alpha = 255;
+    this.gracePeriod = 60; // 1 second grace period
 	this.show = function() {
         console.log("Showing asteroid");  // Log when an asteroid's show method is called
 		tint(255, this.alpha);
@@ -245,24 +243,23 @@ function Asteroid(r) {
 			}
 		}
 	}
-	this.move = function() {
-		if (!this.hit) {
-			this.pos.add(this.vel);
-		}
-	}
-	this.offscreen = function() {
-		return this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0;
-	}
-	this.hits = function(other) {
-		let dx = this.pos.x - other.pos.x;
-		let dy = this.pos.y - other.pos.y;
-		let distanceSquared = dx * dx + dy * dy;
-		let radiiSquared = (this.r + other.r) * (this.r + other.r);
-		if (distanceSquared < radiiSquared) {
-			return true;
-		} else {
-			return false;
-		}
+    this.move = function() {
+        if (!this.hit) {
+            this.pos.add(this.vel);
+        }
+        if (this.gracePeriod > 0) {
+            this.gracePeriod--;
+        }
+    }
+    
+    this.offscreen = function() {
+        return this.gracePeriod <= 0 && (this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0);
+    }
+    
+    this.hits = function(other) {
+        if (this.gracePeriod > 0) {
+            return false;
+        }
 	}
 }
 
