@@ -15,6 +15,8 @@ let asteroidGenerationTime = 300; // 5 seconds
 let timeElapsed = 0;
 let score = 0;
 let gameStarted = false;
+let asteroidCounter = 0;
+let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approximately 1 second)
 
 function preload() {
     console.log("Starting!!");
@@ -90,13 +92,19 @@ function draw() {
 		}
         */
         // Simplified asteroid generation logic
-        if (frameCount % 60 == 0) {  // Every 60 frames (or 1 second), create a new asteroid
-            asteroids.push(new Asteroid(asteroidImg.width / 2));
-        }
+        //if (frameCount % 60 == 0) {  // Every 60 frames (or 1 second), create a new asteroid
+        //    asteroids.push(new Asteroid(asteroidImg.width / 2));
+        //}
         // Display and move each asteroid
-        for (let i = asteroids.length - 1; i >= 0; i--) {
-            asteroids[i].show();
-            asteroids[i].move();
+        //for (let i = asteroids.length - 1; i >= 0; i--) {
+        //    asteroids[i].show();
+        //    asteroids[i].move();
+        //}
+            // Generate asteroids
+        asteroidCounter++;
+        if (asteroidCounter >= asteroidGenerationRate) {
+            asteroids.push(new Asteroid(asteroidImg.width / 2));
+            asteroidCounter = 0;
         }
 
 		// Bullet and asteroid interaction
