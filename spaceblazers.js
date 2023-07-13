@@ -20,11 +20,11 @@ let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approx
 //let dingSound;
 
 function preload() {
-    console.log("Demanding a trade!!!");
-	spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(90, 0));
-	spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(90, 0));
-	spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(90, 0));
-    asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(75, 0), err => console.log('Error loading asteroid image:', err));
+    console.log("Demanding a trade from Joe Cronin...");
+	spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(100, 0));
+	spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(100, 0));
+	spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 0));
+    asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     //dingSound = loadSound('sounds/ding.mp3');
 }
 
@@ -32,7 +32,7 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     spaceship = new Spaceship(spaceshipImg.width / 2, 3);
-    button = createButton('Try again!');
+    button = createButton('You ran from the grind!');
     button.position(width / 2 - button.width / 2, height / 2 - button.height / 2);
     button.mousePressed(resetGame);
     button.hide();
