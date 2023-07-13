@@ -29,7 +29,7 @@ function preload() {
 // Setup
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    spaceship = new Spaceship(spaceshipImg.width / 2, 5);
+    spaceship = new Spaceship(spaceshipImg.width / 2, 3);
     button = createButton('Try Again');
     button.position(width / 2 - button.width / 2, height / 2 - button.height / 2);
     button.mousePressed(resetGame);
@@ -51,19 +51,19 @@ function setup() {
 
 // Main Draw Function
 function draw() {
-	if (score >= 20) {
+	if (score >= 5) {
 		background(50);
 	} else {
 		background(0);
 	}
 
 	if (gameState === "start") {
-		textSize(72);
+		textSize(48);
 		textAlign(CENTER, CENTER);
 		fill(255);
 		text("Space Blazers", width / 2, height / 2);
-		textSize(20);
-		text("Click to Demand a Trade", width / 2, height / 2 + 50);
+		textSize(24);
+		text("Click to Start", width / 2, height / 2 + 50);
 	} else if (gameState === "play") {
     if(!gameStarted) {
       setTimeout(function() {
@@ -80,7 +80,6 @@ function draw() {
 		spaceship.show();
 		spaceship.move();
         
-        /*
         // Generate asteroids
         if (frameCount >= 60 && frameCount % asteroidGenerationTime == 0) {
 			asteroids.push(new Asteroid(asteroidImg.width / 2, createVector(mouseX, mouseY)));
@@ -90,8 +89,7 @@ function draw() {
 				timeElapsed = 0;
 			}
 		}
-        */
-
+        
         // Simplified asteroid generation logic
         //if (frameCount % 60 == 0) {  // Every 60 frames (or 1 second), create a new asteroid
         //    asteroids.push(new Asteroid(asteroidImg.width / 2, createVector(mouseX, mouseY)));
@@ -102,33 +100,31 @@ function draw() {
         //    asteroids[i].move();
         //}
 
-        
+        /*
         // Generate asteroids
         asteroidCounter++;
         if (asteroidCounter >= asteroidGenerationRate) {
             asteroids.push(new Asteroid(asteroidImg.width / 2, createVector(mouseX, mouseY)));
             asteroidCounter = 0;
         }
-        
+        */
 
-        // Bullet and asteroid interaction
-        for (let i = bullets.length - 1; i >= 0; i--) {
-            if (bullets[i] !== undefined) {
-                bullets[i].show();
-                bullets[i].move();
+		// Bullet and asteroid interaction
+		for (let i = bullets.length - 1; i >= 0; i--) {
+			bullets[i].show();
+			bullets[i].move();
 
-                for (let j = asteroids.length - 1; j >= 0; j--) {
-                    if (bullets[i] !== undefined && asteroids[j] !== undefined && bullets[i].hits(asteroids[j])) {
-                        asteroids[j].hit = true;
-                        bullets.splice(i, 1);
-                        score++;
-                        spaceship.img = spaceship2Img;
-                        spaceship.timer = 90; // 1.5 seconds recovery timer
-                        break;
-                    }
-                }
-            }
-        }
+			for (let j = asteroids.length - 1; j >= 0; j--) {
+				if (bullets[i] !== undefined && asteroids[j] !== undefined && bullets[i].hits(asteroids[j])) {
+					asteroids[j].hit = true;
+					bullets.splice(i, 1);
+					score++;
+					spaceship.img = spaceship2Img;
+					spaceship.timer = 90; // 1.5 seconds recovery timer
+					break;
+				}
+			}
+		}
 
 		for (let i = asteroids.length - 1; i >= 0; i--) {
 			asteroids[i].show();
@@ -173,8 +169,8 @@ function draw() {
 
 		// Draw lives
 		fill(255);
-		textSize(30);
-		text("FAN GOODWILL: ", 10, 30);
+		textSize(24);
+		text("LIVES:", 10, 30);
 		for (let i = 0; i < spaceship.lives; i++) {
 			text("❤️", 90 + i * 30, 30);
 		}
@@ -182,8 +178,8 @@ function draw() {
 		// Draw score and team
 		textSize(24);
 		textAlign(RIGHT);
-		text("CRONIN KILLS: " + score, width - 30, 30);
-		text("DESTINATION:  " + team, width - 30, 60);
+		text("SCORE: " + score, width - 30, 30);
+		text("TEAM: " + team, width - 30, 60);
 
 		// ...for reverting spaceship back to normal after damage-rcvd image
 		if (spaceship.timer > 0) {
@@ -192,6 +188,7 @@ function draw() {
 				spaceship.img = spaceshipImg;
 			}
 		}
+
 	}
 }
 
@@ -202,7 +199,6 @@ function mousePressed() {
   } else if (gameState === "play" && !gameOver) {
     let bullet = new Bullet(spaceship.pos, createVector(mouseX, mouseY));
     bullets.push(bullet);
-    spaceship.lives--;
   }
 }
 
@@ -274,13 +270,7 @@ function Asteroid(r) {
         if (this.gracePeriod > 0) {
             return false;
         }
-        let dx = this.pos.x - other.pos.x;
-        let dy = this.pos.y - other.pos.y;
-        let distanceSquared = dx * dx + dy * dy;
-        let radiiSquared = (this.r + other.r) * (this.r + other.r);
-        return distanceSquared < radiiSquared;
-    }
-    
+	}
 }
 
 // Bullet Class
@@ -288,7 +278,7 @@ function Bullet(spos, epos) {
 	this.pos = createVector(spos.x, spos.y);
 	this.vel = p5.Vector.sub(epos, spos);
 	this.vel.setMag(2);
-	this.r = 12;
+	this.r = 8;
 	this.show = function() {
 		push();
 		textSize(this.r * 2);
@@ -312,7 +302,7 @@ function Bullet(spos, epos) {
 }
 
 function resetGame() {
-	spaceship = new Spaceship(spaceshipImg.width / 2, 5);
+	spaceship = new Spaceship(spaceshipImg.width / 2, 3);
 	spaceship.pos = createVector(width / 2, height / 2);
 	asteroids = [];
 	for (let i = 0; i < 5; i++) {
