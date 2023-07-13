@@ -360,7 +360,12 @@ function Asteroid(r) {
 // Bullet Class
 function Bullet(spos, epos) {
     this.pos = createVector(spos.x, spos.y);
-    this.vel = p5.Vector.sub(epos, spos);
+    if (spos.x === epos.x && spos.y === epos.y) {
+        // Create a random velocity vector
+        this.vel = createVector(random(-1, 1), random(-1, 1));
+    } else {
+        this.vel = p5.Vector.sub(epos, spos);
+    }
     this.vel.setMag(3);
     this.r = 16;
     this.particles = []; // New particle array
