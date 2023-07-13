@@ -20,9 +20,19 @@ let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approx
 
 function preload() {
     console.log("Starting!!");
-	spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(90, 0));
-	spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(90, 0));
-	spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(90, 0));
+	
+    spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(90, 0));
+	let spaceshipImgAspectRatio = spaceshipImg.width / spaceshipImg.height;
+    spaceshipImg.resize(90, 90 / spaceshipImgAspectRatio);
+    
+    spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(90, 0));
+	let spaceshipImgAspectRatio2 = spaceship2Img.width / spaceship2Img.height;
+    spaceshipImg2.resize(90, 90 / spaceshipImgAspectRatio2);
+
+    spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(90, 0));
+    let spaceshipImgAspectRatio3 = spaceship3Img.width / spaceship3Img.height;
+    spaceshipImg3.resize(90, 90 / spaceshipImgAspectRatio3);
+    
     asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(75, 0), err => console.log('Error loading asteroid image:', err));
 }
 
