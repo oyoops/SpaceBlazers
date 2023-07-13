@@ -51,11 +51,15 @@ function setup() {
 
 // Main Draw Function
 function draw() {
-	if (score >= 20) {
+	if (score >= 21) {
 		background(50);
+	} else if (score >= 16) {
+		background(0);
+	} else if (score >= 16) {
+		background(0);
 	} else {
 		background(0);
-	}
+    }
 
 	if (gameState === "start") {
 		textSize(64);
@@ -150,34 +154,36 @@ function draw() {
 		}
 
 		// Determine current score --> team
-		let team = "Portland Trail-Blazers";
+		let team = "PORTLAND";
 		if (score >= 21) {
-			team = "Miami HEAT";
+			team = "MIAMI";
 		} else if (score >= 16) {
-			team = "Brooklyn Nets";
+			team = "BROOKLYN";
 		} else if (score >= 11) {
-			team = "Philadelphia 76ers";
+			team = "PHILADELPHIA";
 		} else if (score >= 7) {
-			team = "Boston Celtics";
+			team = "MINNESOTA";
 		} else if (score >= 3) {
-			team = "Retire Early";
+			team = "N/A (RETIRE)";
         } else {
-            team = "Portland Trail-Blazers"
+            team = "PORTLAND"
         }            
 
 		// Draw lives
 		fill(255);
 		textSize(30);
-		text("PORTLAND LEGACY: ", 10, 30);
+		textAlign(RIGHT);
+		text("PDX LEGACY:", width - 30, 30);
 		for (let i = 0; i < spaceship.lives; i++) {
-			text("❤️", 90 + i * 30, 30);
+			text("❤️", width - 90 + i * 30, 30);
 		}
 
 		// Draw score and team
-		textSize(24);
-		textAlign(RIGHT);
-		text("  # CRONIN KILLS: " + score, width - 30, 30);
-		text("DAME DESTINATION: " + team, width - 30, 60);
+		textSize(18);
+		textAlign(LEFT);
+		text(score + " CRONIN KILLS", 30, 30);
+		text("");
+        text("TRADED TO: " + team, 30, 90);
 
 		// ...for reverting spaceship back to normal after damage-rcvd image
 		if (spaceship.timer > 0) {
@@ -186,7 +192,6 @@ function draw() {
 				spaceship.img = spaceshipImg;
 			}
 		}
-
 	}
 }
 
