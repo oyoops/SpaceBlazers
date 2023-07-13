@@ -181,7 +181,7 @@ function draw() {
 		fill(255);
 		textSize(16);
 		textAlign(RIGHT);
-		text("GRIND: ", width - 40, 25);
+		text("GRIND: ", width - 45, 20);
         textSize(30);
         //text("");
 		for (let i = 0; i < spaceship.lives; i++) {
