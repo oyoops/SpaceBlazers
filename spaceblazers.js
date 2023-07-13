@@ -32,7 +32,7 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     spaceship = new Spaceship(spaceshipImg.width / 2, 3);
-    button = createButton('Try Again');
+    button = createButton('Try again!');
     button.position(width / 2 - button.width / 2, height / 2 - button.height / 2);
     button.mousePressed(resetGame);
     button.hide();
@@ -181,7 +181,7 @@ function draw() {
 		fill(255);
 		textSize(16);
 		textAlign(RIGHT);
-		text("GRIND: ", width - 30, 30);
+		text("GRIND: ", width - 40, 25);
         textSize(30);
         //text("");
 		for (let i = 0; i < spaceship.lives; i++) {
