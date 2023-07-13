@@ -177,19 +177,21 @@ function draw() {
 
 		// Draw lives
 		fill(255);
-		textSize(26);
+		textSize(16);
 		textAlign(RIGHT);
 		text("GRIND: ", width - 30, 30);
-        text("");
+        textSize(30);
+        //text("");
 		for (let i = 0; i < spaceship.lives; i++) {
-			text("❤️", width - 90 + i * 30, 90);
+			text("❤️", width - 90 + i * 30, 50);
 		}
 
 		// Draw score and team
-		textSize(18);
+		textSize(24);
 		textAlign(LEFT);
 		text(score + " CRONIN KILLS", 30, 30);
 		text("");
+        textSize(16);
         text("" + team, 30, 50);
 
 		// ...for reverting spaceship back to normal after damage-rcvd image
