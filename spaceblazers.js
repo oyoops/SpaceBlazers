@@ -80,6 +80,7 @@ function draw() {
 		spaceship.show();
 		spaceship.move();
         
+        /*
         // Generate asteroids
         if (frameCount >= 60 && frameCount % asteroidGenerationTime == 0) {
 			asteroids.push(new Asteroid(asteroidImg.width / 2, createVector(mouseX, mouseY)));
@@ -89,7 +90,8 @@ function draw() {
 				timeElapsed = 0;
 			}
 		}
-        
+        */
+
         // Simplified asteroid generation logic
         //if (frameCount % 60 == 0) {  // Every 60 frames (or 1 second), create a new asteroid
         //    asteroids.push(new Asteroid(asteroidImg.width / 2, createVector(mouseX, mouseY)));
@@ -100,14 +102,14 @@ function draw() {
         //    asteroids[i].move();
         //}
 
-        /*
+        
         // Generate asteroids
         asteroidCounter++;
         if (asteroidCounter >= asteroidGenerationRate) {
             asteroids.push(new Asteroid(asteroidImg.width / 2, createVector(mouseX, mouseY)));
             asteroidCounter = 0;
         }
-        */
+        
 
         // Bullet and asteroid interaction
         for (let i = bullets.length - 1; i >= 0; i--) {
