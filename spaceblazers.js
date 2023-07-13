@@ -226,8 +226,12 @@ function draw() {
 			"Miami HEAT"  // Miami Heat is the team for score 30
 		];
 		// Determine current score --> team
-		let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
-
+		if (score == 0) {
+			let team = "Retire from NBA";
+		} else {
+			let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
+		}
+		
 		// Draw lives
 		fill(255);
 		textSize(20);
