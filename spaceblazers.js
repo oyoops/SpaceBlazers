@@ -223,7 +223,7 @@ function Asteroid(r) {
         this.pos = createVector(-r, random(height));
     }
 
-    this.vel = p5.Vector.sub(createVector(width / 2, height / 2), this.pos);
+    this.vel = p5.Vector.sub(spaceship.pos, this.pos);
     this.vel.setMag(random(1, 3)); // random speed between 1 and 3
     this.r = r;
     this.hit = false;
@@ -260,7 +260,12 @@ function Asteroid(r) {
         if (this.gracePeriod > 0) {
             return false;
         }
-	}
+        let dx = this.pos.x - other.pos.x;
+        let dy = this.pos.y - other.pos.y;
+        let distanceSquared = dx * dx + dy * dy;
+        let radiiSquared = (this.r + other.r) * (this.r + other.r);
+        return distanceSquared < radiiSquared;
+    }
 }
 
 // Bullet Class
