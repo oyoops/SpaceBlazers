@@ -146,10 +146,8 @@ function draw() {
 				if (spaceship.lives <= 0) {
 					//console.log("GAME OVER");
 					gameOver = true;
-                    textsize(64);
-					button.show();
-                    textsize(20);
-					noLoop();
+                    button.show();
+                    noLoop();
 				} else {
 					invincible = true;
 					invincibleTimer = 60; // 1 second of invincibility
