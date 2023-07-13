@@ -109,22 +109,24 @@ function draw() {
         }
         */
 
-		// Bullet and asteroid interaction
-		for (let i = bullets.length - 1; i >= 0; i--) {
-			bullets[i].show();
-			bullets[i].move();
+        // Bullet and asteroid interaction
+        for (let i = bullets.length - 1; i >= 0; i--) {
+            if (bullets[i] !== undefined) {
+                bullets[i].show();
+                bullets[i].move();
 
-			for (let j = asteroids.length - 1; j >= 0; j--) {
-				if (bullets[i] !== undefined && asteroids[j] !== undefined && bullets[i].hits(asteroids[j])) {
-					asteroids[j].hit = true;
-					bullets.splice(i, 1);
-					score++;
-					spaceship.img = spaceship2Img;
-					spaceship.timer = 90; // 1.5 seconds recovery timer
-					break;
-				}
-			}
-		}
+                for (let j = asteroids.length - 1; j >= 0; j--) {
+                    if (bullets[i] !== undefined && asteroids[j] !== undefined && bullets[i].hits(asteroids[j])) {
+                        asteroids[j].hit = true;
+                        bullets.splice(i, 1);
+                        score++;
+                        spaceship.img = spaceship2Img;
+                        spaceship.timer = 90; // 1.5 seconds recovery timer
+                        break;
+                    }
+                }
+            }
+        }
 
 		for (let i = asteroids.length - 1; i >= 0; i--) {
 			asteroids[i].show();
