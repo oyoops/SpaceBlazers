@@ -29,7 +29,7 @@ function preload() {
 // Setup
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    spaceship = new Spaceship(spaceshipImg.width / 2, 3);
+    spaceship = new Spaceship(spaceshipImg.width / 2, 5);
     button = createButton('Try Again');
     button.position(width / 2 - button.width / 2, height / 2 - button.height / 2);
     button.mousePressed(resetGame);
@@ -51,19 +51,19 @@ function setup() {
 
 // Main Draw Function
 function draw() {
-	if (score >= 5) {
+	if (score >= 20) {
 		background(50);
 	} else {
 		background(0);
 	}
 
 	if (gameState === "start") {
-		textSize(48);
+		textSize(64);
 		textAlign(CENTER, CENTER);
 		fill(255);
 		text("Space Blazers", width / 2, height / 2);
-		textSize(24);
-		text("Click to Start", width / 2, height / 2 + 50);
+		textSize(20);
+		text("Click to Demand a Trade", width / 2, height / 2 + 50);
 	} else if (gameState === "play") {
     if(!gameStarted) {
       setTimeout(function() {
@@ -151,16 +151,24 @@ function draw() {
 
 		// Determine current score --> team
 		let team = "Portland Trail-Blazers";
-		if (score >= 10) {
-			team = "Miami Heat";
-		} else if (score >= 5) {
-			team = "Sacramento Kings";
-		}
+		if (score >= 21) {
+			team = "Miami HEAT";
+		} else if (score >= 16) {
+			team = "Brooklyn Nets";
+		} else if (score >= 11) {
+			team = "Philadelphia 76ers";
+		} else if (score >= 7) {
+			team = "Boston Celtics";
+		} else if (score >= 3) {
+			team = "Retire Early";
+        } else {
+            team = "Portland Trail-Blazers"
+        }            
 
 		// Draw lives
 		fill(255);
-		textSize(24);
-		text("LIVES:", 10, 30);
+		textSize(30);
+		text("PORTLAND LEGACY: ", 10, 30);
 		for (let i = 0; i < spaceship.lives; i++) {
 			text("❤️", 90 + i * 30, 30);
 		}
@@ -168,8 +176,8 @@ function draw() {
 		// Draw score and team
 		textSize(24);
 		textAlign(RIGHT);
-		text("SCORE: " + score, width - 30, 30);
-		text("TEAM: " + team, width - 30, 60);
+		text("  # CRONIN KILLS: " + score, width - 30, 30);
+		text("DAME DESTINATION: " + team, width - 30, 60);
 
 		// ...for reverting spaceship back to normal after damage-rcvd image
 		if (spaceship.timer > 0) {
@@ -273,7 +281,7 @@ function Bullet(spos, epos) {
 	this.pos = createVector(spos.x, spos.y);
 	this.vel = p5.Vector.sub(epos, spos);
 	this.vel.setMag(2);
-	this.r = 8;
+	this.r = 12;
 	this.show = function() {
 		push();
 		textSize(this.r * 2);
@@ -297,7 +305,7 @@ function Bullet(spos, epos) {
 }
 
 function resetGame() {
-	spaceship = new Spaceship(spaceshipImg.width / 2, 3);
+	spaceship = new Spaceship(spaceshipImg.width / 2, 5);
 	spaceship.pos = createVector(width / 2, height / 2);
 	asteroids = [];
 	for (let i = 0; i < 5; i++) {
