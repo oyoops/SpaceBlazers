@@ -332,6 +332,7 @@ function resetGame() {
 	gameState = "play";
 	gameOver = false;
 	button.hide();
+    score = 0;
     noCursor();
 	loop();
 }
