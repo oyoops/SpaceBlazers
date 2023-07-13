@@ -36,45 +36,36 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     spaceship = new Spaceship(spaceshipImg.width / 2, 3);
     button = createButton('You ran from the grind!');
-    button.position(width / 2 - button.width / 2, height / 2 - button.height / 2);
+    button.position(width / 2 - button.width / 2, height / 2 - button.height / 2 - 30); // Place above the 'Tweet' button
     button.mousePressed(resetGame);
     button.hide();
 
     // Tweet button
-    tweetButton = createButton('Tweet Your Score');
-    tweetButton.position(width / 2 - tweetButton.width / 2, height / 2 - tweetButton.height / 2 - 50); // Place above the 'Try Again' button
-    tweetButton.mousePressed(tweetScore);
+    tweetButton = createButton('Tweet my score');
+    tweetButton.position(width / 2 - tweetButton.width / 2, height / 2 - tweetButton.height / 2);
+    tweetButton.mousePressed(tweetScore(score));
     tweetButton.hide();
 
     noCursor();
 }
 
-
-/*
-function setup() {
-	createCanvas(800, 600);
-	spaceship = new Spaceship(spaceshipImg.width / 2, 3);
-	for(let i=0; i<5; i++) {
-		asteroids.push(new Asteroid(asteroidImg.width / 2));
-	}
-	button = createButton('Try Again');
-	button.position(width / 2 - button.width / 2, height / 2 - button.height / 2);
-	button.mousePressed(resetGame);
-	button.hide();
-}
-*/
-
 // Main Draw Function
 function draw() {
-	if (score >= 21) {
+	if (score >= 30) {
 		background(50);
-	} else if (score >= 16) {
+	} else if (score >= 20) {
 		background(0);
-	} else if (score >= 16) {
+	} else if (score >= 15) {
+		background(0);
+	} else if (score >= 10) {
+		background(0);
+	} else if (score >= 5) {
+		background(0);
+	} else if (score >= 1) {
 		background(0);
 	} else {
 		background(0);
-    }
+   	}
 
 	if (gameState === "start") {
         cursor();
@@ -111,7 +102,6 @@ function draw() {
 				timeElapsed = 0;
 			}
 		}
-        */
         // Simplified asteroid generation logic
         //if (frameCount % 60 == 0) {  // Every 60 frames (or 1 second), create a new asteroid
         //    asteroids.push(new Asteroid(asteroidImg.width / 2));
@@ -121,7 +111,8 @@ function draw() {
         //    asteroids[i].show();
         //    asteroids[i].move();
         //}
-            // Generate asteroids
+	*/
+        // Generate asteroids
         asteroidCounter++;
         if (asteroidCounter >= asteroidGenerationRate) {
             asteroids.push(new Asteroid(asteroidImg.width / 2));
@@ -138,7 +129,7 @@ function draw() {
 					asteroids[j].hit = true;
 					bullets.splice(i, 1);
 					score++;
-                    //dingSound.play();
+                    			//dingSound.play();
 					spaceship.img = spaceship2Img;
 					spaceship.timer = 90; // 1.5 seconds recovery timer
 					break;
@@ -172,30 +163,15 @@ function draw() {
 			}
 		}
 
-		// Determine current score --> team
-		/*
-		let team = "Stay in Portland to mentor Scoot";
-		if (score >= 21) {
-			team = "Get traded to Miami";
-		} else if (score >= 16) {
-			team = "Get traded to Brooklyn";
-		} else if (score >= 11) {
-			team = "Get traded to Philadelphia";
-		} else if (score >= 7) {
-			team = "Get traded to Minnesota";
-		} else if (score >= 3) {
-			team = "Retire from the NBA";
-        } else {
-            team = "Stay in Portland"
-        }
-		*/
 
 
-		// Determine team v2
-
+		//
+		// Determine team v2:
+		//
+		
 		// List of NBA teams
 		let nbaTeams = [
-			"Portland Trail Blazers for life",
+			"Portland Trail Blazers (No Trade)",
 			"Boston Celtics",
 			"Brooklyn Nets",
 			"Charlotte Hornets",
@@ -234,7 +210,7 @@ function draw() {
 		textSize(20);
 		textAlign(RIGHT);
 		text("GRIND: ", width - 45, 20);
-        textSize(30);
+        	textSize(30);
 		for (let i = 0; i < spaceship.lives; i++) {
 			text("❤️", width - 90 + i * 30, 50);
 		}
@@ -242,13 +218,13 @@ function draw() {
 		// Draw score and team
 		textSize(30);
 		textAlign(LEFT);
-		text(score + " CRONIN KILLS", 30, 30);
+		text(score + " CRONINS DESTROYED", 30, 30);
 		text("");
-        textSize(20);
+        	textSize(20);
 		if (score > 0) {
 			text("" + team, 30, 50);
 		}
-        ////
+        	////
 
 		// ...for reverting spaceship back to normal after damage-rcvd image
 		if (spaceship.timer > 0) {
@@ -271,7 +247,7 @@ function mousePressed() {
 }
 
 // Tweet score function
-function tweetScore() {
+function tweetScore(score) {
     let team = score >= 1 && score <= 30 ? nbaTeams[score - 1] : "Retire from NBA";
     let text = "I got Damian Lillard traded to " + team + " in #SpaceBlazers! Can you beat my score of " + score + " Joe Cronins destroyed? ";
     let url = "https://dame.lillard.trade";
