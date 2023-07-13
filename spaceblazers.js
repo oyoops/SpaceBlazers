@@ -226,11 +226,7 @@ function draw() {
 			"Miami HEAT"  // Miami Heat is the team for score 30
 		];
 		// Determine current score --> team
-		if (score == 0) {
-			let team = "Retire from NBA";
-		} else {
-			let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
-		}
+		let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
 		
 		// Draw lives
 		fill(255);
@@ -238,7 +234,6 @@ function draw() {
 		textAlign(RIGHT);
 		text("GRIND: ", width - 45, 20);
         textSize(30);
-        //text("");
 		for (let i = 0; i < spaceship.lives; i++) {
 			text("❤️", width - 90 + i * 30, 50);
 		}
@@ -273,13 +268,12 @@ function mousePressed() {
 
 // Tweet score function
 function tweetScore() {
-    let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
-    let text = "I got Damian Lillard traded to the " + team + " in the #SpaceBlazers game! Can you beat my score of " + score + "? ";
+    let team = score >= 1 && score <= 30 ? nbaTeams[score - 1] : "Retire from NBA";
+    let text = "I got Damian Lillard traded to " + team + " in #SpaceBlazers! Can you beat my score of " + score + " Joe Cronins destroyed? ";
     let url = "https://dame.lillard.trade";
     let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
     window.open(tweetUrl, '_blank');
 }
-
 
 // Spaceship Class
 function Spaceship(r, lives) {
