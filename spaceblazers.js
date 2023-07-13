@@ -145,6 +145,7 @@ function draw() {
 				asteroids[i].hit = true;
 				if (spaceship.lives <= 0) {
 					//console.log("GAME OVER");
+                    cursor();
 					gameOver = true;
                     button.show();
                     noLoop();
@@ -327,5 +328,6 @@ function resetGame() {
 	gameState = "play";
 	gameOver = false;
 	button.hide();
+    noCursor();
 	loop();
 }
