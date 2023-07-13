@@ -37,8 +37,16 @@ function setup() {
     button.position(width / 2 - button.width / 2, height / 2 - button.height / 2);
     button.mousePressed(resetGame);
     button.hide();
+
+    // Tweet button
+    tweetButton = createButton('Tweet Your Score');
+    tweetButton.position(width / 2 - tweetButton.width / 2, height / 2 - tweetButton.height / 2 - 50); // Place above the 'Try Again' button
+    tweetButton.mousePressed(tweetScore);
+    tweetButton.hide();
+
     noCursor();
 }
+
 
 /*
 function setup() {
@@ -147,11 +155,11 @@ function draw() {
 				spaceship.lives--;
 				asteroids[i].hit = true;
 				if (spaceship.lives <= 0) {
-					//console.log("GAME OVER");
-                    cursor();
+					cursor();
 					gameOver = true;
-                    button.show();
-                    noLoop();
+					button.show();
+					tweetButton.show();  // Show the tweet button on game over
+					noLoop();
 				} else {
 					invincible = true;
 					invincibleTimer = 60; // 1 second of invincibility
@@ -215,6 +223,14 @@ function mousePressed() {
     let bullet = new Bullet(spaceship.pos, createVector(mouseX, mouseY));
     bullets.push(bullet);
   }
+}
+
+// Tweet score function
+function tweetScore() {
+    let text = "I just scored " + score + " in the Dame Lillard Trade game! Can you beat my score? ";
+    let url = "https://dame.lillard.trade";
+    let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
+    window.open(tweetUrl, '_blank');
 }
 
 // Spaceship Class
@@ -334,5 +350,6 @@ function resetGame() {
 	button.hide();
     score = 0;
     noCursor();
+	tweetButton.hide();  // Hide the tweet button when game resets
 	loop();
 }
