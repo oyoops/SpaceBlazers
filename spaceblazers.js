@@ -172,6 +172,7 @@ function draw() {
 		}
 
 		// Determine current score --> team
+		/*
 		let team = "Stay in Portland to mentor Scoot";
 		if (score >= 21) {
 			team = "Get traded to Miami";
@@ -186,6 +187,46 @@ function draw() {
         } else {
             team = "Stay in Portland"
         }
+		*/
+
+
+		// Determine team v2
+
+		// List of NBA teams
+		let nbaTeams = [
+			"Atlanta Hawks",
+			"Boston Celtics",
+			"Brooklyn Nets",
+			"Charlotte Hornets",
+			"Chicago Bulls",
+			"Cleveland Cavaliers",
+			"Dallas Mavericks",
+			"Denver Nuggets",
+			"Detroit Pistons",
+			"Golden State Warriors",
+			"Houston Rockets",
+			"Indiana Pacers",
+			"LA Clippers",
+			"Los Angeles Lakers",
+			"Memphis Grizzlies",
+			"Milwaukee Bucks",
+			"Minnesota Timberwolves",
+			"New Orleans Pelicans",
+			"New York Knicks",
+			"Oklahoma City Thunder",
+			"Orlando Magic",
+			"Philadelphia 76ers",
+			"Phoenix Suns",
+			"Portland Trail Blazers",
+			"Sacramento Kings",
+			"San Antonio Spurs",
+			"Toronto Raptors",
+			"Utah Jazz",
+			"Washington Wizards",
+			"Miami HEAT"  // Miami Heat is the team for score 30
+		];
+		// Determine current score --> team
+		let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
 
 		// Draw lives
 		fill(255);
