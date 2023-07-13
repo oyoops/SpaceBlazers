@@ -21,9 +21,9 @@ let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approx
 
 function preload() {
     console.log("Demanding a trade from Joe Cronin...");
-    spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(100, 133));
-	spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(100, 133));
-	spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 133));
+    spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(100, 100));
+	spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(100, 100));
+	spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 100));
 
     asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     //dingSound = loadSound('sounds/ding.mp3');
