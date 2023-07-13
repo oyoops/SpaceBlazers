@@ -219,7 +219,7 @@ function draw() {
 		// Draw score and team
 		textSize(30);
 		textAlign(LEFT);
-		text(score + " CRONINS DESTROYED", 30, 30);
+		text(score + " CRONINS KILLED", 30, 30);
 		text("");
         	textSize(20);
 		if (score > 0) {
