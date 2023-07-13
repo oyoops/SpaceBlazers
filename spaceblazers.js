@@ -269,11 +269,13 @@ function mousePressed() {
 
 // Tweet score function
 function tweetScore() {
-    let text = "I just scored " + score + " in the Dame Lillard Trade game! Can you beat my score? ";
+    let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
+    let text = "I got Damian Lillard traded to the " + team + " in the #SpaceBlazers game! Can you beat my score of " + score + "? ";
     let url = "https://dame.lillard.trade";
     let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
     window.open(tweetUrl, '_blank');
 }
+
 
 // Spaceship Class
 function Spaceship(r, lives) {
