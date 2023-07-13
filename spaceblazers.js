@@ -66,18 +66,20 @@ function draw() {
     }
 
 	if (gameState === "start") {
+        cursor();
 		textSize(64);
 		textAlign(CENTER, CENTER);
 		fill(255);
 		text("", width / 2, height / 2);
 		textSize(20);
-		text("Click to Demand a Trade", width / 2, height / 2 + 50);
-	} else if (gameState === "play") {
-    if(!gameStarted) {
-      setTimeout(function() {
-        gameStarted = true;
-      }, 1000);
-    }
+		text("Click to demand a trade", width / 2, height / 2 + 50);
+    } else if (gameState === "play") {
+        noCursor();
+        if(!gameStarted) {
+            setTimeout(function() {
+                gameStarted = true;
+            }, 1000);
+        }
 		if (invincible) {
 			invincibleTimer--;
 			if (invincibleTimer <= 0) {
