@@ -11,6 +11,7 @@ let gameOver = false;
 let invincible = false;
 let invincibleTimer = 0;
 let button;
+let tweetButton;
 let asteroidGenerationTime = 300; // 5 seconds
 let timeElapsed = 0;
 let score = 0;
