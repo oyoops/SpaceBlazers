@@ -17,6 +17,7 @@ let score = 0;
 let gameStarted = false;
 let asteroidCounter = 0;
 let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approximately 1 second)
+let dingSound;
 
 function preload() {
     console.log("Starting!!");
@@ -24,6 +25,7 @@ function preload() {
 	spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(90, 0));
 	spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(90, 0));
     asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(75, 0), err => console.log('Error loading asteroid image:', err));
+    dingSound = loadSound('sounds/ding.mp3');
 }
 
 // Setup
@@ -34,7 +36,9 @@ function setup() {
     button.position(width / 2 - button.width / 2, height / 2 - button.height / 2);
     button.mousePressed(resetGame);
     button.hide();
+    noCursor();
 }
+
 /*
 function setup() {
 	createCanvas(800, 600);
@@ -121,6 +125,7 @@ function draw() {
 					asteroids[j].hit = true;
 					bullets.splice(i, 1);
 					score++;
+                    dingSound.play();
 					spaceship.img = spaceship2Img;
 					spaceship.timer = 90; // 1.5 seconds recovery timer
 					break;
@@ -141,7 +146,9 @@ function draw() {
 				if (spaceship.lives <= 0) {
 					//console.log("GAME OVER");
 					gameOver = true;
+                    textsize(64);
 					button.show();
+                    textsize(20);
 					noLoop();
 				} else {
 					invincible = true;
@@ -154,19 +161,19 @@ function draw() {
 		}
 
 		// Determine current score --> team
-		let team = "Portland";
+		let team = "Stay in Portland to mentor Scoot";
 		if (score >= 21) {
-			team = "Miami";
+			team = "Get traded to Miami";
 		} else if (score >= 16) {
-			team = "Brooklyn";
+			team = "Get traded to Brooklyn";
 		} else if (score >= 11) {
-			team = "Philadelphia";
+			team = "Get traded to Philadelphia";
 		} else if (score >= 7) {
-			team = "Minnesota";
+			team = "Get traded to Minnesota";
 		} else if (score >= 3) {
-			team = "N/A ... Retire";
+			team = "Walk away from NBA career";
         } else {
-            team = "N/A ... Portland"
+            team = "Stay in Portland to mentor Scoot"
         }
 
 		// Draw lives
@@ -184,7 +191,7 @@ function draw() {
 		textAlign(LEFT);
 		text(score + " CRONIN KILLS", 30, 30);
 		text("");
-        text("Getting traded to " + team, 30, 70);
+        text("" + team, 30, 70);
 
 		// ...for reverting spaceship back to normal after damage-rcvd image
 		if (spaceship.timer > 0) {
@@ -203,6 +210,7 @@ function mousePressed() {
   } else if (gameState === "play" && !gameOver) {
     let bullet = new Bullet(spaceship.pos, createVector(mouseX, mouseY));
     bullets.push(bullet);
+    
   }
 }
 
