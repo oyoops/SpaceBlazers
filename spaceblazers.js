@@ -182,7 +182,7 @@ function draw() {
 		text("GRIND: ", width - 30, 30);
         text("");
 		for (let i = 0; i < spaceship.lives; i++) {
-			text("❤️", width - 60 + i * 30, 60);
+			text("❤️", width - 90 + i * 30, 90);
 		}
 
 		// Draw score and team
@@ -190,7 +190,7 @@ function draw() {
 		textAlign(LEFT);
 		text(score + " CRONIN KILLS", 30, 30);
 		text("");
-        text("" + team, 30, 70);
+        text("" + team, 30, 50);
 
 		// ...for reverting spaceship back to normal after damage-rcvd image
 		if (spaceship.timer > 0) {
