@@ -71,7 +71,7 @@ function draw() {
 		textAlign(CENTER, CENTER);
 		fill(255);
 		text("", width / 2, height / 2);
-		textSize(20);
+		textSize(30);
 		text("Click to demand a trade", width / 2, height / 2 + 50);
     } else if (gameState === "play") {
         noCursor();
