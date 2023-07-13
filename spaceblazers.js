@@ -5,6 +5,7 @@ let spaceshipImg2;
 let spaceshipImg3;
 let asteroids = [];
 let asteroidImg;
+let asteroidImg2;
 let bullets = [];
 let gameState = "start";
 let gameOver = false;
@@ -23,10 +24,10 @@ let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approx
 function preload() {
     console.log("Demanding a trade from Joe Cronin...");
     spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(100, 100));
-	spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(100, 100));
-	spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 100));
-
+    spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(100, 100));
+    spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 100));
     asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
+    asteroid2Img = loadImage('imgs/asteroid2.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     //dingSound = loadSound('sounds/ding.mp3');
 }
 
@@ -315,19 +316,21 @@ function Asteroid(r) {
     this.hit = false;
     this.alpha = 255;
     this.gracePeriod = 60; // 1 second grace period
+    this.hitImg = asteroidImg;
 	this.show = function() {
-        console.log("Showing asteroid");  // Log when an asteroid's show method is called
-		tint(255, this.alpha);
-		image(asteroidImg, this.pos.x - this.r, this.pos.y - this.r);
-		noTint();
-		if (this.hit) {
-			this.alpha -= 2.55; // fade out over 1 second
-			if (this.alpha <= 0) {
-				this.offscreen = function() {
-					return true;
-				}
-			}
-		}
+	    console.log("Showing asteroid");
+	    tint(255, this.alpha);
+	    image(this.hitImg, this.pos.x - this.r, this.pos.y - this.r);
+	    noTint();
+	    if (this.hit) {
+	        this.hitImg = asteroid2Img;  // Change the image upon hit
+	        this.alpha -= 2.55;
+	        if (this.alpha <= 0) {
+	            this.offscreen = function() {
+	                return true;
+	            }
+	        }
+	    }
 	}
     this.move = function() {
         if (!this.hit) {
