@@ -29,7 +29,7 @@ function preload() {
 // Setup
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    spaceship = new Spaceship(spaceshipImg.width / 2, 5);
+    spaceship = new Spaceship(spaceshipImg.width / 2, 3);
     button = createButton('Try Again');
     button.position(width / 2 - button.width / 2, height / 2 - button.height / 2);
     button.mousePressed(resetGame);
@@ -295,8 +295,7 @@ function Bullet(spos, epos) {
 		pop();
 	}
 	this.move = function() {
-		////this.pos.add(this.vel + r/4);
-        this.pos.add(this.vel + r/4);
+		this.pos.add(this.vel);
 	}
 	this.hits = function(other) {
 		let dx = this.pos.x - other.pos.x;
@@ -312,7 +311,7 @@ function Bullet(spos, epos) {
 }
 
 function resetGame() {
-	spaceship = new Spaceship(spaceshipImg.width / 2, 5);
+	spaceship = new Spaceship(spaceshipImg.width / 2, 3);
 	spaceship.pos = createVector(width / 2, height / 2);
 	asteroids = [];
 	for (let i = 0; i < 5; i++) {
