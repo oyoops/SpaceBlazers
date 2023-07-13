@@ -67,11 +67,11 @@ function draw() {
 
 	if (gameState === "start") {
         cursor();
-		textSize(128);
+		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
 		text("🏀", width / 2, height / 2);
-		textSize(30);
+		textSize(28);
 		text("Click to demand a trade", width / 2, height / 2 + 50);
     } else if (gameState === "play") {
         noCursor();
