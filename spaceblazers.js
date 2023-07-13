@@ -272,7 +272,13 @@ function Asteroid(r) {
         if (this.gracePeriod > 0) {
             return false;
         }
-	}
+        let dx = this.pos.x - other.pos.x;
+        let dy = this.pos.y - other.pos.y;
+        let distanceSquared = dx * dx + dy * dy;
+        let radiiSquared = (this.r + other.r) * (this.r + other.r);
+        return distanceSquared < radiiSquared;
+    }
+    
 }
 
 // Bullet Class
