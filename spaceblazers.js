@@ -359,19 +359,30 @@ function Asteroid(r) {
 
 // Bullet Class
 function Bullet(spos, epos) {
-	this.pos = createVector(spos.x, spos.y);
-	this.vel = p5.Vector.sub(epos, spos);
-	this.vel.setMag(3);
-	this.r = 16;
-	this.show = function() {
-		push();
-		textSize(this.r * 2);
-		text("🏀", this.pos.x, this.pos.y);
-		pop();
-	}
-	this.move = function() {
-		this.pos.add(this.vel);
-	}
+    this.pos = createVector(spos.x, spos.y);
+    this.vel = p5.Vector.sub(epos, spos);
+    this.vel.setMag(3);
+    this.r = 16;
+    this.particles = []; // New particle array
+    
+    this.show = function() {
+        push();
+        textSize(this.r * 2);
+        text("🏀", this.pos.x, this.pos.y);
+        pop();
+        
+        for (let i = this.particles.length - 1; i >= 0; i--) {
+            this.particles[i].show();
+            if (this.particles[i].alpha <= 0) {
+                this.particles.splice(i, 1);
+            }
+        }
+    }
+    
+    this.move = function() {
+        this.pos.add(this.vel);
+        this.particles.push(new Particle(this.pos)); // Add a new particle each frame
+    }
 	this.hits = function(other) {
 		let dx = this.pos.x - other.pos.x;
 		let dy = this.pos.y - other.pos.y;
@@ -384,6 +395,20 @@ function Bullet(spos, epos) {
 		}
 	}
 }
+
+// Particle Class
+function Particle(pos) {
+    this.pos = createVector(pos.x, pos.y);
+    this.alpha = 255;
+    
+    this.show = function() {
+        fill(255, this.alpha);
+        noStroke();
+        ellipse(this.pos.x, this.pos.y, 4);
+        this.alpha -= 5; // Decrease alpha to fade out
+    }
+}
+
 
 function resetGame() {
 	spaceship = new Spaceship(spaceshipImg.width / 2, 3);
