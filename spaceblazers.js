@@ -17,15 +17,15 @@ let score = 0;
 let gameStarted = false;
 let asteroidCounter = 0;
 let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approximately 1 second)
-let dingSound;
+//let dingSound;
 
 function preload() {
-    console.log("Starting!!");
+    console.log("Demanding a trade!!!");
 	spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(90, 0));
 	spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(90, 0));
 	spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(90, 0));
     asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(75, 0), err => console.log('Error loading asteroid image:', err));
-    dingSound = loadSound('sounds/ding.mp3');
+    //dingSound = loadSound('sounds/ding.mp3');
 }
 
 // Setup
@@ -69,7 +69,7 @@ function draw() {
 		textSize(64);
 		textAlign(CENTER, CENTER);
 		fill(255);
-		text("Space Blazers", width / 2, height / 2);
+		text("", width / 2, height / 2);
 		textSize(20);
 		text("Click to Demand a Trade", width / 2, height / 2 + 50);
 	} else if (gameState === "play") {
@@ -125,7 +125,7 @@ function draw() {
 					asteroids[j].hit = true;
 					bullets.splice(i, 1);
 					score++;
-                    dingSound.play();
+                    //dingSound.play();
 					spaceship.img = spaceship2Img;
 					spaceship.timer = 90; // 1.5 seconds recovery timer
 					break;
