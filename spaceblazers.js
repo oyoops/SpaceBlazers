@@ -154,41 +154,37 @@ function draw() {
 		}
 
 		// Determine current score --> team
-		let team = "Stay in Portland to mentor Scoot";
+		let team = "Portland";
 		if (score >= 21) {
-			team = "Traded to Miami HEAT";
+			team = "Miami";
 		} else if (score >= 16) {
-			team = "Traded to Brooklyn Nets";
+			team = "Brooklyn";
 		} else if (score >= 11) {
-			team = "Traded to Philadelphia 76ers";
+			team = "Philadelphia";
 		} else if (score >= 7) {
-			team = "Traded to Minnesota Timberwolves";
+			team = "Minnesota";
 		} else if (score >= 3) {
-			team = "Early retirement";
+			team = "N/A ... Retire";
         } else {
-            team = "Hold out for entire season"
+            team = "N/A ... Portland"
         }
 
-		// Draw destination
-		fill(255);
-		textSize(18);
-		textAlign(RIGHT);
-        text("" + team, 30, 30);
-
 		// Draw lives
-        textSize(30);
-		textAlign(LEFT);
+		fill(255);
+		textSize(30);
+		textAlign(RIGHT);
 		text("GRIND: ", width - 30, 30);
         text("");
 		for (let i = 0; i < spaceship.lives; i++) {
-			text("❤️", width - 70 + i * 30, 60);
+			text("❤️", width - 70 + i * 30, 70);
 		}
 
-		textSize(24);
-		textAlign(CENTER);
+		// Draw score and team
+		textSize(18);
+		textAlign(LEFT);
 		text(score + " CRONIN KILLS", 30, 30);
 		text("");
-
+        text("Getting traded to " + team, 30, 70);
 
 		// ...for reverting spaceship back to normal after damage-rcvd image
 		if (spaceship.timer > 0) {
