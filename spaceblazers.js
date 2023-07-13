@@ -21,9 +21,14 @@ let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approx
 
 function preload() {
     console.log("Demanding a trade from Joe Cronin...");
-	spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(100, 0));
+	spaceshipImg = loadImage('imgs/spaceship.png');
+    spaceship2Img = loadImage('imgs/spaceship2.png');
+    spaceship3Img = loadImage('imgs/spaceship3.png');
+    /*
+    spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(100, 0));
 	spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(100, 0));
 	spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 0));
+    */
     asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     //dingSound = loadSound('sounds/ding.mp3');
 }
@@ -72,7 +77,7 @@ function draw() {
 		fill(255);
 		text("🏀", width / 2, height / 2);
 		textSize(28);
-		text("Click to Demand a Trade", width / 2, height / 2 + 50);
+		text("Click to demand a trade.", width / 2, height / 2 + 50);
     } else if (gameState === "play") {
         noCursor();
         if(!gameStarted) {
