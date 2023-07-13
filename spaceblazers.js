@@ -194,7 +194,7 @@ function draw() {
 
 		// List of NBA teams
 		let nbaTeams = [
-			"Atlanta Hawks",
+			"Portland Trail Blazers for life",
 			"Boston Celtics",
 			"Brooklyn Nets",
 			"Charlotte Hornets",
@@ -217,7 +217,7 @@ function draw() {
 			"Orlando Magic",
 			"Philadelphia 76ers",
 			"Phoenix Suns",
-			"Portland Trail Blazers",
+			"Atlanta Hawks",
 			"Sacramento Kings",
 			"San Antonio Spurs",
 			"Toronto Raptors",
@@ -244,7 +244,10 @@ function draw() {
 		text(score + " CRONIN KILLS", 30, 30);
 		text("");
         textSize(20);
-        text("" + team, 30, 50);
+		if (score > 0) {
+			text("" + team, 30, 50);
+		}
+        ////
 
 		// ...for reverting spaceship back to normal after damage-rcvd image
 		if (spaceship.timer > 0) {
