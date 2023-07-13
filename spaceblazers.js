@@ -37,8 +37,9 @@ function setup() {
     spaceship = new Spaceship(spaceshipImg.width / 2, 3);
     button = createButton('You ran from the grind!');
     button.position(width / 2 - button.width / 2, height / 2 - button.height / 2 - 30); // Place above the 'Tweet' button
-    button.mousePressed(resetGame);
     button.hide();
+    button.mousePressed(resetGame);
+
 
     // Tweet button
     tweetButton = createButton('Tweet my score');
