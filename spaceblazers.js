@@ -286,8 +286,8 @@ function Asteroid(r) {
 function Bullet(spos, epos) {
 	this.pos = createVector(spos.x, spos.y);
 	this.vel = p5.Vector.sub(epos, spos);
-	this.vel.setMag(2);
-	this.r = 12;
+	this.vel.setMag(3);
+	this.r = 16;
 	this.show = function() {
 		push();
 		textSize(this.r * 2);
@@ -295,7 +295,8 @@ function Bullet(spos, epos) {
 		pop();
 	}
 	this.move = function() {
-		this.pos.add(this.vel);
+		////this.pos.add(this.vel + r/4);
+        this.pos.add(this.vel + r/4);
 	}
 	this.hits = function(other) {
 		let dx = this.pos.x - other.pos.x;
