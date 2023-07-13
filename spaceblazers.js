@@ -173,17 +173,17 @@ function draw() {
 		} else if (score >= 3) {
 			team = "Walk away from NBA career";
         } else {
-            team = "Stay in Portland to mentor Scoot"
+            team = "Stay in Portland"
         }
 
 		// Draw lives
 		fill(255);
-		textSize(30);
+		textSize(26);
 		textAlign(RIGHT);
 		text("GRIND: ", width - 30, 30);
         text("");
 		for (let i = 0; i < spaceship.lives; i++) {
-			text("❤️", width - 70 + i * 30, 70);
+			text("❤️", width - 60 + i * 30, 60);
 		}
 
 		// Draw score and team
@@ -210,7 +210,7 @@ function mousePressed() {
   } else if (gameState === "play" && !gameOver) {
     let bullet = new Bullet(spaceship.pos, createVector(mouseX, mouseY));
     bullets.push(bullet);
-    
+
   }
 }
 
