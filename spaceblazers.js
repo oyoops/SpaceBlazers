@@ -72,7 +72,7 @@ function draw() {
 		fill(255);
 		text("🏀", width / 2, height / 2);
 		textSize(28);
-		text("Click to demand a trade", width / 2, height / 2 + 50);
+		text("Click to Demand a Trade", width / 2, height / 2 + 50);
     } else if (gameState === "play") {
         noCursor();
         if(!gameStarted) {
@@ -172,14 +172,14 @@ function draw() {
 		} else if (score >= 7) {
 			team = "Get traded to Minnesota";
 		} else if (score >= 3) {
-			team = "Walk away from NBA career";
+			team = "Retire from the NBA";
         } else {
             team = "Stay in Portland"
         }
 
 		// Draw lives
 		fill(255);
-		textSize(16);
+		textSize(20);
 		textAlign(RIGHT);
 		text("GRIND: ", width - 45, 20);
         textSize(30);
@@ -189,11 +189,11 @@ function draw() {
 		}
 
 		// Draw score and team
-		textSize(24);
+		textSize(30);
 		textAlign(LEFT);
 		text(score + " CRONIN KILLS", 30, 30);
 		text("");
-        textSize(16);
+        textSize(20);
         text("" + team, 30, 50);
 
 		// ...for reverting spaceship back to normal after damage-rcvd image
@@ -213,7 +213,6 @@ function mousePressed() {
   } else if (gameState === "play" && !gameOver) {
     let bullet = new Bullet(spaceship.pos, createVector(mouseX, mouseY));
     bullets.push(bullet);
-
   }
 }
 
