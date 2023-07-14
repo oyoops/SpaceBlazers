@@ -33,11 +33,71 @@ class Level {
     }
     
     applyAsteroidLogic(asteroid) {
-        this.asteroidLogic(asteroid);
+        switch (this.levelNumber) {
+            case 1:
+                // Initial logic is already set, nothing to do here
+                break;
+            case 2:
+                asteroid.follow(spaceship.pos, 1);
+                break;
+            case 3:
+                asteroid.follow(spaceship.pos, 2);
+                break;
+            case 4:
+                if (frameCount > 180) { // 3 seconds
+                    asteroid.follow(spaceship.pos, 1);
+                }
+                break;
+            case 5:
+                if (frameCount > 180) { // 3 seconds
+                    asteroid.follow(spaceship.pos, 2);
+                }
+                break;
+            case 6:
+                asteroid.zigzag(10, 0.1);
+                break;
+            case 7:
+                asteroid.follow(spaceship.pos, 1);
+                asteroid.zigzag(10, 0.1);
+                break;
+            case 8:
+                if (frameCount > 180) { // 3 seconds
+                    asteroid.follow(spaceship.pos, 1);
+                    asteroid.zigzag(10, 0.1);
+                }
+                break;
+            case 9:
+                asteroid.follow(spaceship.pos, 2);
+                asteroid.zigzag(10, 0.1);
+                break;
+            case 10:
+                asteroid.vel = createVector(random(-1, 1), random(-1, 1));
+                asteroid.vel.setMag(random(1, 2));
+                break;
+            default:
+                console.error('ERROR: Non-contact injury during practice; undergoing further evaluation ... ', this.levelNumber);
+        }
     }
 }
 
-// Define the levels
+
+
+// Define the levels' logic set
+/*
+.---------------.
+|    LEVELS:    |
+'---------------'
+Level 1 -  Asteroids move in a straight line to the spaceship's initial position.
+Level 2 -  Asteroids follow the spaceship's position but move slowly.
+Level 3 -  Asteroids follow the spaceship's position and move faster.
+Level 4 -  Asteroids initially move in a straight line, then start following the spaceship after 3 seconds.
+Level 5 -  Asteroids initially move in a straight line, then start following the spaceship faster after 3 seconds.
+Level 6 -  Asteroids move in a zigzag pattern.
+Level 7 -  Asteroids follow the spaceship and move in a zigzag pattern.
+Level 8 -  Asteroids initially move in a straight line, then start following the spaceship in a zigzag pattern after 3 seconds.
+Level 9 -  Asteroids follow the spaceship's position and move faster in a zigzag pattern.
+Level 10 - Asteroids move randomly (this is unpredictable and will be the hardest level).
+*/
 let levels = [
     new Level(1, function(asteroid) {
         // Level 1 logic
@@ -45,11 +105,34 @@ let levels = [
     new Level(2, function(asteroid) {
         // Level 2 logic
     }, 10),
+    new Level(3, function(asteroid) {
+        // Level 3 logic
+    }, 10),
+    new Level(4, function(asteroid) {
+        // Level 4 logic
+    }, 10),
+    new Level(5, function(asteroid) {
+        // Level 5 logic
+    }, 10),
+    new Level(6, function(asteroid) {
+        // Level 6 logic
+    }, 10),
+    new Level(7, function(asteroid) {
+        // Level 7 logic
+    }, 10),
+    new Level(8, function(asteroid) {
+        // Level 8 logic
+    }, 10),
+    new Level(9, function(asteroid) {
+        // Level 9 logic
+    }, 10),
+    new Level(10, function(asteroid) {
+        // Level 10 logic
+    }, 10),
     // Add more levels as needed...
 ];
+let currentLevel = levels[0]; // Start at level 1
 
-// Start at Level 1
-let currentLevel = levels[0];
 
 // Preload
 function preload() {
@@ -61,6 +144,7 @@ function preload() {
     asteroid2Img = loadImage('imgs/asteroid2.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     //dingSound = loadSound('sounds/ding.mp3');
 }
+
 
 // Setup
 function setup() {
@@ -84,7 +168,7 @@ function setup() {
 }
 
 
-// Main Draw Function
+// Draw function
 function draw() {
 	if (score >= 30) {
 		background(50);
@@ -149,10 +233,33 @@ function draw() {
 	*/
 		// Generate asteroids
 		asteroidCounter++;
-		if (asteroidCounter >= asteroidGenerationRate && !levelTransition) {
-			asteroids.push(new Asteroid(asteroidImg.width / 2));
-			asteroidCounter = 0;
-		}
+        if (asteroidCounter >= asteroidGenerationRate && !levelTransition) {
+            let newAsteroid = new Asteroid(asteroidImg.width / 2);
+            asteroids.push(newAsteroid);
+            asteroidCounter = 0;
+        }
+		
+
+        // Handle level transition
+        if (levelTransition) {
+            levelTransitionTimer--;
+            // Freeze asteroids and start fade-out effect
+            if (levelTransitionTimer === 120) {
+                for (let asteroid of asteroids) {
+                    asteroid.isMoving = false;
+                    asteroid.hit = true; // This will start the fade-out effect
+                }
+            }
+            // Resume asteroid movement and generation after transition
+            else if (levelTransitionTimer <= 0) {
+                levelTransition = false;
+                for (let asteroid of asteroids) {
+                    asteroid.isMoving = true;
+                    asteroid.hit = false; // This will stop the fade-out effect
+                }
+            }
+        }
+		
 
 		// Bullet and asteroid interaction
 		for (let i = bullets.length - 1; i >= 0; i--) {
@@ -223,7 +330,7 @@ function draw() {
 		
 		// List of NBA teams
 		let nbaTeams = [
-			"Portland Trail Blazers (No Trade)",
+			"Portland Trail Blazers",  // Portland Trail Blazers is the team for score 1
 			"Boston Celtics",
 			"Brooklyn Nets",
 			"Charlotte Hornets",
@@ -254,7 +361,8 @@ function draw() {
 			"Washington Wizards",
 			"Miami HEAT"  // Miami Heat is the team for score 30
 		];
-		// Determine current score --> team
+
+		// Determine team by looking up current score in the list of NBA teams
 		let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
 		
 		// Draw lives
@@ -272,25 +380,31 @@ function draw() {
 		textAlign(LEFT);
 		text(score + " CRONINS KILLED", 30, 30);
 		text("");
-        	textSize(20);
+        textSize(20);
 		if (score > 0) {
+			let team = nbaTeams[currentLevel.levelNumber - 1];
 			text("" + team, 30, 50);
 		}
         
-		// ...for level transition (timer)
-		if (levelTransition) {
-			levelTransitionTimer--;
-			if (levelTransitionTimer <= 0) {
-				levelTransition = false;
-			}
-		}
-		// ...for level transition (announcement)
+		//
+		// Level transition
+		//
+				
+		// (text announcement)
 		if (levelTransition) {
 			textSize(60);
 			textAlign(CENTER, CENTER);
 			fill(255);
 			text("Level " + currentLevel.levelNumber, width / 2, height / 2);
 		}
+		// (for transition timer)
+		if (levelTransition) {
+			levelTransitionTimer--;
+			if (levelTransitionTimer <= 0) {
+				levelTransition = false;
+			}
+		}
+
 		// ...for reverting spaceship back to normal after damage-rcvd image
 		if (spaceship.timer > 0) {
 			spaceship.timer--;
@@ -351,7 +465,7 @@ function Asteroid(r) {
     } else if (spawnEdge === 3) {
         this.pos = createVector(-r, random(height));
     }
-
+    this.isMoving = true;
     this.vel = p5.Vector.sub(spaceship.pos, this.pos);
     this.vel.setMag(random(1, 3)); // random speed between 1 and 3
     this.r = r;
@@ -376,9 +490,10 @@ function Asteroid(r) {
 	}
 
     this.move = function() {
-        if (!this.hit) {
+        if (!this.hit && this.isMoving) {
             this.pos.add(this.vel);
         }
+		// ???
         if (this.gracePeriod > 0) {
             this.gracePeriod--;
         }
