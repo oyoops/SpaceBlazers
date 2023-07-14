@@ -75,8 +75,7 @@ class Level {
                 asteroid.follow(spaceship.pos, 1);
                 break;
             case 3:
-				asteroid.bounce();
-                //asteroid.follow(spaceship.pos, 2);
+				asteroid.follow(spaceship.pos, 2);
                 break;
             case 4:
                 if (frameCount > 180) { // 3 seconds
@@ -110,7 +109,7 @@ class Level {
                 asteroid.vel.setMag(random(1, 2));
                 break;
 			case 11:
-				asteroid.bounce();
+				asteroid.zigzag();
 				asteroid.vel = createVector(random(-1, 1), random(-1, 1));
 				asteroid.vel.setMag(random(1, 2));
 				break;
