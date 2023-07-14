@@ -463,18 +463,19 @@ function draw() {
 
 
 // Show text labels function
-function drawLabel(text, x, y) {
-    let padding = 10;  // padding around the text
-    let textWidth = textWidth(text);
+function drawLabel(labelText, x, y) {
+    let padding = 10; // padding around the text
+    textSize(20);  // set the text size before getting its width and height
+    let textWidth = textWidth(labelText);
     let textHeight = textSize();
 
-    // Draw the background rectangle with rounded corners
+    // Draw the label background
     fill(0, 0, 0, 0.75);  // semi-transparent black
-    rect(x - padding, y - textHeight, textWidth + 2 * padding, textHeight + 2 * padding, 10);
+    rect(x - padding, y - padding, textWidth + 2 * padding, textHeight + 2 * padding, 10);
 
-    // Draw the text on top of the rectangle
+    // Draw the text
     fill(255);  // white text
-    text(text, x, y);
+    text(labelText, x, y);
 }
 
 
