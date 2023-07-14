@@ -35,13 +35,14 @@ class Level {
     applyAsteroidLogic(asteroid) {
         switch (this.levelNumber) {
             case 1:
-                // Initial logic is already set, nothing to do here
+                // Initial logic is already set, so nothing to do here
                 break;
             case 2:
                 asteroid.follow(spaceship.pos, 1);
                 break;
             case 3:
                 asteroid.follow(spaceship.pos, 2);
+				asteroid.bounce();
                 break;
             case 4:
                 if (frameCount > 180) { // 3 seconds
@@ -74,8 +75,13 @@ class Level {
                 asteroid.vel = createVector(random(-1, 1), random(-1, 1));
                 asteroid.vel.setMag(random(1, 2));
                 break;
+			case 11:
+				asteroid.bounce();
+				asteroid.vel = createVector(random(-1, 1), random(-1, 1));
+				asteroid.vel.setMag(random(1, 2));
+				break;
             default:
-                console.error('ERROR: Non-contact injury during practice; undergoing further evaluation ... ', this.levelNumber);
+                console.error('ERROR: Non-contact injury during practice; undergoing further evaluation ... team fears torn ACL.', this.levelNumber);
         }
     }
 }
@@ -85,7 +91,7 @@ class Level {
 // Define the levels' logic set
 /*
 .---------------.
-|    LEVELS:    |
+|    LEVELS:    |  ---->  NONE OF THESE ARE ACCURATE  <----
 '---------------'
 Level 1 -  Asteroids move in a straight line to the spaceship's initial position.
 Level 2 -  Asteroids follow the spaceship's position but move slowly.
@@ -468,6 +474,7 @@ function Asteroid(r) {
     } else if (spawnEdge === 3) {
         this.pos = createVector(-r, random(height));
     }
+
     this.isMoving = true;
     this.vel = p5.Vector.sub(spaceship.pos, this.pos);
     this.vel.setMag(random(1, 3)); // random speed between 1 and 3
@@ -517,7 +524,7 @@ function Asteroid(r) {
         return distanceSquared < radiiSquared;
     }
 
-	// FOLLOW - function to make asteroids follow the spaceship (introduced in Level 2)
+	// FOLLOW - function to make asteroids follow the spaceship (introduced in Level 1)
 	this.follow = function(target, speed) {
         // Create a vector pointing from this asteroid to the target
         let force = p5.Vector.sub(target, this.pos);
@@ -525,6 +532,32 @@ function Asteroid(r) {
         force.setMag(speed);
         // Apply the force to the asteroid's velocity
         this.vel = force;
+    };
+
+	// BOUNCE - function to make asteroids bounce off the edges of the canvas (introduced in Level 3)
+	this.bounce = function() {
+		// Check if the asteroid has hit the left or right edge of the canvas
+		if (this.pos.x < 0 || this.pos.x > width) {
+			// Reverse the asteroid's x velocity
+			this.vel.x *= -1;
+		}
+		// Check if the asteroid has hit the top or bottom edge of the canvas
+		if (this.pos.y < 0 || this.pos.y > height) {
+			// Reverse the asteroid's y velocity
+			this.vel.y *= -1;
+		}
+	};
+
+	// ZIGZAG - function to make asteroids zigzag in their paths (introduced in Level 6)
+    this.zigzag = function(amplitude, frequency) {
+        // Calculate the y offset using a sine wave
+        let yOffset = amplitude * sin(frameCount * frequency);
+
+        // Add the offset to the asteroid's y position
+        this.pos.y += yOffset;
+
+        // Restrict the asteroid's y position to within the canvas
+        this.pos.y = constrain(this.pos.y, 0, height);
     };
 
 }
