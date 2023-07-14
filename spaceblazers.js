@@ -187,7 +187,7 @@ function preload() {
 	// Load NBA team logos
 	let teamLogos = [];
 	for (let i = 0; i < nbaTeams.length; i++) {
-    		teamLogos[i] = loadImage('imgs/logos/' + nbaTeams[i].toLowerCase().replace(/ /g, '_') + '.png');
+    		teamLogos[i] = loadImage('imgs/logos/' + nbaTeams[i].toLowerCase().replace(/ /g, '-') + '.png');
 	}
 
 }
