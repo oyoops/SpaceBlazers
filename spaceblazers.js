@@ -230,11 +230,11 @@ function draw() {
 		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 130, textSize(), "center");
 		textStyle(NORMAL);
 		textSize(23);
-		drawLabel("On July 1, 2023, you made a very polite request...", width / 2, height / 2 + 150, textSize(), "center");
-		drawLabel("But Crooked Cronin had other ideas.", width / 2, height / 2 + 190, textSize(), "center");
+		drawLabel("On July 1, 2023, you made a very polite request to management.", width / 2, height / 2 + 150, textSize(), "center");
+		drawLabel("... But Crooked Cronin had other ideas.", width / 2, height / 2 + 170, textSize(), "center");
 
 		textSize(20);
-		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs.", width / 2, height / 2 + 220, textSize(), "center");
+		drawLabel("Destroy Joe Cronins by shooting at them with basketballs.", width / 2, height / 2 + 220, textSize(), "center");
 		drawLabel("If he makes contact, you\'ll lose your Grind!", width / 2, height / 2 + 240, textSize(), "center");
 		drawLabel("Destroy 50 Joe Cronins before running out", width / 2, height / 2 + 260, textSize(), "center"); 
 		drawLabel("of Grind to force your way to the Miami Heat!", width / 2, height / 2 + 280, textSize(), "center");
