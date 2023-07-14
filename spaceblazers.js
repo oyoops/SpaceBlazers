@@ -209,7 +209,7 @@ function draw() {
 		textStyle(ITALIC);
 		drawLabel("HEAT SEEKER", width / 2, height / 2 - 200, textSize(), "center");
 		textSize(36);
-		drawLabel("Portland Escape!", width / 2, height / 2 - 180, textSize(), "center");
+		drawLabel("Portland Escape!", width / 2, height / 2 - 170, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show a cute basketball emoji
