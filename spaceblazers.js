@@ -424,13 +424,13 @@ function draw() {
 		textSize(26);
 		textAlign(RIGHT);
 		//text("GRIND: ", width - 45, 20);
-		drawLabel("GRIND: ", width - 30, 30, textSize(), "right");
+		drawLabel("GRIND: ", width - 50, 50, textSize(), "right");
 
 		textSize(26);
 		textAlign(RIGHT);
 		for (let i = 0; i < spaceship.lives; i++) {
 			//text("❤️", width - 90 + i * 30, 50);
-			drawLabel("❤️", width - 100 + i * 30, 60, textSize(), "right");
+			drawLabel("❤️", 20 + width - 100 + i * 30, 20 + 60, textSize(), "right");
 		}
 		
 		// Draw score label
@@ -443,14 +443,14 @@ function draw() {
 		} else {
 			scoreText = score + " CRONIN KILLS";
 		}
-		drawLabel(scoreText, 30, 30, textSize(), "left");
+		drawLabel(scoreText, 50, 50, textSize(), "left");
 		textStyle(NORMAL);
 
 		// Draw team label
 		if (score > 0) {
 			let team = nbaTeams[currentLevel.levelNumber - 1];
 			textSize(20);
-			drawLabel(team, 30, 50, textSize(), "left");
+			drawLabel(team, 50, 70, textSize(), "left");
 			textSize(26);
 		}
 		
