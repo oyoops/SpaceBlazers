@@ -206,12 +206,11 @@ function draw() {
 		// Show the title
 		textSize(48);
 		textAlign(CENTER, CENTER);
-		textStyle(ITALIC);
 		textStyle(BOLD);
-		drawLabel("HEAT SEEKER", width / 2, height / 2 - 240, textSize(), "center");
+		drawLabel("HEAT SEEKER:", width / 2, height / 2 - 240, textSize(), "center");
 		textSize(34);
-		drawLabel("Portland Escape!", width / 2, height / 2 - 210, textSize(), "center");
 		textStyle(NORMAL);
+		drawLabel("Portland Escape!", width / 2, height / 2 - 210, textSize(), "center");
 
 		// Show a cute basketball emoji
 		textSize(72);
@@ -221,19 +220,19 @@ function draw() {
 
 		// Show the "click to start" message
 		textSize(22);
-		textStyle(NORMAL);
-		drawLabel("Click to demand a trade...", width / 2, height / 2 - 45, textSize(), "center");
+		textStyle(ITALIC);
+		drawLabel("CLICK TO DEMAND A TRADE...", width / 2, height / 2 + 40, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
-		textSize(23);
+		textSize(26);
 		//textStyle(BOLD);
 		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 90, textSize(), "center");
 		textStyle(NORMAL);
-		textSize(20);
-		drawLabel("You made a very polite request, but Crooked Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 140, textSize(), "center");
-		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs. If he makes contact, you\'ll lose your Grind!", width / 2, height / 2 + 155, textSize(), "center");
-		textSize(20);
+		textSize(23);
+		drawLabel("On July 1, 2023, you made a very polite request. But Crooked Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 110, textSize(), "center");
+		textSize(23);
+		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs. If he makes contact, you\'ll lose your Grind!", width / 2, height / 2 + 205, textSize(), "center");
 		drawLabel("Destroy 50 Joe Cronins before running out", width / 2, height / 2 + 220, textSize(), "center"); 
 		drawLabel("of Grind to force your way to the Miami Heat!", width / 2, height / 2 + 235, textSize(), "center");
 	
