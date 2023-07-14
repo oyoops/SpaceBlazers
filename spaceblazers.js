@@ -408,7 +408,7 @@ function draw() {
 		textSize(26);
 		textAlign(RIGHT);
 		//text("GRIND: ", width - 45, 20);
-		drawLabel("GRIND: ", width - 45, 20, textSize(), "right");
+		drawLabel("GRIND: ", width - 25, 20, textSize(), "right");
 
 		textSize(26);
 		textAlign(RIGHT);
