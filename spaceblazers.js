@@ -75,8 +75,8 @@ class Level {
                 asteroid.follow(spaceship.pos, 1);
                 break;
             case 3:
-                asteroid.follow(spaceship.pos, 2);
 				asteroid.bounce();
+                //asteroid.follow(spaceship.pos, 2);
                 break;
             case 4:
                 if (frameCount > 180) { // 3 seconds
