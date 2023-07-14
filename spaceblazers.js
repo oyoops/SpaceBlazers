@@ -207,7 +207,7 @@ function draw() {
 		textSize(64);
 		textAlign(CENTER, CENTER);
 		//text("SPACE BLAZERS", width / 2, height / 2 - 150);
-		drawLabel("SPACE BLAZERS", width / 2, height / 2 + 150, textSize(), "center");
+		drawLabel("SPACE BLAZERS", width / 2, height / 2 - 150, textSize(), "center");
 		
 		// Show a cute basketball emoji
 		textSize(64);
