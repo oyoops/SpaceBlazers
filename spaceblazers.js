@@ -66,20 +66,23 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     spaceship = new Spaceship(spaceshipImg.width / 2, 3);
-    button = createButton('You ran from the grind!');
-    button.position(width / 2 - button.width / 2, height / 2 - button.height / 2 - 30); // Place above the 'Tweet' button
+    
+	// Try again button (Hidden until game over))
+	button = createButton('Try again');
+    button.position(width / 2 - button.width / 2, height / 2 - button.height / 2 - 30); // Place above the Tweet button
     button.hide();
     button.mousePressed(resetGame);
 
-
-    // Tweet button
+    // Tweet button (Hidden until game over)
     tweetButton = createButton('Tweet my score');
     tweetButton.position(width / 2 - tweetButton.width / 2, height / 2 - tweetButton.height / 2);
-    tweetButton.mousePressed(tweetScore(score));
+    tweetButton.mousePressed(() => tweetScore(score));
     tweetButton.hide();
 
+	// Hide cursor
     noCursor();
 }
+
 
 // Main Draw Function
 function draw() {
@@ -182,9 +185,9 @@ function draw() {
 				spaceship.lives--;
 				asteroids[i].hit = true;
 				if (spaceship.lives <= 0) {
-					cursor();
+					cursor(); // Show the cursor again
 					gameOver = true;
-					button.show();
+					button.show(); // Show the try again button on game over
 					tweetButton.show();  // Show the tweet button on game over
 					noLoop();
 				} else {
@@ -308,10 +311,10 @@ function mousePressed() {
   }
 }
 
-// Tweet score function
+// Tweet function
 function tweetScore(score) {
-    let team = score >= 1 && score <= 30 ? nbaTeams[score - 1] : "Retire from NBA";
-    let text = "I got Damian Lillard traded to " + team + " in #SpaceBlazers! Can you beat my score of " + score + " Joe Cronins destroyed? ";
+    let team = score >= 1 && score <= 30 ? "traded to the " + nbaTeams[score - 1] : "to retire from NBA";
+    let text = "I got Damian Lillard " + team + " in #SpaceBlazers! Can you beat my score of " + score + " Joe Cronins destroyed? ";
     let url = "https://dame.lillard.trade";
     let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
     window.open(tweetUrl, '_blank');
@@ -330,6 +333,7 @@ function Spaceship(r, lives) {
 		}
 		image(this.img, this.pos.x - this.r, this.pos.y - this.r, this.r * 2, this.r * 2);
 	}
+
 	this.move = function() {
 		this.pos.set(mouseX, mouseY);
 	}
@@ -370,6 +374,7 @@ function Asteroid(r) {
 	        }
 	    }
 	}
+
     this.move = function() {
         if (!this.hit) {
             this.pos.add(this.vel);
@@ -426,6 +431,7 @@ function Bullet(spos, epos) {
         this.pos.add(this.vel);
         this.particles.push(new Particle(this.pos)); // Add a new particle each frame
     }
+
 	this.hits = function(other) {
 		let dx = this.pos.x - other.pos.x;
 		let dy = this.pos.y - other.pos.y;
@@ -452,7 +458,7 @@ function Particle(pos) {
     }
 }
 
-
+// Reset the game
 function resetGame() {
 	spaceship = new Spaceship(spaceshipImg.width / 2, 3);
 	spaceship.pos = createVector(width / 2, height / 2);
@@ -463,9 +469,9 @@ function resetGame() {
 	bullets = [];
 	gameState = "play";
 	gameOver = false;
-	button.hide();
-    score = 0;
-    noCursor();
+    score = 0; // Reset the score
+	button.hide(); // Hide the reset button when game resets
 	tweetButton.hide();  // Hide the tweet button when game resets
+    noCursor(); // Hide the cursor again when game resets
 	loop();
 }
