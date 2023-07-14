@@ -466,39 +466,31 @@ function draw() {
 
 // Show fancy labels
 function drawLabel(labelText, x, y, size, tAlign) {
-    let padding = 10; // padding around the text
     textSize(size);  // set the text size before getting its width and height
     let labelWidth = textWidth(labelText);  // get the width of the text
     let labelHeight = textSize();  // get the height of the text
 
-	// Use the selected alignment option
-	if (tAlign === "left") {
-		textAlign(LEFT);
-	} else if (tAlign === "right") {
-		textAlign(RIGHT);
-	} else if (tAlign === "center") {
-		// CENTER ADJUSTMENT:
-		textAlign(CENTER);
-		x -= labelWidth / 2;
-		y -= labelHeight / 2 + textAscent() / 2;
-	} else {
-		// CENTER ADJUSTMENT:
-		textAlign(CENTER);
-		x -= labelWidth / 2;
-		y -= labelHeight / 2 + textAscent() / 2;
-	}
+    // Use the selected alignment option
+    if (tAlign === "left") {
+        textAlign(LEFT);
+    } else if (tAlign === "right") {
+        textAlign(RIGHT);
+    } else if (tAlign === "center") {
+        textAlign(CENTER);
+    } else {
+        textAlign(CENTER);
+    }
 
-	// Draw the text
-	fill(255);  // white text
-	text(labelText, x, y);
-
-	/*
-	// Draw the label background
-	fill(0, 0, 0, 0.75);  // semi-transparent black
-	rect(x - padding, y - padding, labelWidth + 2 * padding, labelHeight + 2 * padding, 10);
-	*/
-
+    // Draw the text
+    fill(255);  // white text
+    if (tAlign === "center") {
+        // Adjust x and y for centered text
+        text(labelText, x - labelWidth / 2, y - labelHeight / 2 + textAscent() / 2);
+    } else {
+        text(labelText, x, y);
+    }
 }
+
 
 
 // Mouse Pressed Function
