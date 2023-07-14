@@ -531,7 +531,7 @@ function mousePressed() {
 function tweetScore(score) {
 	let levelIndex = currentLevel.levelNumber - 1;
     let team = levelIndex >= 0 && levelIndex <= nbaTeams.length ? " the " + nbaTeams[levelIndex] : " retire from NBA";
-    let text = "I destroyed " + score + " Joe Cronins and traded Damian Lillard to the " + team + " in '#HeatSeeker: Portland Escape'! %0A%0A@Dame_Lillard, thoughts???";
+    let text = "I destroyed " + score + " Joe Cronins and traded Damian Lillard to the " + team + " in #HeatSeeker: Portland Escape! 🔥 @Dame_Lillard ";
     let url = "https://dame.lillard.trade";
     let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
     window.open(tweetUrl, '_blank');
