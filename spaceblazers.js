@@ -216,7 +216,7 @@ function draw() {
 		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
-		text("🏀", width / 2, height / 2 + 100);
+		text("🏀", width / 2, height / 2 - 100);
 
 		// Show the "click to start" message
 		textSize(22);
