@@ -521,7 +521,7 @@ function mousePressed() {
 // Tweet function
 function tweetScore(score) {
 	let levelIndex = currentLevel.levelNumber - 1;
-    let team = levelIndex >= 1 && levelIndex <= 30 ? " the " + nbaTeams[levelIndex - 1] : " retire from NBA";
+    let team = levelIndex >= 0 && levelIndex <= nbaTeams.length ? " the " + nbaTeams[levelIndex] : " retire from NBA";
     let text = "I helped Damian Lillard escape from Portland to " + team + " in #HeatSeeker! Can you beat my score of " + score + " Joe Cronins destroyed? ";
     let url = "https://dame.lillard.trade";
     let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
