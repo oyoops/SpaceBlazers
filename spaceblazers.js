@@ -217,23 +217,24 @@ function draw() {
 		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
-		text("🏀", width / 2, height / 2 - 40);
+		text("🏀", width / 2, height / 2);
 
 		// Show the "click to start" message
 		textSize(30);
 		textStyle(NORMAL);
-		drawLabel("Click to demand a trade...", width / 2, height / 2 - 160, textSize(), "center");
+		drawLabel("Click to demand a trade...", width / 2, height / 2 + 10, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
-		textSize(20);
-		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 100, textSize(), "center");
+		textSize(22);
+		textStyle(BOLD);
+		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 75, textSize(), "center");
 		textSize(16);
 		drawLabel("You made a very polite request, but Crooked Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 120, textSize(), "center");
 		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs. If he makes contact, you\'ll lose your Grind!", width / 2, height / 2 + 140, textSize(), "center");
 		textSize(20);
 		drawLabel("Destroy 50 Joe Cronins before running out", width / 2, height / 2 + 210, textSize(), "center"); 
-		drawLabel("of Grind to force your way to the Miami Heat!", width / 2, height / 2 + 225, textSize(), "center");
+		drawLabel("of Grind to force your way to the Miami Heat!", width / 2, height / 2 + 230, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
