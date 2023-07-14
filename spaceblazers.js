@@ -227,11 +227,11 @@ function draw() {
 		// Show the game's instructions
 		textSize(23);
 		//textStyle(BOLD);
-		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 130, textSize(), "center");
+		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 120, textSize(), "center");
 		textStyle(NORMAL);
 		textSize(23);
-		drawLabel("On July 1, 2023, you made a very polite request to management.", width / 2, height / 2 + 150, textSize(), "center");
-		drawLabel("... But Crooked Cronin had other ideas.", width / 2, height / 2 + 170, textSize(), "center");
+		drawLabel("Two weeks ago, you made a very polite request to management.", width / 2, height / 2 + 150, textSize(), "center");
+		drawLabel("... but Crooked Cronin had other ideas.", width / 2, height / 2 + 170, textSize(), "center");
 
 		textSize(20);
 		drawLabel("Destroy Joe Cronins by shooting at them with basketballs.", width / 2, height / 2 + 220, textSize(), "center");
