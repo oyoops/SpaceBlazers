@@ -204,12 +204,12 @@ function draw() {
         cursor();
 		
 		// Show the title
-		textSize(64);
+		textSize(48);
 		textAlign(CENTER, CENTER);
 		textStyle(ITALIC);
 		textStyle(BOLD);
 		drawLabel("HEAT SEEKER", width / 2, height / 2 - 240, textSize(), "center");
-		textSize(42);
+		textSize(34);
 		drawLabel("Portland Escape!", width / 2, height / 2 - 210, textSize(), "center");
 		textStyle(NORMAL);
 
@@ -222,7 +222,7 @@ function draw() {
 		// Show the "click to start" message
 		textSize(22);
 		textStyle(NORMAL);
-		drawLabel("Click to demand a trade...", width / 2, height / 2 - 60, textSize(), "center");
+		drawLabel("Click to demand a trade...", width / 2, height / 2 - 45, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
