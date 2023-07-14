@@ -406,25 +406,25 @@ function draw() {
 		textSize(20);
 		textAlign(RIGHT);
 		//text("GRIND: ", width - 45, 20);
-		drawLabel("GRIND: ", width - 45, 20, textSize());
+		drawLabel("GRIND: ", width - 45, 20, textSize(), "right");
 
 		textSize(26);
 		textAlign(RIGHT);
 		for (let i = 0; i < spaceship.lives; i++) {
 			//text("❤️", width - 90 + i * 30, 50);
-			drawLabel("❤️", width - 90 + i * 30, 50, textSize());
+			drawLabel("❤️", width - 90 + i * 30, 50, textSize(), "right");
 		}
 		
 		// Draw score label
 		textSize(20);
 		textAlign(LEFT);
 		let scoreText = score + " CRONINS KILLED";
-		drawLabel(scoreText, 30, 30, textSize());
+		drawLabel(scoreText, 30, 30, textSize(), "left");
 		
 		// Draw team label
 		if (score > 0) {
 			let team = nbaTeams[currentLevel.levelNumber - 1];
-			drawLabel(team, 30, 50, textSize());
+			drawLabel(team, 30, 50, textSize(), "left");
 		}
 		
 		//
@@ -437,12 +437,11 @@ function draw() {
 			textAlign(CENTER, CENTER);
 			fill(255);
 			//text("Level " + currentLevel.levelNumber, width / 2, height / 2);
-			drawLabel("Level " + currentLevel.levelNumber, width / 2, height / 2, textSize());
-
+			drawLabel("Level " + currentLevel.levelNumber, width / 2, height / 2, textSize(), "center");
 			textSize(40);
 			let team = nbaTeams[currentLevel.levelNumber - 1];
 			//text(team, width / 2, height / 2 + 50);
-			drawLabel(team, width / 2, height / 2 + 50, textSize());
+			drawLabel(team, width / 2, height / 2 + 50, textSize(), "center");
 		}
 		// (for transition timer)
 		if (levelTransition) {
@@ -471,11 +470,11 @@ function drawLabel(labelText, y, x, size, tAlign) {
     let labelHeight = textSize();  // get the height of the text
 
 	// Use the selected alignment option
-	if (tAlign === "LEFT") {
+	if (tAlign === "left") {
 		textAlign(LEFT);
-	} else if (tAlign === "RIGHT") {
+	} else if (tAlign === "right") {
 		textAlign(RIGHT);
-	} else if (tAlign === "CENTER") {
+	} else if (tAlign === "center") {
 		textAlign(CENTER);
 	} else {
 		textAlign(CENTER);
