@@ -207,26 +207,26 @@ function draw() {
 		textSize(64);
 		textAlign(CENTER, CENTER);
 		textStyle(BOLD);
-		drawLabel("HEAT SEEKER: ESCAPE FROM PORTLAND!", width / 2, height / 2 - 150, textSize(), "center");
+		drawLabel("HEAT SEEKER: ESCAPE FROM PORTLAND!", width / 2, height / 2 - 200, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show a cute basketball emoji
 		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
-		text("🏀", width / 2, height / 2 + 50);
+		text("🏀", width / 2, height / 2 - 40);
 
 		// Show the "click to start" message
 		textSize(36);
 		textStyle(ITALIC);
-		drawLabel("Click to demand trade...", width / 2, height / 2 - 110, textSize(), "center");
+		drawLabel("Click to demand trade...", width / 2, height / 2 - 160, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
 		textSize(20);
 		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 100, textSize(), "center");
 		textSize(16);
-		drawLabel("You made a simple request, but Crooked Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 120, textSize(), "center");
+		drawLabel("You made a very polite request, but Crooked Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 120, textSize(), "center");
 		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs.", width / 2, height / 2 + 140, textSize(), "center");
 		drawLabel("If he gets to you, you\'ll lose your Grind!", width / 2, height / 2 + 160, textSize(), "center");
 		textSize(20);
