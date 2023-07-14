@@ -204,10 +204,10 @@ function draw() {
         cursor();
 		
 		// Show the title
-		textSize(64);
+		textSize(52);
 		textAlign(CENTER, CENTER);
 		textStyle(BOLD);
-		drawLabel("HEAT SEEKER: ESCAPE FROM PORTLAND!", width / 2, height / 2 - 200, textSize(), "center");
+		drawLabel("HEAT SEEKER", width / 2, height / 2 - 200, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show a cute basketball emoji
@@ -217,9 +217,9 @@ function draw() {
 		text("🏀", width / 2, height / 2 - 40);
 
 		// Show the "click to start" message
-		textSize(36);
-		textStyle(ITALIC);
-		drawLabel("Click to demand trade...", width / 2, height / 2 - 160, textSize(), "center");
+		textSize(30);
+		textStyle(NORMAL);
+		drawLabel("Click to demand a trade", width / 2, height / 2 - 160, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
