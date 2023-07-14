@@ -266,8 +266,8 @@ function draw() {
 		drawLabel("Two weeks ago, you made a very polite request to management,", width / 2, height / 2 + 130, textSize(), "center");
 		drawLabel("but Crooked Joe Cronin had other ideas.", width / 2, height / 2 + 150, textSize(), "center");
 		textSize(21);
-		drawLabel("Destroy Joe Cronins by shooting at them with basketballs.", width / 2, height / 2 + 180, textSize(), "center");
-		drawLabel("If you make contact with him, you\'ll lose your Grind!", width / 2, height / 2 + 200, textSize(), "center");
+		drawLabel("Destroy Joe Cronins by shooting at them with basketballs.", width / 2 - 120, height / 2 + 160, textSize(), "center");
+		drawLabel("If you make contact with him, you\'ll lose your Grind!", width / 2, height / 2 + 160, textSize(), "center");
 		drawLabel("Destroy 50 Joe Cronins before running out", width / 2, height / 2 + 240, textSize(), "center"); 
 		drawLabel("to force your way to the Miami Heat!", width / 2, height / 2 + 260, textSize(), "center");
 	
