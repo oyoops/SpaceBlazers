@@ -208,6 +208,9 @@ function draw() {
 		textAlign(CENTER, CENTER);
 		textStyle(BOLD);
 		drawLabel("HEAT SEEKER", width / 2, height / 2 - 200, textSize(), "center");
+		textSize(38);
+		textStyle(NORMAL);
+		drawLabel("Portland Escape!", width / 2, height / 2 - 180, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show a cute basketball emoji
@@ -219,7 +222,7 @@ function draw() {
 		// Show the "click to start" message
 		textSize(30);
 		textStyle(NORMAL);
-		drawLabel("Click to demand a trade", width / 2, height / 2 - 160, textSize(), "center");
+		drawLabel("Click to demand a trade...", width / 2, height / 2 - 160, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
@@ -227,11 +230,10 @@ function draw() {
 		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 100, textSize(), "center");
 		textSize(16);
 		drawLabel("You made a very polite request, but Crooked Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 120, textSize(), "center");
-		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs.", width / 2, height / 2 + 140, textSize(), "center");
-		drawLabel("If he gets to you, you\'ll lose your Grind!", width / 2, height / 2 + 160, textSize(), "center");
+		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs. If he makes contact, you\'ll lose your Grind!", width / 2, height / 2 + 140, textSize(), "center");
 		textSize(20);
 		drawLabel("Destroy 50 Joe Cronins before running out", width / 2, height / 2 + 210, textSize(), "center"); 
-		drawLabel("of Grind to force your way to the Miami Heat!", width / 2, height / 2 + 220, textSize(), "center");
+		drawLabel("of Grind to force your way to the Miami Heat!", width / 2, height / 2 + 225, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
