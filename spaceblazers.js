@@ -472,24 +472,27 @@ function drawLabel(labelText, x, y, size, tAlign) {
 
     // Use the selected alignment option
     if (tAlign === "left") {
-        textAlign(LEFT);
+        textAlign(LEFT, CENTER);
     } else if (tAlign === "right") {
-        textAlign(RIGHT);
+        textAlign(RIGHT, CENTER);
     } else if (tAlign === "center") {
-        textAlign(CENTER);
+        textAlign(CENTER, CENTER);
     } else {
-        textAlign(CENTER);
+        textAlign(CENTER, CENTER);
     }
 
     // Draw the text
     fill(255);  // white text
     if (tAlign === "center") {
         // Adjust x and y for centered text
-        text(labelText, x - labelWidth / 2, y - labelHeight / 2 + textAscent() / 2);
-    } else {
         text(labelText, x, y);
+    } else if (tAlign === "left") {
+        text(labelText, x + labelWidth / 2, y + textAscent() / 2);
+    } else if (tAlign === "right") {
+        text(labelText, x - labelWidth / 2, y + textAscent() / 2);
     }
 }
+
 
 
 
