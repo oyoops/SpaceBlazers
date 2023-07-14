@@ -221,7 +221,7 @@ function draw() {
 		// Show the "click to start" message
 		textSize(22);
 		textStyle(ITALIC);
-		drawLabel("CLICK TO DEMAND A TRADE...", width / 2, height / 2 + 40, textSize(), "center");
+		drawLabel("CLICK TO DEMAND A TRADE", width / 2, height / 2 + 40, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
