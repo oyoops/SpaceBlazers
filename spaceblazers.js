@@ -230,8 +230,8 @@ function draw() {
 		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs.", width / 2, height / 2 + 140, textSize(), "center");
 		drawLabel("If he gets to you, you\'ll lose your Grind!", width / 2, height / 2 + 160, textSize(), "center");
 		textSize(20);
-		drawLabel("Destroy 50 Joe Cronins before you run out of Grind", width / 2, height / 2 + 210, textSize(), "center"); 
-		drawLabel("to force your way to the Miami Heat!", width / 2, height / 2 + 220, textSize(), "center");
+		drawLabel("Destroy 50 Joe Cronins before running out", width / 2, height / 2 + 210, textSize(), "center"); 
+		drawLabel("of Grind to force your way to the Miami Heat!", width / 2, height / 2 + 220, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
