@@ -183,7 +183,7 @@ function draw() {
 	if (score >= 30) {
 
 		// Future update: CHANGE THIS INTO THE MIAMI HEAT COURT!
-		background(50);
+		//background(50);
 
 	} else if (score >= 20) {
 		//background(0);
@@ -316,9 +316,9 @@ function draw() {
 					asteroids[j].hit = true;
 					bullets.splice(i, 1);
 					score++;
-                    			//dingSound.play();
+                    //dingSound.play();
 					spaceship.img = spaceship2Img;
-					spaceship.timer = 90; // 1.5 seconds recovery timer
+					spaceship.timer = 120; // 1.5 seconds recovery timer
 					break;
 				}
 			}
@@ -361,7 +361,7 @@ function draw() {
 			if (levels[nextLevelIndex]) {
 				currentLevel = levels[nextLevelIndex];
 				levelTransition = true;
-				levelTransitionTimer = 120; // Transition will last for 2 seconds
+				levelTransitionTimer = 180; // Transition will last for 2 seconds
 			} else {
 				console.log("You win!");
 				// Implement game completion logic here...
@@ -407,7 +407,8 @@ function draw() {
 			"Miami HEAT"  // Miami Heat is the team for score 30
 		];
 		// Determine current team by looking up current score in the list of NBA teams
-		let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
+		//let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
+		let team = level <= 30 ? nbaTeams[level - 1] : nbaTeams[nbaTeams.length - 1];
 		
 		// Draw lives
 		fill(255);
@@ -427,7 +428,7 @@ function draw() {
 		textSize(26);
 		textAlign(LEFT);
 		let scoreText = score + " CRONIN KILLS";
-		drawLabel(scoreText, 30, 30, textSize(), "left");
+		drawLabel(scoreText, 30, 50, textSize(), "left");
 		
 		// Draw team label
 		if (score > 0) {
