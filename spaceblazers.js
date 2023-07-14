@@ -219,9 +219,9 @@ function draw() {
 		text("🏀", width / 2, height / 2);
 
 		// Show the "click to start" message
-		textSize(30);
+		textSize(22);
 		textStyle(NORMAL);
-		drawLabel("Click to demand a trade...", width / 2, height / 2 + 10, textSize(), "center");
+		drawLabel("Click to demand a trade...", width / 2, height / 2 - 60, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
