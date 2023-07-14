@@ -475,13 +475,6 @@ function draw() {
 
 // Show fancy labels
 function drawLabel(labelText, x, y, size, tAlign) {
-    let scale = min(windowWidth, windowHeight) / 1000;  // create a scale factor based on the smallest dimension
-    size *= scale;  // scale the size based on the screen size
-
-    textSize(size);  // set the text size before getting its width and height
-    let labelWidth = textWidth(labelText);  // get the width of the text
-    let labelHeight = textSize();  // get the height of the text
-
     // Use the selected alignment option
     if (tAlign === "left") {
         textAlign(LEFT, CENTER);
@@ -499,13 +492,11 @@ function drawLabel(labelText, x, y, size, tAlign) {
         // Adjust x and y for centered text
         text(labelText, x, y);
     } else if (tAlign === "left") {
-        text(labelText, x + labelWidth / 2, y + textAscent() / 2);
+        text(labelText, x, y);
     } else if (tAlign === "right") {
-        text(labelText, x - labelWidth / 2, y + textAscent() / 2);
+        text(labelText, x, y);
     }
 }
-
-
 
 
 // Mouse Pressed Function
