@@ -395,11 +395,14 @@ function draw() {
 				currentLevel = levels[nextLevelIndex];
 				levelTransition = true;
 				levelTransitionTimer = 120; // Transition will last for 2 seconds
+		
+				// Clear the asteroids array
+				asteroids = [];
 			} else {
 				console.log("You win!");
 				// Implement game completion logic here...
 			}
-		}		
+		}
 		
 
 		//
