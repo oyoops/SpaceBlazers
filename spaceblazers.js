@@ -515,8 +515,8 @@ function mousePressed() {
 
 // Tweet function
 function tweetScore(score) {
-    let team = score >= 1 && score <= 30 ? "traded to the " + nbaTeams[score - 1] : "to retire from NBA";
-    let text = "I got Damian Lillard " + team + " in #SpaceBlazers! Can you beat my score of " + score + " Joe Cronins destroyed? ";
+    let team = score >= 1 && score <= 30 ? " the " + nbaTeams[score - 1] : " retire from NBA";
+    let text = "I helped Damian Lillard escape from Portland to " + team + " in #HeatSeeker! Can you beat my score of " + score + " Joe Cronins destroyed? ";
     let url = "https://dame.lillard.trade";
     let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
     window.open(tweetUrl, '_blank');
