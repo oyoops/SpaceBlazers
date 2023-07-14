@@ -474,32 +474,24 @@ function drawLabel(labelText, x, y, size, tAlign) {
 	// Use the selected alignment option
 	if (tAlign === "left") {
 		textAlign(LEFT);
-	    // Draw the label background
-		fill(0, 0, 0, 0.75);  // semi-transparent black
-		rect(x - padding, y - padding, labelWidth + 2 * padding, labelHeight + 2 * padding, 10);
-		// Draw the text
-		fill(255);  // white text
-		text(labelText, x, y);
 	} else if (tAlign === "right") {
 		textAlign(RIGHT);
-		// Draw the label background
-		fill(0, 0, 0, 0.75);  // semi-transparent black
-		rect(x - padding, y - padding, labelWidth + 2 * padding, labelHeight + 2 * padding, 10);
-		// Draw the text
-		fill(255);  // white text
-		text(labelText, x, y);
 	} else {
-		textAlign(CENTER);
 		// CENTER ADJUSTMENT:
+		textAlign(CENTER);
 		x -= labelWidth / 2;
 		y -= labelHeight / 2 + textAscent() / 2;
-		// Draw the label background
-		fill(0, 0, 0, 0.75);  // semi-transparent black
-		rect(x - padding, y - padding, labelWidth + 2 * padding, labelHeight + 2 * padding, 10);
-		// Draw the text
-		fill(255);  // white text
-		text(labelText, x, y);
 	}
+
+	// Draw the text
+	fill(255);  // white text
+	text(labelText, x, y);
+
+	/*
+	// Draw the label background
+	fill(0, 0, 0, 0.75);  // semi-transparent black
+	rect(x - padding, y - padding, labelWidth + 2 * padding, labelHeight + 2 * padding, 10);
+	*/
 
 }
 
