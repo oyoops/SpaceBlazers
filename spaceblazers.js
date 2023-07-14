@@ -204,13 +204,13 @@ function draw() {
         cursor();
 		
 		// Show the title
-		textSize(108);
+		textSize(64);
 		textAlign(CENTER, CENTER);
 		//text("SPACE BLAZERS", width / 2, height / 2 - 150);
-		drawLabel("SPACE BLAZERS", width / 2, height / 2 - 150, textSize(), "center");
+		drawLabel("SPACE BLAZERS", width / 2, height / 2 + 150, textSize(), "center");
 		
 		// Show a cute basketball emoji
-		textSize(72);
+		textSize(64);
 		textAlign(CENTER, CENTER);
 		fill(255);
 		text("🏀", width / 2, height / 2);
@@ -218,17 +218,17 @@ function draw() {
 		// Show the "click to start" message
 		textSize(28);
 		//text("Click to demand a trade.", width / 2, height / 2 + 50);
-		drawLabel("Click to demand a trade.", width / 2, height / 2 + 50, textSize(), "center");
+		drawLabel("Click to demand a trade.", width / 2, height / 2 - 50, textSize(), "center");
 		
 		// Show the game's instructions
 		textSize(18);
-		drawLabel("You are Damian Lillard, NBA superstar and best Portland Trail Blazer in franchise history.", width / 2, height / 2 - 100, textSize(), "center");
+		drawLabel("You are Damian Lillard, NBA superstar and best Portland Trail Blazer in franchise history.", width / 2, height / 2 + 100, textSize(), "center");
 		textSize(14);
-		drawLabel("The evil Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 - 140, textSize(), "center");
-		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs.", width / 2, height / 2 - 155, textSize(), "center");
-		drawLabel("If he gets to you, you\'ll lose your Grind!", width / 2, height / 2 - 170, textSize(), "center");
+		drawLabel("The evil Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 140, textSize(), "center");
+		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs.", width / 2, height / 2 + 155, textSize(), "center");
+		drawLabel("If he gets to you, you\'ll lose your Grind!", width / 2, height / 2 + 170, textSize(), "center");
 		textSize(18);
-		drawLabel("Destroy 50 Joe Cronins to force your way to the Miami Heat!", width / 2, height / 2 - 230, textSize(), "center");
+		drawLabel("Destroy 50 Joe Cronins to force your way to the Miami Heat!", width / 2, height / 2 + 200, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
@@ -463,7 +463,7 @@ function draw() {
 
 
 // Show fancy labels
-function drawLabel(labelText, y, x, size, tAlign) {
+function drawLabel(labelText, x, y, size, tAlign) {
     let padding = 10; // padding around the text
     textSize(size);  // set the text size before getting its width and height
     let labelWidth = textWidth(labelText);  // get the width of the text
