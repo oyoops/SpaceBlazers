@@ -204,12 +204,11 @@ function draw() {
         cursor();
 		
 		// Show the title
-		textSize(52);
+		textSize(48);
 		textAlign(CENTER, CENTER);
-		textStyle(BOLD);
+		textStyle(ITALIC);
 		drawLabel("HEAT SEEKER", width / 2, height / 2 - 200, textSize(), "center");
-		textSize(38);
-		textStyle(NORMAL);
+		textSize(36);
 		drawLabel("Portland Escape!", width / 2, height / 2 - 180, textSize(), "center");
 		textStyle(NORMAL);
 
@@ -229,6 +228,7 @@ function draw() {
 		textSize(22);
 		textStyle(BOLD);
 		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 75, textSize(), "center");
+		textStyle(NORMAL);
 		textSize(16);
 		drawLabel("You made a very polite request, but Crooked Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 120, textSize(), "center");
 		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs. If he makes contact, you\'ll lose your Grind!", width / 2, height / 2 + 140, textSize(), "center");
