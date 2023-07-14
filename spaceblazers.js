@@ -258,14 +258,14 @@ function draw() {
 		textStyle(NORMAL);
 
 		// Show the game's instructions
-		textSize(23);
+		textSize(26);
 		//textStyle(BOLD);
 		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 100, textSize(), "center");
 		textStyle(NORMAL);
-		textSize(23);
+		textSize(21);
 		drawLabel("Two weeks ago, you made a very polite request to management,", width / 2, height / 2 + 130, textSize(), "center");
 		drawLabel("but Crooked Joe Cronin had other ideas.", width / 2, height / 2 + 150, textSize(), "center");
-		textSize(23);
+		textSize(21);
 		drawLabel("Destroy Joe Cronins by shooting at them with basketballs.", width / 2, height / 2 + 180, textSize(), "center");
 		drawLabel("If you make contact with him, you\'ll lose your Grind!", width / 2, height / 2 + 200, textSize(), "center");
 		drawLabel("Destroy 50 Joe Cronins before running out", width / 2, height / 2 + 240, textSize(), "center"); 
