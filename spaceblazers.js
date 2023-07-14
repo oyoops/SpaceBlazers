@@ -516,6 +516,17 @@ function Asteroid(r) {
         let radiiSquared = (this.r + other.r) * (this.r + other.r);
         return distanceSquared < radiiSquared;
     }
+
+	// FOLLOW - function to make asteroids follow the spaceship (introduced in Level 2)
+	this.follow = function(target, speed) {
+        // Create a vector pointing from this asteroid to the target
+        let force = p5.Vector.sub(target, this.pos);
+        // Set the magnitude of the vector to the desired speed
+        force.setMag(speed);
+        // Apply the force to the asteroid's velocity
+        this.vel = force;
+    };
+
 }
 
 // Bullet Class
