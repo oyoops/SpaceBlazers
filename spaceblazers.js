@@ -199,6 +199,10 @@ function draw() {
 	// Draw the game
 	if (gameState === "start") {
         cursor();
+		textSize(144);
+		textAlign(CENTER, CENTER);
+		text("SPACE BLAZERS", width / 2, height / 2 + 150);
+		text("");
 		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
