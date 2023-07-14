@@ -19,8 +19,39 @@ let score = 0;
 let gameStarted = false;
 let asteroidCounter = 0;
 let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approximately 1 second)
+let levelTransition = false;
+let levelTransitionTimer = 0;
 //let dingSound;
 
+
+// Leveling
+class Level {
+    constructor(levelNumber, asteroidLogic, asteroidCount) {
+        this.levelNumber = levelNumber;
+        this.asteroidLogic = asteroidLogic; // This is a function that describes the logic for the asteroids
+        this.asteroidCount = asteroidCount;
+    }
+    
+    applyAsteroidLogic(asteroid) {
+        this.asteroidLogic(asteroid);
+    }
+}
+
+// Define the levels
+let levels = [
+    new Level(1, function(asteroid) {
+        // Level 1 logic
+    }, 5),
+    new Level(2, function(asteroid) {
+        // Level 2 logic
+    }, 10),
+    // Add more levels as needed...
+];
+
+// Start at Level 1
+let currentLevel = levels[0];
+
+// Preload
 function preload() {
     console.log("Demanding a trade from Joe Cronin...");
     spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(100, 100));
@@ -113,12 +144,12 @@ function draw() {
         //    asteroids[i].move();
         //}
 	*/
-        // Generate asteroids
-        asteroidCounter++;
-        if (asteroidCounter >= asteroidGenerationRate) {
-            asteroids.push(new Asteroid(asteroidImg.width / 2));
-            asteroidCounter = 0;
-        }
+		// Generate asteroids
+		asteroidCounter++;
+		if (asteroidCounter >= asteroidGenerationRate && !levelTransition) {
+			asteroids.push(new Asteroid(asteroidImg.width / 2));
+			asteroidCounter = 0;
+		}
 
 		// Bullet and asteroid interaction
 		for (let i = bullets.length - 1; i >= 0; i--) {
@@ -139,6 +170,8 @@ function draw() {
 		}
 
 		for (let i = asteroids.length - 1; i >= 0; i--) {
+			currentLevel.applyAsteroidLogic(asteroids[i]);
+
 			asteroids[i].show();
 			asteroids[i].move();
 			if (asteroids[i].offscreen()) {
@@ -164,7 +197,22 @@ function draw() {
 			}
 		}
 
+		//
+		// Logic to move to the next level
+		//
 
+		if (score >= currentLevel.asteroidCount) {
+			let nextLevelIndex = levels.indexOf(currentLevel) + 1;
+			if (levels[nextLevelIndex]) {
+				currentLevel = levels[nextLevelIndex];
+				levelTransition = true;
+				levelTransitionTimer = 120; // Transition will last for 2 seconds
+			} else {
+				console.log("You win!");
+				// Implement game completion logic here...
+			}
+		}		
+		
 
 		//
 		// Determine team v2:
@@ -211,13 +259,13 @@ function draw() {
 		textSize(20);
 		textAlign(RIGHT);
 		text("GRIND: ", width - 45, 20);
-        	textSize(30);
+        textSize(26);
 		for (let i = 0; i < spaceship.lives; i++) {
 			text("❤️", width - 90 + i * 30, 50);
 		}
 
 		// Draw score and team
-		textSize(30);
+		textSize(20);
 		textAlign(LEFT);
 		text(score + " CRONINS KILLED", 30, 30);
 		text("");
@@ -225,8 +273,21 @@ function draw() {
 		if (score > 0) {
 			text("" + team, 30, 50);
 		}
-        	////
-
+        
+		// ...for level transition (timer)
+		if (levelTransition) {
+			levelTransitionTimer--;
+			if (levelTransitionTimer <= 0) {
+				levelTransition = false;
+			}
+		}
+		// ...for level transition (announcement)
+		if (levelTransition) {
+			textSize(60);
+			textAlign(CENTER, CENTER);
+			fill(255);
+			text("Level " + currentLevel.levelNumber, width / 2, height / 2);
+		}
 		// ...for reverting spaceship back to normal after damage-rcvd image
 		if (spaceship.timer > 0) {
 			spaceship.timer--;
