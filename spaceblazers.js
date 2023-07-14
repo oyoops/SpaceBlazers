@@ -630,17 +630,13 @@ function Asteroid(r) {
 
 	// BOUNCE - function to make asteroids bounce off the edges of the canvas (introduced in Level 3)
 	this.bounce = function() {
-		// Check if the asteroid has hit the left or right edge of the canvas
-		if (this.pos.x < 0 || this.pos.x > width) {
-			// Reverse the asteroid's x velocity
+		if (this.pos.x < this.r || this.pos.x > width - this.r) {
 			this.vel.x *= -1;
 		}
-		// Check if the asteroid has hit the top or bottom edge of the canvas
-		if (this.pos.y < 0 || this.pos.y > height) {
-			// Reverse the asteroid's y velocity
+		if (this.pos.y < this.r || this.pos.y > height - this.r) {
 			this.vel.y *= -1;
 		}
-	};
+	}
 
 	// ZIGZAG - function to make asteroids zigzag in their paths (introduced in Level 6)
     this.zigzag = function(amplitude, frequency) {
