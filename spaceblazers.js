@@ -207,7 +207,7 @@ function draw() {
 		textSize(108);
 		textAlign(CENTER, CENTER);
 		//text("SPACE BLAZERS", width / 2, height / 2 - 150);
-		drawLabel("SPACE BLAZERS", width / 2, height / 2 - 150);
+		drawLabel("SPACE BLAZERS", width / 2, height / 2 - 150, textSize());
 		
 		// Show a cute basketball emoji
 		textSize(72);
@@ -218,17 +218,17 @@ function draw() {
 		// Show the "click to start" message
 		textSize(28);
 		//text("Click to demand a trade.", width / 2, height / 2 + 50);
-		drawLabel("Click to demand a trade.", width / 2, height / 2 + 50);
+		drawLabel("Click to demand a trade.", width / 2, height / 2 + 50, textSize());
 		
 		// Show the game's instructions
 		textSize(18);
-		drawLabel("You are Damian Lillard, NBA superstar and best Portland Trail Blazer in franchise history.", width / 2, height / 2 - 100);
+		drawLabel("You are Damian Lillard, NBA superstar and best Portland Trail Blazer in franchise history.", width / 2, height / 2 - 100, textSize());
 		textSize(14);
-		drawLabel("The evil Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 - 132);
-		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs.", width / 2, height / 2 - 148);
-		drawLabel("If he gets to you, you\'ll lose your Grind!", width / 2, height / 2 - 156);
+		drawLabel("The evil Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 - 132, textSize());
+		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs.", width / 2, height / 2 - 148, textSize());
+		drawLabel("If he gets to you, you\'ll lose your Grind!", width / 2, height / 2 - 156, textSize());
 		textSize(18);
-		drawLabel("Destroy 50 Joe Cronins to force your way to the Miami Heat!", width / 2, height / 2 - 180);
+		drawLabel("Destroy 50 Joe Cronins to force your way to the Miami Heat!", width / 2, height / 2 - 180, textSize());
 	} else if (gameState === "play") {
         noCursor();
         if(!gameStarted) {
@@ -405,25 +405,25 @@ function draw() {
 		textSize(20);
 		textAlign(RIGHT);
 		//text("GRIND: ", width - 45, 20);
-		drawLabel("GRIND: ", width - 45, 20);
+		drawLabel("GRIND: ", width - 45, 20, textSize());
 
 		textSize(26);
 		textAlign(RIGHT);
 		for (let i = 0; i < spaceship.lives; i++) {
 			//text("❤️", width - 90 + i * 30, 50);
-			drawLabel("❤️", width - 90 + i * 30, 50);
+			drawLabel("❤️", width - 90 + i * 30, 50, textSize());
 		}
 		
 		// Draw score label
 		textSize(20);
 		textAlign(LEFT);
 		let scoreText = score + " CRONINS KILLED";
-		drawLabel(scoreText, 30, 30);
+		drawLabel(scoreText, 30, 30, textSize());
 		
 		// Draw team label
 		if (score > 0) {
 			let team = nbaTeams[currentLevel.levelNumber - 1];
-			drawLabel(team, 30, 50);
+			drawLabel(team, 30, 50, textSize());
 		}
 		
 		//
@@ -436,12 +436,12 @@ function draw() {
 			textAlign(CENTER, CENTER);
 			fill(255);
 			//text("Level " + currentLevel.levelNumber, width / 2, height / 2);
-			drawLabel("Level " + currentLevel.levelNumber, width / 2, height / 2);
+			drawLabel("Level " + currentLevel.levelNumber, width / 2, height / 2, textSize());
 
 			textSize(40);
 			let team = nbaTeams[currentLevel.levelNumber - 1];
 			//text(team, width / 2, height / 2 + 50);
-			drawLabel(team, width / 2, height / 2 + 50);
+			drawLabel(team, width / 2, height / 2 + 50, textSize());
 		}
 		// (for transition timer)
 		if (levelTransition) {
@@ -463,9 +463,9 @@ function draw() {
 
 
 // Show text labels function
-function drawLabel(labelText, x, y) {
+function drawLabel(labelText, x, y, size) {
     let padding = 10; // padding around the text
-    textSize(20);  // set the text size before getting its width and height
+    textSize(size);  // set the text size before getting its width and height
     let labelWidth = textWidth(labelText);  // get the width of the text
     let labelHeight = textSize();  // get the height of the text
 
