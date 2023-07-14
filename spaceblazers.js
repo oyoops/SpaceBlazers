@@ -429,8 +429,13 @@ function draw() {
 		// Draw score label
 		textSize(26);
 		textAlign(LEFT);
-		let scoreText = score + " CRONIN KILLS";
 		textStyle(BOLD);
+		let scoreText;
+		if (score == 1) {
+			scoreText = score + " CRONIN KILL";
+		} else {
+			scoreText = score + " CRONIN KILLS";
+		}
 		drawLabel(scoreText, 30, 30, textSize(), "left");
 		textStyle(NORMAL);
 
