@@ -710,5 +710,9 @@ function resetGame() {
 	button.hide(); // Hide the reset button when game resets
 	tweetButton.hide();  // Hide the tweet button when game resets
     noCursor(); // Hide the cursor again when game resets
+    currentLevel = levels[0]; // Reset the level
+    asteroidCounter = 0; // Reset the asteroid counter
+    levelTransition = false; // Cancel any level transition
+    levelTransitionTimer = 0; // Reset level transition timer
 	loop();
 }
