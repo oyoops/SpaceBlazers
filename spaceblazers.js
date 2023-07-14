@@ -389,13 +389,16 @@ function draw() {
 		//
 		// Level transition
 		//
-				
+
 		// (text announcement)
 		if (levelTransition) {
 			textSize(60);
 			textAlign(CENTER, CENTER);
 			fill(255);
 			text("Level " + currentLevel.levelNumber, width / 2, height / 2);
+			textSize(40);
+			let team = nbaTeams[currentLevel.levelNumber - 1];
+			text(team, width / 2, height / 2 + 50);
 		}
 		// (for transition timer)
 		if (levelTransition) {
