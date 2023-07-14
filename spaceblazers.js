@@ -260,20 +260,20 @@ function draw() {
 		// Show the game's instructions
 		textSize(28);
 		textStyle(ITALIC);
-		drawLabel("You are Damian Lillard, 11x NBA All-Star 🏆", width / 2, height / 2, textSize(), "center");
-		drawLabel("and greatest player in Blazers' franchise history 💯", width / 2, height / 2 + 20, textSize(), "center");
+		drawLabel("You are Damian Lillard, 11x NBA All-Star 🏆", width / 2, height / 2 + 40, textSize(), "center");
+		drawLabel("and greatest player in Blazers' franchise history 💯", width / 2, height / 2 + 60, textSize(), "center");
 		textStyle(NORMAL);
 		textSize(21);
 		drawLabel("Recently, you made a very polite request in pursuit of your dream 🙏", width / 2, height / 2 + 120, textSize(), "center");
 		drawLabel("... but Crooked Joe Cronin had other ideas 🐍", width / 2, height / 2 + 140, textSize(), "center");
 		textSize(15);
-		drawLabel("Kill Joe Cronins by", width / 2 - 400, height / 2 + 180, textSize(), "center");
-		drawLabel("shooting them with basketballs 💀", width / 2 - 400, height / 2 + 200, textSize(), "center");
-		drawLabel("If you make contact with a Crooked Cronin,", width / 2 + 400, height / 2 + 180, textSize(), "center");
-		drawLabel("you\'ll lose some of your GRIND 😤", width / 2 + 400, height / 2 + 200, textSize(), "center");
+		drawLabel("Kill Joe Cronins by", width / 2 - 550, height / 2 + 230, textSize(), "center");
+		drawLabel("shooting them with basketballs 💀", width / 2 - 550, height / 2 + 250, textSize(), "center");
+		drawLabel("If you make contact with a Crooked Cronin,", width / 2 + 550, height / 2 + 230, textSize(), "center");
+		drawLabel("you\'ll lose some of your GRIND 😤", width / 2 + 550, height / 2 + 250, textSize(), "center");
 		textSize(21);
-		drawLabel("Kill fifty Joe Cronins before losing all", width / 2, height / 2 + 240, textSize(), "center"); 
-		drawLabel("yor GRIND to force a trade to Miami! 🌊🌴💃", width / 2, height / 2 + 260, textSize(), "center");
+		drawLabel("Kill fifty Joe Cronins before losing all", width / 2, height / 2 + 260, textSize(), "center"); 
+		drawLabel("yor GRIND to force a trade to Miami! 🌊🌴💃", width / 2, height / 2 + 280, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
