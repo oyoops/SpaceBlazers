@@ -239,10 +239,10 @@ function draw() {
 		textSize(48);
 		textAlign(CENTER, CENTER);
 		textStyle(BOLD);
-		drawLabel("🔥 HEAT SEEKER 🔥", width / 2, height / 2 - 240, textSize(), "center");
+		drawLabel("🔥  HEAT SEEKER:  🔥", width / 2, height / 2 - 260, textSize(), "center");
 		textSize(34);
 		textStyle(NORMAL);
-		drawLabel("Portland Escape!", width / 2, height / 2 - 210, textSize(), "center");
+		drawLabel("Portland Escape", width / 2, height / 2 - 230, textSize(), "center");
 
 		// Show a cute basketball emoji
 		textSize(72);
@@ -260,7 +260,7 @@ function draw() {
 		textSize(28);
 		textStyle(ITALIC);
 		drawLabel("You are Damian Lillard, 11x NBA All-Star 🏆", width / 2, height / 2 + 80, textSize(), "center");
-		drawLabel("and greatest player in Blazers' franchise history 💯", width / 2, height / 2 + 100, textSize(), "center");
+		drawLabel("and greatest player in Blazers' franchise history 💯", width / 2, height / 2 + 105, textSize(), "center");
 		textStyle(NORMAL);
 		textSize(20);
 		drawLabel("Recently, you made a very polite request in pursuit of your dream 🙏", width / 2, height / 2 + 160, textSize(), "center");
