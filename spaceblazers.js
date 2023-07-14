@@ -114,28 +114,28 @@ let levels = [
     }, 10),
     new Level(3, function(asteroid) {
         // Level 3 logic
-    }, 10),
+    }, 15),
     new Level(4, function(asteroid) {
         // Level 4 logic
-    }, 10),
+    }, 20),
     new Level(5, function(asteroid) {
         // Level 5 logic
-    }, 10),
+    }, 25),
     new Level(6, function(asteroid) {
         // Level 6 logic
-    }, 10),
+    }, 30),
     new Level(7, function(asteroid) {
         // Level 7 logic
-    }, 10),
+    }, 35),
     new Level(8, function(asteroid) {
         // Level 8 logic
-    }, 10),
+    }, 40),
     new Level(9, function(asteroid) {
         // Level 9 logic
-    }, 10),
+    }, 45),
     new Level(10, function(asteroid) {
         // Level 10 logic
-    }, 10),
+    }, 50),
     // Add more levels as needed...
 ];
 let currentLevel = levels[0]; // Start at level 1
@@ -202,17 +202,34 @@ function draw() {
 	// Draw the game
 	if (gameState === "start") {
         cursor();
+		
+		// Show the title
 		textSize(108);
 		textAlign(CENTER, CENTER);
-		text("SPACE BLAZERS", width / 2, height / 2 - 150);
-		text("");
+		//text("SPACE BLAZERS", width / 2, height / 2 - 150);
+		drawLabel("SPACE BLAZERS", width / 2, height / 2 - 150);
+		
+		// Show a cute basketball emoji
 		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
 		text("🏀", width / 2, height / 2);
+
+		// Show the "click to start" message
 		textSize(28);
-		text("Click to demand a trade.", width / 2, height / 2 + 50);
-    } else if (gameState === "play") {
+		//text("Click to demand a trade.", width / 2, height / 2 + 50);
+		drawLabel("Click to demand a trade.", width / 2, height / 2 + 50);
+		
+		// Show the game's instructions
+		textSize(18);
+		drawLabel("You are Damian Lillard, NBA superstar and best Portland Trail Blazer in franchise history.", width / 2, height / 2 - 100);
+		textSize(14);
+		drawLabel("The evil Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 - 132);
+		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs.", width / 2, height / 2 - 148);
+		drawLabel("If he gets to you, you\'ll lose your Grind!", width / 2, height / 2 - 156);
+		textSize(18);
+		drawLabel("Destroy 50 Joe Cronins to force your way to the Miami Heat!", width / 2, height / 2 - 180);
+	} else if (gameState === "play") {
         noCursor();
         if(!gameStarted) {
             setTimeout(function() {
@@ -380,31 +397,35 @@ function draw() {
 			"Washington Wizards",
 			"Miami HEAT"  // Miami Heat is the team for score 30
 		];
-
-		// Determine team by looking up current score in the list of NBA teams
+		// Determine current team by looking up current score in the list of NBA teams
 		let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
 		
 		// Draw lives
 		fill(255);
 		textSize(20);
 		textAlign(RIGHT);
-		text("GRIND: ", width - 45, 20);
-        textSize(26);
-		for (let i = 0; i < spaceship.lives; i++) {
-			text("❤️", width - 90 + i * 30, 50);
-		}
+		//text("GRIND: ", width - 45, 20);
+		drawLabel("GRIND: ", width - 45, 20);
 
-		// Draw score and team
+		textSize(26);
+		textAlign(RIGHT);
+		for (let i = 0; i < spaceship.lives; i++) {
+			//text("❤️", width - 90 + i * 30, 50);
+			drawLabel("❤️", width - 90 + i * 30, 50);
+		}
+		
+		// Draw score label
 		textSize(20);
 		textAlign(LEFT);
-		text(score + " CRONINS KILLED", 30, 30);
-		text("");
-        textSize(20);
+		let scoreText = score + " CRONINS KILLED";
+		drawLabel(scoreText, 30, 30);
+		
+		// Draw team label
 		if (score > 0) {
 			let team = nbaTeams[currentLevel.levelNumber - 1];
-			text("" + team, 30, 50);
+			drawLabel(team, 30, 50);
 		}
-        
+		
 		//
 		// Level transition
 		//
@@ -414,10 +435,13 @@ function draw() {
 			textSize(60);
 			textAlign(CENTER, CENTER);
 			fill(255);
-			text("Level " + currentLevel.levelNumber, width / 2, height / 2);
+			//text("Level " + currentLevel.levelNumber, width / 2, height / 2);
+			drawLabel("Level " + currentLevel.levelNumber, width / 2, height / 2);
+
 			textSize(40);
 			let team = nbaTeams[currentLevel.levelNumber - 1];
-			text(team, width / 2, height / 2 + 50);
+			//text(team, width / 2, height / 2 + 50);
+			drawLabel(team, width / 2, height / 2 + 50);
 		}
 		// (for transition timer)
 		if (levelTransition) {
@@ -436,6 +460,23 @@ function draw() {
 		}
 	}
 }
+
+
+// Show text labels function
+function drawLabel(text, x, y) {
+    let padding = 10;  // padding around the text
+    let textWidth = textWidth(text);
+    let textHeight = textSize();
+
+    // Draw the background rectangle with rounded corners
+    fill(0, 0, 0, 0.75);  // semi-transparent black
+    rect(x - padding, y - textHeight, textWidth + 2 * padding, textHeight + 2 * padding, 10);
+
+    // Draw the text on top of the rectangle
+    fill(255);  // white text
+    text(text, x, y);
+}
+
 
 // Mouse Pressed Function
 function mousePressed() {
