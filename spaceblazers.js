@@ -322,7 +322,7 @@ function draw() {
         if (levelTransition) {
             levelTransitionTimer--;
             // Freeze asteroids and start fade-out effect
-            if (levelTransitionTimer === 120) {
+            if (levelTransitionTimer === 30) {
                 for (let asteroid of asteroids) {
                     asteroid.isMoving = false;
                     asteroid.hit = true; // This will start the fade-out effect
@@ -351,7 +351,7 @@ function draw() {
 					score++;
                     //dingSound.play();
 					spaceship.img = spaceship2Img;
-					spaceship.timer = 120; // 1.5 seconds recovery timer
+					spaceship.timer = 90; // 1.5 seconds recovery timer
 					break;
 				}
 			}
@@ -377,7 +377,7 @@ function draw() {
 					noLoop();
 				} else {
 					invincible = true;
-					invincibleTimer = 60; // 1 second of invincibility
+					invincibleTimer = 90; // 1.5 second of invincibility
 				}
 			}
 			if (asteroids[i] !== undefined && asteroids[i].alpha <= 0) {
@@ -386,7 +386,7 @@ function draw() {
 		}
 
 		//
-		// Logic to move to the next level
+		// Logic for moving to next level
 		//
 
 		if (score >= currentLevel.asteroidCount) {
@@ -394,7 +394,7 @@ function draw() {
 			if (levels[nextLevelIndex]) {
 				currentLevel = levels[nextLevelIndex];
 				levelTransition = true;
-				levelTransitionTimer = 180; // Transition will last for 2 seconds
+				levelTransitionTimer = 120; // Transition will last for 2 seconds
 			} else {
 				console.log("You win!");
 				// Implement game completion logic here...
@@ -430,12 +430,16 @@ function draw() {
 		textSize(26);
 		textAlign(LEFT);
 		let scoreText = score + " CRONIN KILLS";
+		textStyle(BOLD);
 		drawLabel(scoreText, 30, 30, textSize(), "left");
-		
+		textStyle(NORMAL);
+
 		// Draw team label
 		if (score > 0) {
 			let team = nbaTeams[currentLevel.levelNumber - 1];
+			textSize(20);
 			drawLabel(team, 30, 50, textSize(), "left");
+			textSize(26);
 		}
 		
 		//
