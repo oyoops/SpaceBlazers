@@ -430,7 +430,7 @@ function draw() {
 		textAlign(RIGHT);
 		for (let i = 0; i < spaceship.lives; i++) {
 			//text("❤️", width - 90 + i * 30, 50);
-			drawLabel("❤️", 20 + width - 100 + i * 30, 20 + 60, textSize(), "right");
+			drawLabel("❤️", width - 100 + i * 30 - 30, 20 + 60, textSize(), "right");
 		}
 		
 		// Draw score label
