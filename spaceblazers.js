@@ -403,7 +403,7 @@ function draw() {
 		
 		// Draw lives
 		fill(255);
-		textSize(20);
+		textSize(26);
 		textAlign(RIGHT);
 		//text("GRIND: ", width - 45, 20);
 		drawLabel("GRIND: ", width - 45, 20, textSize(), "right");
@@ -416,9 +416,9 @@ function draw() {
 		}
 		
 		// Draw score label
-		textSize(20);
+		textSize(26);
 		textAlign(LEFT);
-		let scoreText = score + " CRONINS KILLED";
+		let scoreText = score + " CRONIN KILLS";
 		drawLabel(scoreText, 30, 30, textSize(), "left");
 		
 		// Draw team label
