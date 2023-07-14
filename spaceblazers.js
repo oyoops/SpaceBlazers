@@ -597,16 +597,16 @@ function Asteroid(r) {
         return this.gracePeriod <= 0 && (this.pos.x > width || this.pos.x < 0 || this.pos.y > height || this.pos.y < 0);
     }
     
-    this.hits = function(other) {
-        if (this.gracePeriod > 0) {
-            return false;
-        }
-        let dx = this.pos.x - other.pos.x;
-        let dy = this.pos.y - other.pos.y;
-        let distanceSquared = dx * dx + dy * dy;
-        let radiiSquared = (this.r + other.r) * (this.r + other.r);
-        return distanceSquared < radiiSquared;
-    }
+	this.hits = function(other) {
+		if (this.gracePeriod > 0 || this.hit) {  // added || this.hit
+			return false;
+		}
+		let dx = this.pos.x - other.pos.x;
+		let dy = this.pos.y - other.pos.y;
+		let distanceSquared = dx * dx + dy * dy;
+		let radiiSquared = (this.r + other.r) * (this.r + other.r);
+		return distanceSquared < radiiSquared;
+	}
 
 	// FOLLOW - function to make asteroids follow the spaceship (introduced in Level 1)
 	this.follow = function(target, speed) {
@@ -655,7 +655,7 @@ function Bullet(spos, epos) {
     } else {
         this.vel = p5.Vector.sub(epos, spos);
     }
-    this.vel.setMag(3);
+    this.vel.setMag(4);
     this.r = 16;
     this.particles = []; // New particle array
     
@@ -696,12 +696,12 @@ function Particle(pos) {
     this.pos = createVector(pos.x, pos.y);
     this.alpha = 255;
     
-    this.show = function() {
-        fill(255, this.alpha);
-        noStroke();
-        ellipse(this.pos.x, this.pos.y, 4);
-        this.alpha -= 5; // Decrease alpha to fade out
-    }
+	this.show = function() {
+		fill(255, this.alpha);
+		noStroke();
+		ellipse(this.pos.x, this.pos.y, 4);
+		this.alpha -= 12.75; // Adjust this value to alter the rate of fading
+	}
 }
 
 // Reset the game
