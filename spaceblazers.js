@@ -225,12 +225,12 @@ function draw() {
 		textStyle(NORMAL);
 
 		// Show the game's instructions
-		textSize(26);
+		textSize(23);
 		//textStyle(BOLD);
-		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 90, textSize(), "center");
+		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 130, textSize(), "center");
 		textStyle(NORMAL);
 		textSize(23);
-		drawLabel("On July 1, 2023, you made a very polite request. But Crooked Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 110, textSize(), "center");
+		drawLabel("On July 1, 2023, you made a very polite request. But Crooked Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 150, textSize(), "center");
 		textSize(23);
 		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs. If he makes contact, you\'ll lose your Grind!", width / 2, height / 2 + 205, textSize(), "center");
 		drawLabel("Destroy 50 Joe Cronins before running out", width / 2, height / 2 + 220, textSize(), "center"); 
