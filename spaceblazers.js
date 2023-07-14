@@ -424,7 +424,7 @@ function draw() {
 		textAlign(RIGHT);
 		textStyle(BOLD);
 		//text("GRIND: ", width - 45, 20);
-		drawLabel("GRIND: ", width - 60, 50, textSize(), "right");
+		drawLabel("GRIND: ", width - 65, 50, textSize(), "right");
 		textStyle(NORMAL);
 
 		textSize(26);
