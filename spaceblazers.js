@@ -240,7 +240,7 @@ function draw() {
 		textSize(48);
 		textAlign(CENTER, CENTER);
 		textStyle(BOLD);
-		drawLabel("HEAT SEEKER:", width / 2, height / 2 - 240, textSize(), "center");
+		drawLabel("🔥 HEAT SEEKER 🔥", width / 2, height / 2 - 240, textSize(), "center");
 		textSize(34);
 		textStyle(NORMAL);
 		drawLabel("Portland Escape!", width / 2, height / 2 - 210, textSize(), "center");
@@ -254,26 +254,26 @@ function draw() {
 		// Show the "click to start" message
 		textSize(22);
 		textStyle(ITALIC);
-		drawLabel("CLICK TO DEMAND A TRADE", width / 2, height / 2 - 80, textSize(), "center");
+		drawLabel("CLICK TO DEMAND TRADE 💱", width / 2, height / 2 - 80, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
 		textSize(28);
 		textStyle(ITALIC);
-		drawLabel("You are Damian Lillard, 11-time NBA All Star", width / 2, height / 2, textSize(), "center");
-		drawLabel("and greatest player in Portland franchise history.", width / 2, height / 2 + 20, textSize(), "center");
+		drawLabel("You are Damian Lillard, 11-time NBA All Star 🏆", width / 2, height / 2, textSize(), "center");
+		drawLabel("and greatest player in Portland franchise history 💯", width / 2, height / 2 + 20, textSize(), "center");
 		textStyle(NORMAL);
 		textSize(21);
-		drawLabel("Two weeks ago, you made a very polite request to management,", width / 2, height / 2 + 130, textSize(), "center");
-		drawLabel("but Crooked Joe Cronin had other ideas.", width / 2, height / 2 + 150, textSize(), "center");
+		drawLabel("Two weeks ago, you made a very polite request... 🙏", width / 2, height / 2 + 120, textSize(), "center");
+		drawLabel("but Crooked Joe Cronin had other ideas 🐍", width / 2, height / 2 + 140, textSize(), "center");
 		textSize(15);
-		drawLabel("Destroy the Crooked Joe Cronins by", width / 2 - 400, height / 2 + 180, textSize(), "center");
-		drawLabel("shooting at them with basketballs.", width / 2 - 400, height / 2 + 200, textSize(), "center");
-		drawLabel("If you make contact with him,", width / 2 + 400, height / 2 + 180, textSize(), "center");
-		drawLabel("you\'ll lose your Grind!", width / 2 + 400, height / 2 + 200, textSize(), "center");
+		drawLabel("Destroy Joe Cronins by", width / 2 - 400, height / 2 + 180, textSize(), "center");
+		drawLabel("shooting them with basketballs 💀", width / 2 - 400, height / 2 + 200, textSize(), "center");
+		drawLabel("If you make contact with one,", width / 2 + 400, height / 2 + 180, textSize(), "center");
+		drawLabel("you\'ll lose some of your Grind! 😤", width / 2 + 400, height / 2 + 200, textSize(), "center");
 		textSize(21);
 		drawLabel("Destroy 50 Joe Cronins before running out", width / 2, height / 2 + 240, textSize(), "center"); 
-		drawLabel("to force your way to the Miami Heat!", width / 2, height / 2 + 260, textSize(), "center");
+		drawLabel("of Grind to force your way to Miami! 🌊🌴💃", width / 2, height / 2 + 260, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
