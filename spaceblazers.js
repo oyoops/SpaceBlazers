@@ -207,19 +207,19 @@ function draw() {
 		textSize(64);
 		textAlign(CENTER, CENTER);
 		textStyle(BOLD);
-		drawLabel("SPACE BLAZERS", width / 2, height / 2 - 150, textSize(), "center");
+		drawLabel("PORTLAND ESCAPE!", width / 2, height / 2 - 150, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show a cute basketball emoji
 		textSize(64);
 		textAlign(CENTER, CENTER);
 		fill(255);
-		text("🏀", width / 2, height / 2);
+		text("🏀", width / 2, height / 2 + 50);
 
 		// Show the "click to start" message
-		textSize(42);
+		textSize(36);
 		textStyle(ITALIC);
-		drawLabel("Click to demand a trade...", width / 2, height / 2 - 120, textSize(), "center");
+		drawLabel("Click to demand a trade...", width / 2, height / 2 - 110, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
