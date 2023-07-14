@@ -260,8 +260,8 @@ function draw() {
 		// Show the game's instructions
 		textSize(28);
 		textStyle(ITALIC);
-		drawLabel("You are Damian Lillard, 11-time NBA All Star", width / 2, height / 2 + 30, textSize(), "center");
-		drawLabel("and greatest player in Portland franchise history.", width / 2, height / 2 + 55, textSize(), "center");
+		drawLabel("You are Damian Lillard, 11-time NBA All Star", width / 2, height / 2 + 10, textSize(), "center");
+		drawLabel("and greatest player in Portland franchise history.", width / 2, height / 2 + 35, textSize(), "center");
 		textStyle(NORMAL);
 		textSize(21);
 		drawLabel("Two weeks ago, you made a very polite request to management,", width / 2, height / 2 + 130, textSize(), "center");
