@@ -480,10 +480,9 @@ function drawLabel(labelText, x, y, size, tAlign) {
 		textAlign(CENTER);
 	}
 
-	// Draw the label background
-    //fill(0, 0, 0, 0.75);  // semi-transparent black
-    fill(100, 100, 100, 0.75); // semi-transparent gray
-	rect(x - padding, y - padding, labelWidth + 2 * padding, labelHeight + 2 * padding, 10);
+    // Draw the label background
+    fill(0, 0, 0, 0.75);  // semi-transparent black
+    rect(x - padding, y - padding, labelWidth + 2 * padding, labelHeight + 2 * padding, 10);
 
     // Draw the text
     fill(255);  // white text
