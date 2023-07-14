@@ -21,6 +21,7 @@ let asteroidCounter = 0;
 let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approximately 1 second)
 let levelTransition = false;
 let levelTransitionTimer = 0;
+let spaceImage;
 //let dingSound;
 
 
@@ -143,6 +144,7 @@ let currentLevel = levels[0]; // Start at level 1
 // Preload
 function preload() {
     console.log("Demanding a trade from Joe Cronin...");
+	spaceImage = loadImage('imgs/background.jpg');
     spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(100, 100));
     spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(100, 100));
     spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 100));
@@ -176,6 +178,8 @@ function setup() {
 
 // Draw function
 function draw() {
+	// Draw background
+	image(spaceImage, 0, 0, width, height);
 	if (score >= 30) {
 		background(50);
 	} else if (score >= 20) {
@@ -192,6 +196,7 @@ function draw() {
 		background(0);
    	}
 
+	// Draw the game
 	if (gameState === "start") {
         cursor();
 		textSize(72);
@@ -214,11 +219,12 @@ function draw() {
 			}
 		}
 
+		// Display and move the spaceship
 		spaceship.show();
 		spaceship.move();
 
+		// Generate asteroids
         /*
-        // Generate asteroids
         if (frameCount >= 60 && frameCount % asteroidGenerationTime == 0) {
 			asteroids.push(new Asteroid(asteroidImg.width / 2));
 			timeElapsed += asteroidGenerationTime;
