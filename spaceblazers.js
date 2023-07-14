@@ -476,6 +476,11 @@ function drawLabel(labelText, x, y, size, tAlign) {
 		textAlign(LEFT);
 	} else if (tAlign === "right") {
 		textAlign(RIGHT);
+	} else if (tAlign === "center") {
+		// CENTER ADJUSTMENT:
+		textAlign(CENTER);
+		x -= labelWidth / 2;
+		y -= labelHeight / 2 + textAscent() / 2;
 	} else {
 		// CENTER ADJUSTMENT:
 		textAlign(CENTER);
