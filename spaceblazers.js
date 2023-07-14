@@ -204,12 +204,12 @@ function draw() {
         cursor();
 		
 		// Show the title
-		textSize(48);
+		textSize(64);
 		textAlign(CENTER, CENTER);
 		textStyle(ITALIC);
-		drawLabel("HEAT SEEKER", width / 2, height / 2 - 200, textSize(), "center");
-		textSize(36);
-		drawLabel("Portland Escape!", width / 2, height / 2 - 170, textSize(), "center");
+		drawLabel("HEAT SEEKER", width / 2, height / 2 - 240, textSize(), "center");
+		textSize(42);
+		drawLabel("Portland Escape!", width / 2, height / 2 - 210, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show a cute basketball emoji
@@ -225,16 +225,16 @@ function draw() {
 		textStyle(NORMAL);
 
 		// Show the game's instructions
-		textSize(22);
+		textSize(23);
 		textStyle(BOLD);
-		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 75, textSize(), "center");
+		drawLabel("You are Damian Lillard, 11-time NBA All Star and greatest player in Portland franchise history.", width / 2, height / 2 + 90, textSize(), "center");
 		textStyle(NORMAL);
-		textSize(16);
-		drawLabel("You made a very polite request, but Crooked Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 120, textSize(), "center");
-		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs. If he makes contact, you\'ll lose your Grind!", width / 2, height / 2 + 140, textSize(), "center");
 		textSize(20);
-		drawLabel("Destroy 50 Joe Cronins before running out", width / 2, height / 2 + 210, textSize(), "center"); 
-		drawLabel("of Grind to force your way to the Miami Heat!", width / 2, height / 2 + 230, textSize(), "center");
+		drawLabel("You made a very polite request, but Crooked Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 130, textSize(), "center");
+		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs. If he makes contact, you\'ll lose your Grind!", width / 2, height / 2 + 145, textSize(), "center");
+		textSize(17);
+		drawLabel("Destroy 50 Joe Cronins before running out", width / 2, height / 2 + 220, textSize(), "center"); 
+		drawLabel("of Grind to force your way to the Miami Heat!", width / 2, height / 2 + 240, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
