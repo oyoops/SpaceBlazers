@@ -24,6 +24,39 @@ let levelTransitionTimer = 0;
 let spaceImage;
 //let dingSound;
 
+		// List of NBA teams
+		let nbaTeams = [
+			"Portland Trail Blazers",  // Portland Trail Blazers is the team for score 1
+			"Boston Celtics",
+			"Brooklyn Nets",
+			"Charlotte Hornets",
+			"Chicago Bulls",
+			"Cleveland Cavaliers",
+			"Dallas Mavericks",
+			"Denver Nuggets",
+			"Detroit Pistons",
+			"Golden State Warriors",
+			"Houston Rockets",
+			"Indiana Pacers",
+			"LA Clippers",
+			"Los Angeles Lakers",
+			"Memphis Grizzlies",
+			"Milwaukee Bucks",
+			"Minnesota Timberwolves",
+			"New Orleans Pelicans",
+			"New York Knicks",
+			"Oklahoma City Thunder",
+			"Orlando Magic",
+			"Philadelphia 76ers",
+			"Phoenix Suns",
+			"Atlanta Hawks",
+			"Sacramento Kings",
+			"San Antonio Spurs",
+			"Toronto Raptors",
+			"Utah Jazz",
+			"Washington Wizards",
+			"Miami HEAT"  // Miami Heat is the team for score 30
+		];
 
 // Leveling
 class Level {
@@ -373,39 +406,6 @@ function draw() {
 		// Determine team v2:
 		//
 		
-		// List of NBA teams
-		let nbaTeams = [
-			"Portland Trail Blazers",  // Portland Trail Blazers is the team for score 1
-			"Boston Celtics",
-			"Brooklyn Nets",
-			"Charlotte Hornets",
-			"Chicago Bulls",
-			"Cleveland Cavaliers",
-			"Dallas Mavericks",
-			"Denver Nuggets",
-			"Detroit Pistons",
-			"Golden State Warriors",
-			"Houston Rockets",
-			"Indiana Pacers",
-			"LA Clippers",
-			"Los Angeles Lakers",
-			"Memphis Grizzlies",
-			"Milwaukee Bucks",
-			"Minnesota Timberwolves",
-			"New Orleans Pelicans",
-			"New York Knicks",
-			"Oklahoma City Thunder",
-			"Orlando Magic",
-			"Philadelphia 76ers",
-			"Phoenix Suns",
-			"Atlanta Hawks",
-			"Sacramento Kings",
-			"San Antonio Spurs",
-			"Toronto Raptors",
-			"Utah Jazz",
-			"Washington Wizards",
-			"Miami HEAT"  // Miami Heat is the team for score 30
-		];
 		// Determine current team by looking up current score in the list of NBA teams
 		let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
 		//let team = level <= 30 ? nbaTeams[level - 1] : nbaTeams[nbaTeams.length - 1];
