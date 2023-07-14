@@ -725,3 +725,7 @@ function resetGame() {
     levelTransitionTimer = 0; // Reset level transition timer
 	loop();
 }
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+}
