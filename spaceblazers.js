@@ -430,7 +430,7 @@ function draw() {
 		textSize(26);
 		textAlign(LEFT);
 		let scoreText = score + " CRONIN KILLS";
-		drawLabel(scoreText, 30, 50, textSize(), "left");
+		drawLabel(scoreText, 50, 30, textSize(), "left");
 		
 		// Draw team label
 		if (score > 0) {
