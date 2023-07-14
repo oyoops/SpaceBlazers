@@ -473,6 +473,9 @@ function draw() {
 
 // Show fancy labels
 function drawLabel(labelText, x, y, size, tAlign) {
+    let scale = min(windowWidth, windowHeight) / 1000;  // create a scale factor based on the smallest dimension
+    size *= scale;  // scale the size based on the screen size
+
     textSize(size);  // set the text size before getting its width and height
     let labelWidth = textWidth(labelText);  // get the width of the text
     let labelHeight = textSize();  // get the height of the text
