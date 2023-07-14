@@ -463,7 +463,7 @@ function draw() {
 
 
 // Show text labels function
-function drawLabel(labelText, x, y, size) {
+function drawLabel(labelText, y, x, size) {
     let padding = 10; // padding around the text
     textSize(size);  // set the text size before getting its width and height
     let labelWidth = textWidth(labelText);  // get the width of the text
@@ -477,7 +477,6 @@ function drawLabel(labelText, x, y, size) {
     fill(255);  // white text
     text(labelText, x, y);
 }
-
 
 
 // Mouse Pressed Function
