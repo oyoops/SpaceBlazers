@@ -466,17 +466,18 @@ function draw() {
 function drawLabel(labelText, x, y) {
     let padding = 10; // padding around the text
     textSize(20);  // set the text size before getting its width and height
-    let textWidth = textWidth(labelText);
-    let textHeight = textSize();
+    let labelWidth = textWidth(labelText);  // get the width of the text
+    let labelHeight = textSize();  // get the height of the text
 
     // Draw the label background
     fill(0, 0, 0, 0.75);  // semi-transparent black
-    rect(x - padding, y - padding, textWidth + 2 * padding, textHeight + 2 * padding, 10);
+    rect(x - padding, y - padding, labelWidth + 2 * padding, labelHeight + 2 * padding, 10);
 
     // Draw the text
     fill(255);  // white text
     text(labelText, x, y);
 }
+
 
 
 // Mouse Pressed Function
