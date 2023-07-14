@@ -423,8 +423,10 @@ function draw() {
 		fill(255);
 		textSize(26);
 		textAlign(RIGHT);
+		textStyle(BOLD);
 		//text("GRIND: ", width - 45, 20);
 		drawLabel("GRIND: ", width - 50, 50, textSize(), "right");
+		textStyle(NORMAL);
 
 		textSize(26);
 		textAlign(RIGHT);
