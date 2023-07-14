@@ -181,19 +181,22 @@ function draw() {
 	// Draw background
 	image(spaceImage, 0, 0, width, height);
 	if (score >= 30) {
+
+		// Future update: CHANGE THIS INTO THE MIAMI HEAT COURT!
 		background(50);
+
 	} else if (score >= 20) {
-		background(0);
+		//background(0);
 	} else if (score >= 15) {
-		background(0);
+		//background(0);
 	} else if (score >= 10) {
-		background(0);
+		//background(0);
 	} else if (score >= 5) {
-		background(0);
+		//background(0);
 	} else if (score >= 1) {
-		background(0);
+		//background(0);
 	} else {
-		background(0);
+		//background(0);
    	}
 
 	// Draw the game
