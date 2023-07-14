@@ -183,6 +183,13 @@ function preload() {
     asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     asteroid2Img = loadImage('imgs/asteroid2.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     //dingSound = loadSound('sounds/ding.mp3');
+
+	// Load NBA team logos
+	let teamLogos = [];
+	for (let i = 0; i < nbaTeams.length; i++) {
+		teamLogos[i] = loadImage('imgs/logos/' + nbaTeams[i].replace(/ /g, '_') + '.png');
+	}
+
 }
 
 
@@ -286,7 +293,11 @@ function draw() {
 			if (invincibleTimer <= 0) {
 				invincible = false;
 			}
+
 		}
+		// Draw the team logo in the center of the canvas
+		let logo = teamLogos[currentLevel.levelNumber - 1];
+		image(logo, width / 2 - logo.width / 2, height / 2 - logo.height / 2, 50, 50);
 
 		// Display and move the spaceship
 		spaceship.show();
@@ -683,18 +694,19 @@ function Bullet(spos, epos) {
         this.particles.push(new Particle(this.pos)); // Add a new particle each frame
     }
 
-	this.hits = function(other) {
-		let dx = this.pos.x - other.pos.x;
-		let dy = this.pos.y - other.pos.y;
-		let distanceSquared = dx * dx + dy * dy;
-		let radiiSquared = (this.r + other.r) * (this.r + other.r);
-		if (distanceSquared < radiiSquared) {
-			return true;
-		} else {
-			return false;
-		}
-	}
+    this.hits = function(other) {
+        let dx = this.pos.x - other.pos.x;
+        let dy = this.pos.y - other.pos.y;
+        let distanceSquared = dx * dx + dy * dy;
+        let radiiSquared = (this.r + other.r) * (this.r + other.r);
+        if (distanceSquared < radiiSquared) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
+
 
 // Particle Class
 function Particle(pos) {
