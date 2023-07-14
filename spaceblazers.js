@@ -441,9 +441,9 @@ function draw() {
 		textStyle(BOLD);
 		let scoreText;
 		if (score == 1) {
-			scoreText = score + " CRONIN KILL";
+			scoreText = score + " CRONIN KILLED";
 		} else {
-			scoreText = score + " CRONIN KILLS";
+			scoreText = score + " CRONINS KILLED";
 		}
 		drawLabel(scoreText, 50, 50, textSize(), "left");
 		textStyle(NORMAL);
