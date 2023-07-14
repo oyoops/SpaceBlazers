@@ -216,19 +216,19 @@ function draw() {
 		text("🏀", width / 2, height / 2);
 
 		// Show the "click to start" message
-		textSize(28);
+		textSize(42);
 		//text("Click to demand a trade.", width / 2, height / 2 + 50);
-		drawLabel("Click to demand a trade.", width / 2, height / 2 - 50, textSize(), "center");
+		drawLabel("CLICK TO DEMAND A TRADE...", width / 2, height / 2 - 120, textSize(), "center");
 		
 		// Show the game's instructions
-		textSize(18);
+		textSize(20);
 		drawLabel("You are Damian Lillard, NBA superstar and best Portland Trail Blazer in franchise history.", width / 2, height / 2 + 100, textSize(), "center");
-		textSize(14);
+		textSize(16);
 		drawLabel("The evil Joe Cronin wants to stop you from achieving your dreams.", width / 2, height / 2 + 140, textSize(), "center");
-		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs.", width / 2, height / 2 + 155, textSize(), "center");
-		drawLabel("If he gets to you, you\'ll lose your Grind!", width / 2, height / 2 + 170, textSize(), "center");
-		textSize(18);
-		drawLabel("Destroy 50 Joe Cronins to force your way to the Miami Heat!", width / 2, height / 2 + 200, textSize(), "center");
+		drawLabel("Destroy as many Joe Cronins as possible by shooting basketballs.", width / 2, height / 2 + 160, textSize(), "center");
+		drawLabel("If he gets to you, you\'ll lose your Grind!", width / 2, height / 2 + 180, textSize(), "center");
+		textSize(20);
+		drawLabel("Destroy 50 Joe Cronins to force your way to the Miami Heat!", width / 2, height / 2 + 220, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
