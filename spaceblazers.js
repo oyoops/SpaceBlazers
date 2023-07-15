@@ -296,7 +296,10 @@ function draw() {
 
 		}
 		// Draw the team logo in the center of the canvas
-		let logo = teamLogos[currentLevel.levelNumber - 1];
+		if (typeof myObject !== 'undefined' && myObject !== null) {
+			let logo = teamLogos[myObject.levelNumber - 1];
+		}
+		////let logo = teamLogos[currentLevel.levelNumber - 1];
 		image(logo, width / 2 - logo.width / 2, height / 2 - logo.height / 2, 50, 50);
 
 		// Display and move the spaceship
