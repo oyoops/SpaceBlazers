@@ -686,7 +686,7 @@ function Bullet(spos, epos) {
         push();
         textSize(this.r * 2);
         text("🏀", this.pos.x, this.pos.y);
-        pop();
+        //pop();
         
         for (let i = this.particles.length - 1; i >= 0; i--) {
             this.particles[i].show();
