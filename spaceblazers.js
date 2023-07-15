@@ -110,9 +110,9 @@ class Level {
                 asteroid.vel.setMag(random(1, 2));
                 break;
 			case 11:
-				asteroid.zigzag();
+				//asteroid.zigzag();
 				asteroid.vel = createVector(random(-1, 1), random(-1, 1));
-				asteroid.vel.setMag(random(1, 2));
+				asteroid.vel.setMag(random(3, 4));
 				break;
             default:
                 console.error('ERROR: Non-contact injury during practice; undergoing further evaluation ... team fears torn ACL.', this.levelNumber);
