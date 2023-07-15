@@ -115,6 +115,7 @@ class Level {
 				asteroid.vel.setMag(random(3, 4));
 				break;
             default:
+				asteroid.vel.setMag(random(3, 4));
                 console.error('ERROR: Non-contact injury during practice; undergoing further evaluation ... team fears torn ACL.', this.levelNumber);
         }
     }
@@ -169,6 +170,66 @@ let levels = [
     new Level(10, function(asteroid) {
         // Level 10 logic
     }, 50),
+    new Level(11, function(asteroid) {
+        // Level 11 logic
+    }, 55),
+    new Level(12, function(asteroid) {
+        // Level 12 logic
+    }, 60),
+    new Level(13, function(asteroid) {
+        // Level 13 logic
+    }, 65),
+    new Level(14, function(asteroid) {
+        // Level 14 logic
+    }, 70),
+    new Level(15, function(asteroid) {
+        // Level 15 logic
+    }, 75),
+    new Level(16, function(asteroid) {
+        // Level 16 logic
+    }, 80),
+    new Level(17, function(asteroid) {
+        // Level 17 logic
+    }, 85),
+    new Level(18, function(asteroid) {
+        // Level 18 logic
+    }, 90),
+    new Level(19, function(asteroid) {
+        // Level 19 logic
+    }, 95),
+    new Level(20, function(asteroid) {
+        // Level 20 logic
+    }, 100),
+    new Level(21, function(asteroid) {
+        // Level 21 logic
+    }, 105),
+    new Level(22, function(asteroid) {
+        // Level 22 logic
+    }, 110),
+    new Level(23, function(asteroid) {
+        // Level 23 logic
+    }, 115),
+    new Level(24, function(asteroid) {
+        // Level 24 logic
+    }, 120),
+    new Level(25, function(asteroid) {
+        // Level 25 logic
+    }, 125),
+    new Level(26, function(asteroid) {
+        // Level 26 logic
+    }, 130),
+    new Level(27, function(asteroid) {
+        // Level 27 logic
+    }, 135),
+    new Level(28, function(asteroid) {
+        // Level 28 logic
+    }, 140),
+    new Level(29, function(asteroid) {
+        // Level 29 logic
+    }, 145),
+    new Level(30, function(asteroid) {
+        // Level 30 logic
+    }, 150),
     // Add more levels as needed...
 ];
 let currentLevel = levels[0]; // Start at level 1
@@ -681,12 +742,11 @@ function Bullet(spos, epos) {
     this.vel.setMag(4);
     this.r = 16;
     this.particles = []; // New particle array
-    
+    this.alpha = 255; ////
     this.show = function() {
         push();
         textSize(this.r * 2);
-
-		this.alpha = 255; ////
+		
         text("🏀", this.pos.x, this.pos.y);
         pop();
         
