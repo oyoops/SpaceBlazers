@@ -557,11 +557,11 @@ function draw() {
 			textAlign(CENTER, CENTER);
 			fill(255);
 			//text("Level " + currentLevel.levelNumber, width / 2, height / 2);
-			drawLabel("LEVEL " + currentLevel.levelNumber, width / 2, height / 2, textSize(), "center");
+			drawLabel("LEVEL " + currentLevel.levelNumber, width / 2 - 150, height / 2, textSize(), "center");
 			textSize(40);
 			let team = nbaTeams[currentLevel.levelNumber - 1];
 			//text(team, width / 2, height / 2 + 50);
-			drawLabel(team, width / 2, height / 2 + 50, textSize(), "center");
+			drawLabel(team, width / 2, height / 2 - 100, textSize(), "center");
 		}
 		// (for transition timer)
 		if (levelTransition) {
