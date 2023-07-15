@@ -365,7 +365,7 @@ function draw() {
 		}
 		
 		////let logo = teamLogos[currentLevel.levelNumber - 1];
-		image(logo, width / 2 - logo.width / 2, height / 2 - logo.height / 2, 1, 1);
+		image(logo, width / 2 - 150/ 2, height / 2 - 150 / 2, 150, 150);
 
 		// Display and move the spaceship
 		spaceship.show();
@@ -426,12 +426,16 @@ function draw() {
 			bullets[i].show();
 			bullets[i].move();
 
+			if (bullets[i].offscreen()) {
+				bullets.splice(i, 1);
+				continue; // Skip to next iteration as current bullet is removed
+			}
+
 			for (let j = asteroids.length - 1; j >= 0; j--) {
 				if (bullets[i] !== undefined && asteroids[j] !== undefined && bullets[i].hits(asteroids[j])) {
 					asteroids[j].hit = true;
 					bullets.splice(i, 1);
 					score++;
-                    //dingSound.play();
 					spaceship.img = spaceship2Img;
 					spaceship.timer = 90; // 1.5 seconds recovery timer
 					break;
@@ -763,6 +767,10 @@ function Bullet(spos, epos) {
         this.particles.push(new Particle(this.pos)); // Add a new particle each frame
     }
 
+    this.offscreen = function() {
+        return (this.pos.x < 0 || this.pos.x > width || this.pos.y < 0 || this.pos.y > height);
+    }
+
     this.hits = function(other) {
         let dx = this.pos.x - other.pos.x;
         let dy = this.pos.y - other.pos.y;
@@ -786,7 +794,7 @@ function Particle(pos) {
 		fill(255, this.alpha);
 		noStroke();
 		ellipse(this.pos.x, this.pos.y, 4);
-		this.alpha -= 12.75; // Adjust this value to alter the rate of fading
+		this.alpha -= 12.75 * 0.025; // Adjust this value to alter the rate of fading
 	}
 }
 
