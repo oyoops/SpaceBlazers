@@ -187,7 +187,8 @@ function preload() {
 
 	// Load NBA team logos
 	for (let i = 0; i < nbaTeams.length; i++) {
-    		teamLogos[i] = loadImage('imgs/logos/' + nbaTeams[i].toLowerCase().replace(/ /g, '-') + '.png', img => img.resize(150, 150), err => console.log('Error loading an NBA logo:', err));
+		console.log(nbaTeams[i].toLowerCase().replace(/ /g, '-'));
+   		teamLogos[i] = loadImage('imgs/logos/' + nbaTeams[i].toLowerCase().replace(/ /g, '-') + '.png', img => img.resize(100, 100), err => console.log('Error loading an NBA logo:', err));
 	}
 
 }
