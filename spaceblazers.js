@@ -23,8 +23,8 @@ let levelTransition = false;
 let levelTransitionTimer = 0;
 let spaceImage;
 //let dingSound;
-
-		// List of NBA teams
+let teamLogos = [];
+	// List of NBA teams
 		let nbaTeams = [
 			"Portland Trail Blazers",  // Portland Trail Blazers is the team for score 1
 			"Boston Celtics",
@@ -185,7 +185,6 @@ function preload() {
     //dingSound = loadSound('sounds/ding.mp3');
 
 	// Load NBA team logos
-	let teamLogos = [];
 	for (let i = 0; i < nbaTeams.length; i++) {
     		teamLogos[i] = loadImage('imgs/logos/' + nbaTeams[i].toLowerCase().replace(/ /g, '-') + '.png');
 	}
