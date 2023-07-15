@@ -25,45 +25,45 @@ let spaceImage;
 //let dingSound;
 let logo;
 let teamLogos = [];
-	// List of NBA teams
-		let nbaTeams = [
-			"Portland Trail Blazers",  // Portland Trail Blazers is the team for score 1
-			"Boston Celtics",
-			"Brooklyn Nets",
-			"Charlotte Hornets",
-			"Chicago Bulls",
-			"Cleveland Cavaliers",
-			"Dallas Mavericks",
-			"Denver Nuggets",
-			"Detroit Pistons",
-			"Golden State Warriors",
-			"Houston Rockets",
-			"Indiana Pacers",
-			"LA Clippers",
-			"Los Angeles Lakers",
-			"Memphis Grizzlies",
-			"Milwaukee Bucks",
-			"Minnesota Timberwolves",
-			"New Orleans Pelicans",
-			"New York Knicks",
-			"Oklahoma City Thunder",
-			"Orlando Magic",
-			"Philadelphia 76ers",
-			"Phoenix Suns",
-			"Atlanta Hawks",
-			"Sacramento Kings",
-			"San Antonio Spurs",
-			"Toronto Raptors",
-			"Utah Jazz",
-			"Washington Wizards",
-			"Miami HEAT"  // Miami Heat is the team for score 30
-		];
+// List of NBA teams
+let nbaTeams = [
+    "Portland Trail Blazers", // Blazers must be first
+    "Washington Wizards",
+    "Houston Rockets",
+    "Charlotte Hornets",
+    "Boston Celtics",
+    "Detroit Pistons",
+    "Utah Jazz",
+    "Orlando Magic",
+    "Indiana Pacers",
+    "San Antonio Spurs",
+    "Oklahoma City Thunder",
+    "Toronto Raptors",
+    "Atlanta Hawks",
+    "Chicago Bulls",
+    "Brooklyn Nets",
+    "New Orleans Pelicans",
+    "Minnesota Timberwolves",
+    "Memphis Grizzlies",
+    "Dallas Mavericks",
+    "Cleveland Cavaliers",
+    "New York Knicks",
+    "Sacramento Kings",
+    "LA Clippers",
+    "Golden State Warriors",
+    "Los Angeles Lakers",
+    "Philadelphia 76ers",
+    "Phoenix Suns",
+    "Milwaukee Bucks",
+    "Denver Nuggets",
+    "Miami HEAT" // Heat must be last
+];
 
 // Leveling
 class Level {
     constructor(levelNumber, asteroidLogic, asteroidCount) {
         this.levelNumber = levelNumber;
-        this.asteroidLogic = asteroidLogic; // This is a function that describes the logic for the asteroids
+        this.asteroidLogic = asteroidLogic;
         this.asteroidCount = asteroidCount;
     }
     
@@ -426,11 +426,13 @@ function draw() {
 			bullets[i].show();
 			bullets[i].move();
 
+			// Bullet goes offscreen
 			if (bullets[i].offscreen()) {
 				bullets.splice(i, 1);
 				continue; // Skip to next iteration as current bullet is removed
 			}
 
+			// Bullet hits asteroid
 			for (let j = asteroids.length - 1; j >= 0; j--) {
 				if (bullets[i] !== undefined && asteroids[j] !== undefined && bullets[i].hits(asteroids[j])) {
 					asteroids[j].hit = true;
@@ -444,23 +446,30 @@ function draw() {
 		}
 
 		for (let i = asteroids.length - 1; i >= 0; i--) {
+			// Apply asteroid logic
 			currentLevel.applyAsteroidLogic(asteroids[i]);
 
+			// Display and move each asteroid
 			asteroids[i].show();
 			asteroids[i].move();
+
+			// Asteroid goes offscreen
 			if (asteroids[i].offscreen()) {
 				asteroids.splice(i, 1);
 				continue; // Skip to next iteration as current asteroid is removed
 			}
+			// Asteroid hits spaceship
 			if (asteroids[i] !== undefined && asteroids[i].hits(spaceship) && !invincible) {
 				spaceship.lives--;
 				asteroids[i].hit = true;
+				// If spaceship has no more lives, game over
 				if (spaceship.lives <= 0) {
 					cursor(); // Show the cursor again
 					gameOver = true;
-					button.show(); // Show the try again button on game over
-					tweetButton.show();  // Show the tweet button on game over
+					button.show(); // Try again button
+					tweetButton.show();  // Tweet button
 					noLoop();
+				// Otherwise, make the spaceship invincible for a short period of time
 				} else {
 					invincible = true;
 					invincibleTimer = 90; // 1.5 second of invincibility
@@ -480,7 +489,7 @@ function draw() {
 			if (levels[nextLevelIndex]) {
 				currentLevel = levels[nextLevelIndex];
 				levelTransition = true;
-				levelTransitionTimer = 120; // Transition will last for 2 seconds
+				levelTransitionTimer = 180; // Transition will last for 3 seconds
 		
 				// Clear the asteroids array
 				asteroids = [];
@@ -548,7 +557,7 @@ function draw() {
 			textAlign(CENTER, CENTER);
 			fill(255);
 			//text("Level " + currentLevel.levelNumber, width / 2, height / 2);
-			drawLabel("Level " + currentLevel.levelNumber, width / 2, height / 2, textSize(), "center");
+			drawLabel("LEVEL " + currentLevel.levelNumber, width / 2, height / 2, textSize(), "center");
 			textSize(40);
 			let team = nbaTeams[currentLevel.levelNumber - 1];
 			//text(team, width / 2, height / 2 + 50);
@@ -665,8 +674,8 @@ function Asteroid(r) {
 	    image(this.hitImg, this.pos.x - this.r, this.pos.y - this.r);
 	    noTint();
 	    if (this.hit) {
-	        this.hitImg = asteroid2Img;  // Change the image upon hit
-	        this.alpha -= 2.55;
+	        this.hitImg = asteroid2Img;  // Change the image upon being hit
+	        this.alpha -= 2.55; // Fade out
 	        if (this.alpha <= 0) {
 	            this.offscreen = function() {
 	                return true;
@@ -690,7 +699,7 @@ function Asteroid(r) {
     }
     
 	this.hits = function(other) {
-		if (this.gracePeriod > 0 || this.hit) {  // added || this.hit
+		if (this.gracePeriod > 0 || this.hit) { 
 			return false;
 		}
 		let dx = this.pos.x - other.pos.x;
@@ -700,7 +709,7 @@ function Asteroid(r) {
 		return distanceSquared < radiiSquared;
 	}
 
-	// FOLLOW - function to make asteroids follow the spaceship (introduced in Level 1)
+	// Homing asteroids (introduced in Level 1)
 	this.follow = function(target, speed) {
         // Create a vector pointing from this asteroid to the target
         let force = p5.Vector.sub(target, this.pos);
@@ -710,7 +719,7 @@ function Asteroid(r) {
         this.vel = force;
     };
 
-	// BOUNCE - function to make asteroids bounce off the edges of the canvas (introduced in Level 3)
+	// Edge-bouncing asteroids (introduced in Level 3)
 	this.bounce = function() {
 		if (this.pos.x < this.r || this.pos.x > width - this.r) {
 			this.vel.x *= -1;
@@ -720,7 +729,7 @@ function Asteroid(r) {
 		}
 	}
 
-	// ZIGZAG - function to make asteroids zigzag in their paths (introduced in Level 6)
+	// Zig-zagging asteroids (introduced in Level 6)
     this.zigzag = function(amplitude, frequency) {
         // Calculate the y offset using a sine wave
         let yOffset = amplitude * sin(frameCount * frequency);
@@ -734,6 +743,7 @@ function Asteroid(r) {
 
 }
 
+
 // Bullet Class
 function Bullet(spos, epos) {
     this.pos = createVector(spos.x, spos.y);
@@ -746,7 +756,7 @@ function Bullet(spos, epos) {
     this.vel.setMag(4);
     this.r = 16;
     this.particles = []; // New particle array
-    this.alpha = 255; ////
+    this.alpha = 255;
     this.show = function() {
         push();
         textSize(this.r * 2);
@@ -794,7 +804,7 @@ function Particle(pos) {
 		fill(255, this.alpha);
 		noStroke();
 		ellipse(this.pos.x, this.pos.y, 4);
-		this.alpha -= 12.75 * 0.025; // Adjust this value to alter the rate of fading
+		this.alpha -= 12.75 * 0.2; // Adjust this value to alter the rate of fading
 	}
 }
 
