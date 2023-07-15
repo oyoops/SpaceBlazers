@@ -23,6 +23,7 @@ let levelTransition = false;
 let levelTransitionTimer = 0;
 let spaceImage;
 //let dingSound;
+let logo;
 let teamLogos = [];
 	// List of NBA teams
 		let nbaTeams = [
@@ -254,12 +255,12 @@ function draw() {
 		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
-		text("🏀", width / 2, height / 2 - 80);
+		text("🏀", width / 2, height / 2 - 60);
 
 		// Show the "click to start" message
 		textSize(28);
 		textStyle(BOLD);
-		drawLabel("CLICK TO DEMAND TRADE", width / 2, height / 2 - 70, textSize(), "center");
+		drawLabel("CLICK TO DEMAND TRADE", width / 2, height / 2 - 65, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
@@ -296,9 +297,9 @@ function draw() {
 		}
 		// Draw the team logo in the center of the canvas
 		if (typeof myObject !== 'undefined' && myObject !== null) {
-			let logo = teamLogos[myObject.levelNumber - 1];
+			logo = teamLogos[myObject.levelNumber - 1];
 		} else {
-			let logo = teamLogos[currentLevel.levelNumber - 1];
+			logo = teamLogos[currentLevel.levelNumber - 1];
 		}
 		
 		////let logo = teamLogos[currentLevel.levelNumber - 1];
