@@ -187,7 +187,7 @@ function preload() {
 
 	// Load NBA team logos
 	for (let i = 0; i < nbaTeams.length; i++) {
-    		teamLogos[i] = loadImage('imgs/logos/' + nbaTeams[i].toLowerCase().replace(/ /g, '-') + '.png');
+    		teamLogos[i] = loadImage('imgs/logos/' + nbaTeams[i].toLowerCase().replace(/ /g, '-') + '.png', img => img.resize(150, 150), err => console.log('Error loading an NBA logo:', err));
 	}
 
 }
@@ -303,7 +303,7 @@ function draw() {
 		}
 		
 		////let logo = teamLogos[currentLevel.levelNumber - 1];
-		image(logo, width / 2 - logo.width / 2, height / 2 - logo.height / 2, 50, 50);
+		image(logo, width / 2 - logo.width / 2, height / 2 - logo.height / 2, 1, 1);
 
 		// Display and move the spaceship
 		spaceship.show();
