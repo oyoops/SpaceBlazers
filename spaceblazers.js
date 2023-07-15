@@ -256,12 +256,12 @@ function draw() {
 		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
-		text("🏀", width / 2, height / 2 - 185);
+		text("🏀", width / 2, height / 2 - 155);
 
 		// Show the "click to start" message
 		textSize(28);
 		textStyle(BOLD);
-		drawLabel("CLICK TO DEMAND TRADE", width / 2, height / 2 - 185, textSize(), "center");
+		drawLabel("CLICK TO DEMAND TRADE", width / 2, height / 2 - 155, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
