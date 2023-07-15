@@ -674,7 +674,7 @@ function Bullet(spos, epos) {
     this.pos = createVector(spos.x, spos.y);
     if (spos.x === epos.x && spos.y === epos.y) {
         // Create a random velocity vector
-        this.vel = createVector(random(-1, 1), random(-1, 1));
+        this.vel = createVector(random(-2, 2), random(-2, 2));
     } else {
         this.vel = p5.Vector.sub(epos, spos);
     }
@@ -685,8 +685,10 @@ function Bullet(spos, epos) {
     this.show = function() {
         push();
         textSize(this.r * 2);
+
+		this.alpha = 255; ////
         text("🏀", this.pos.x, this.pos.y);
-        //pop();
+        pop();
         
         for (let i = this.particles.length - 1; i >= 0; i--) {
             this.particles[i].show();
