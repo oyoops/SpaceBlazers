@@ -328,20 +328,23 @@ function draw() {
 		// Show the game's instructions
 		textSize(22);
 		textStyle(BOLD);
-		drawLabel("You are Damian Lillard, 11x NBA All-Star 🏆", width / 2, height / 2 - 75, textSize(), "center");
-		drawLabel("and greatest player in Blazers' franchise history 💯", width / 2, height / 2 - 55, textSize(), "center");
+		drawLabel("You are Damian Lillard,", width / 2, height / 2 - 95, textSize(), "center");
 		textStyle(NORMAL);
+		drawLabel("11x NBA All-Star 🏆", width / 2, height / 2 - 75, textSize(), "center");
+		drawLabel("and greatest player in", width / 2, height / 2 - 55, textSize(), "center");
+		drawLabel("Portland history 💯", width / 2, height / 2 - 35, textSize(), "center");
 		textSize(20);
-		drawLabel("Recently, you made a very polite request in pursuit of your dream 🙏", width / 2, height / 2 + 60, textSize(), "center");
-		drawLabel("... but Crooked Joe Cronin had other ideas 🐍", width / 2, height / 2 + 80, textSize(), "center");
+		drawLabel("You recently made a very polite", width / 2, height / 2 + 40, textSize(), "center");
+		drawLabel("request to go pursue your dream 🙏", width / 2, height / 2 + 60, textSize(), "center");
+		drawLabel("But Crooked Cronin has other plans... 🐍", width / 2, height / 2 + 80, textSize(), "center");
 		textSize(18);
 		drawLabel("Kill Joe Cronins by shooting", width / 2 - 0, height / 2 + 120, textSize(), "center");
 		drawLabel("them with basketballs 🏀💀", width / 2 - 0, height / 2 + 140, textSize(), "center");
 		drawLabel("But you make contact with a Crooked Cronin,", width / 2 + 0, height / 2 + 180, textSize(), "center");
 		drawLabel("you\'ll lose some of your GRIND! 😤", width / 2 + 0, height / 2 + 200, textSize(), "center");
 		textSize(20);
-		drawLabel("Kill 50 Crooked Cronins before they take", width / 2, height / 2 + 240, textSize(), "center"); 
-		drawLabel("all your grind to force a trade to Miami 🌊🌴", width / 2, height / 2 + 260, textSize(), "center");
+		drawLabel("Kill 150 Crooked Cronins before he takes", width / 2, height / 2 + 240, textSize(), "center"); 
+		drawLabel("all your GRIND to get traded to Miami! 🌊🌴", width / 2, height / 2 + 260, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
@@ -557,7 +560,7 @@ function draw() {
 			textAlign(CENTER, CENTER);
 			fill(255);
 			//text("Level " + currentLevel.levelNumber, width / 2, height / 2);
-			drawLabel("LEVEL " + currentLevel.levelNumber, width / 2 - 150, height / 2, textSize(), "center");
+			drawLabel("LEVEL " + currentLevel.levelNumber, width / 2, height / 2 - 150, textSize(), "center");
 			textSize(40);
 			let team = nbaTeams[currentLevel.levelNumber - 1];
 			//text(team, width / 2, height / 2 + 50);
