@@ -512,14 +512,14 @@ function draw() {
 
 		// Draw lives
 		fill(255);
-		textSize(26);
+		textSize(22);
 		textAlign(RIGHT);
 		textStyle(BOLD);
 		//text("GRIND: ", width - 45, 20);
 		drawLabel("GRIND: ", width - 65, 50, textSize(), "right");
 		textStyle(NORMAL);
 
-		textSize(26);
+		textSize(24);
 		textAlign(RIGHT);
 		for (let i = 0; i < spaceship.lives; i++) {
 			//text("❤️", width - 90 + i * 30, 50);
@@ -527,7 +527,7 @@ function draw() {
 		}
 		
 		// Draw score label
-		textSize(26);
+		textSize(22);
 		textAlign(LEFT);
 		textStyle(BOLD);
 		let scoreText;
@@ -542,9 +542,9 @@ function draw() {
 		// Draw team label
 		if (score > 0) {
 			let team = nbaTeams[currentLevel.levelNumber - 1];
-			textSize(20);
+			textSize(18);
 			drawLabel(team, 50, 70, textSize(), "left");
-			textSize(26);
+			textSize(22);
 		}
 		
 		//
