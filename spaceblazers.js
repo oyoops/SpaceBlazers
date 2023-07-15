@@ -255,31 +255,31 @@ function draw() {
 		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
-		text("🏀", width / 2, height / 2 - 60);
+		text("🏀", width / 2, height / 2 - 185);
 
 		// Show the "click to start" message
 		textSize(28);
 		textStyle(BOLD);
-		drawLabel("CLICK TO DEMAND TRADE", width / 2, height / 2 - 65, textSize(), "center");
+		drawLabel("CLICK TO DEMAND TRADE", width / 2, height / 2 - 185, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
-		textSize(28);
+		textSize(22);
 		textStyle(ITALIC);
-		drawLabel("You are Damian Lillard, 11x NBA All-Star 🏆", width / 2, height / 2 + 80, textSize(), "center");
-		drawLabel("and greatest player in Blazers' franchise history 💯", width / 2, height / 2 + 105, textSize(), "center");
+		drawLabel("You are Damian Lillard, 11x NBA All-Star 🏆", width / 2, height / 2 + 40, textSize(), "center");
+		drawLabel("and greatest player in Blazers' franchise history 💯", width / 2, height / 2 + 60, textSize(), "center");
 		textStyle(NORMAL);
 		textSize(20);
-		drawLabel("Recently, you made a very polite request in pursuit of your dream 🙏", width / 2, height / 2 + 160, textSize(), "center");
-		drawLabel("... but Crooked Joe Cronin had other ideas 🐍", width / 2, height / 2 + 140, textSize(), "center");
+		drawLabel("Recently, you made a very polite request in pursuit of your dream 🙏", width / 2, height / 2 + 140, textSize(), "center");
+		drawLabel("... but Crooked Joe Cronin had other ideas 🐍", width / 2, height / 2 + 160, textSize(), "center");
 		textSize(18);
-		drawLabel("Kill Joe Cronins by", width / 2 - 550, height / 2 + 230, textSize(), "center");
-		drawLabel("shooting them with basketballs 💀", width / 2 - 550, height / 2 + 250, textSize(), "center");
-		drawLabel("If you make contact with a Crooked Cronin,", width / 2 + 550, height / 2 + 230, textSize(), "center");
-		drawLabel("you\'ll lose some of your GRIND 😤", width / 2 + 550, height / 2 + 250, textSize(), "center");
+		drawLabel("Kill Joe Cronins by", width / 2 - 0, height / 2 + 200, textSize(), "center");
+		drawLabel("shooting them with basketballs 💀", width / 2 - 0, height / 2 + 220, textSize(), "center");
+		drawLabel("If you make contact with a Crooked Cronin,", width / 2 + 0, height / 2 + 240, textSize(), "center");
+		drawLabel("you\'ll lose some of your GRIND 😤", width / 2 + 0, height / 2 + 260, textSize(), "center");
 		textSize(20);
-		drawLabel("Kill 50 Crooked Cronins before they take", width / 2, height / 2 + 260, textSize(), "center"); 
-		drawLabel("all your grind to force a trade to Miami 🌊🌴", width / 2, height / 2 + 280, textSize(), "center");
+		drawLabel("Kill 50 Crooked Cronins before they take", width / 2, height / 2 + 300, textSize(), "center"); 
+		drawLabel("all your grind to force a trade to Miami 🌊🌴", width / 2, height / 2 + 320, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
