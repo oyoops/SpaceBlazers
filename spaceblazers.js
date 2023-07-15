@@ -106,19 +106,19 @@ class Level {
                 //asteroid.zigzag(10, 0.1);
                 break;
             case 10:
-				asteroid.follow(spaceship.pos, 4);
-                asteroid.vel = createVector(random(0, 1), random(0, 1));
-                asteroid.vel.setMag(random(1, 2));
+                asteroid.follow(spaceship.pos, 4);
+                //asteroid.vel = createVector(random(0, 1), random(0, 1));
+                //asteroid.vel.setMag(random(1, 2));
                 break;
 			case 11:
 				asteroid.zigzag();
-				asteroid.vel = createVector(random(0, 1), random(0, 1));
-				asteroid.vel.setMag(random(3, 4));
+				//asteroid.vel = createVector(random(0, 1), random(0, 1));
+				//asteroid.vel.setMag(random(3, 4));
 				break;
             default:
 				asteroid.follow(spaceship.pos, 4);
-				asteroid.vel = createVector(random(0, 1), random(0, 1));
-				asteroid.vel.setMag(random(3, 4));
+				//asteroid.vel = createVector(random(0, 1), random(0, 1));
+				//asteroid.vel.setMag(random(3, 4));
                 console.error('ERROR: Non-contact injury during practice; undergoing further evaluation ... team fears torn ACL.', this.levelNumber);
         }
     }
