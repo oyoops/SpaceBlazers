@@ -89,21 +89,21 @@ class Level {
                 }
                 break;
             case 6:
-                asteroid.zigzag(10, 0.1);
-                break;
+                //asteroid.zigzag(10, 0.1);
+                asteroid.follow(spaceship.pos, 3);
+				break;
             case 7:
-                asteroid.follow(spaceship.pos, 1);
-                asteroid.zigzag(10, 0.1);
+                asteroid.follow(spaceship.pos, 3.5);
                 break;
             case 8:
                 if (frameCount > 180) { // 3 seconds
-                    asteroid.follow(spaceship.pos, 1);
-                    asteroid.zigzag(10, 0.1);
+                    asteroid.follow(spaceship.pos, 4);
+                    //asteroid.zigzag(10, 0.1);
                 }
                 break;
             case 9:
-                asteroid.follow(spaceship.pos, 2);
-                asteroid.zigzag(10, 0.1);
+                asteroid.follow(spaceship.pos, 4);
+                //asteroid.zigzag(10, 0.1);
                 break;
             case 10:
                 asteroid.vel = createVector(random(-1, 1), random(-1, 1));
