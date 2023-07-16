@@ -537,15 +537,21 @@ function draw() {
                     };
                     
                     // Display Damian's opinion
-                    if (opinionIndex <= dameOpinion.length) {
-                        const displayText = dameOpinion.substring(0, opinionIndex);
-                        textSize(14);
-                        textFont('Courier New');
-                        text(displayText, 100, height / 2 - 20); // x, y are the coordinates where you want to display the text
-                        textFont('Arial')
-                        textSize(20);
-                        opinionIndex++;
+                    if (typeof dameOpinion === 'string' || dameOpinion instanceof String) {
+                        console.log('dameOpinion is a string:', dameOpinion);
+                        if (opinionIndex <= dameOpinion.length) {
+                            const displayText = dameOpinion.substring(0, opinionIndex);
+                            textSize(14);
+                            textFont('Courier New');
+                            text(displayText, 100, height / 2 - 20); // x, y are the coordinates where you want to display the text
+                            textFont('Arial')
+                            textSize(20);
+                            opinionIndex++;
+                        }                    
+                    } else {
+                        console.error('dameOpinion is not a string:', dameOpinion);
                     }
+
 
 				// Otherwise, make the spaceship invincible for a short period of time
 				} else {
@@ -958,7 +964,8 @@ function typeWriter(text, element, delay = 50) {
 }
 */
 
-getDamianOpinion(team, score).then(opinion => {
+/*getDamianOpinion(team, score).then(opinion => {
     const opinionDiv = document.getElementById('opinion-text');
     opinionDiv.textContent = opinion;
 });
+*/
