@@ -359,12 +359,12 @@ function draw() {
 		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
-		text("🏀", width / 2, height / 2 - 55);
+		text("🏀", width / 2, height / 2 - 105);
 
 		// Show the "click to start" message
 		textSize(28);
 		textStyle(BOLD);
-		drawLabel("CLICK TO DEMAND TRADE", width / 2, height / 2 - 55, textSize(), "center");
+		drawLabel("CLICK TO DEMAND TRADE", width / 2, height / 2 - 105, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
@@ -378,17 +378,17 @@ function draw() {
 		drawLabel("franchise history! 💯", width / 2, height / 2 - 35, textSize(), "center");
 		*/
         textSize(20);
-		drawLabel("Damian Lillard made a very polite", width / 2, height / 2 + 10, textSize(), "center");
-		drawLabel("request to go pursue his dream 🙏", width / 2, height / 2 + 30, textSize(), "center");
-		drawLabel("But Crooked Cronin has other plans... 🐍", width / 2, height / 2 + 85, textSize(), "center");
+		drawLabel("Damian Lillard made a very polite", width / 2, height / 2 + 30, textSize(), "center");
+		drawLabel("request to go pursue his dream 🙏", width / 2, height / 2 + 50, textSize(), "center");
+		drawLabel("But Crooked Cronin has other plans... 🐍", width / 2, height / 2 + 70, textSize(), "center");
 		textSize(18);
-		drawLabel("Kill Joe Cronins by shooting", width / 2 - 0, height / 2 + 120, textSize(), "center");
-		drawLabel("them with basketballs 🏀💀", width / 2 - 0, height / 2 + 140, textSize(), "center");
-		drawLabel("But you make contact with a Crooked Cronin,", width / 2 + 0, height / 2 + 180, textSize(), "center");
-		drawLabel("you\'ll lose some of your GRIND! 😤", width / 2 + 0, height / 2 + 200, textSize(), "center");
+		drawLabel("Kill Joe Cronins by shooting", width / 2 - 0, height / 2 + 100, textSize(), "center");
+		drawLabel("them with basketballs 🏀💀", width / 2 - 0, height / 2 + 120, textSize(), "center");
+		drawLabel("But you make contact with a Crooked Cronin,", width / 2 + 0, height / 2 + 140, textSize(), "center");
+		drawLabel("you\'ll lose some of your GRIND! 😤", width / 2 + 0, height / 2 + 160, textSize(), "center");
 		textSize(20);
-		drawLabel("Kill 150 Crooked Cronins before he takes", width / 2, height / 2 + 240, textSize(), "center"); 
-		drawLabel("all your GRIND to get to Miami! 🌊🌴", width / 2, height / 2 + 260, textSize(), "center");
+		drawLabel("Kill 150 Crooked Cronins before he takes", width / 2, height / 2 + 200, textSize(), "center"); 
+		drawLabel("all your GRIND to get to Miami! 🌊🌴", width / 2, height / 2 + 220, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
