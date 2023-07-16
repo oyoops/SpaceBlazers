@@ -67,7 +67,7 @@ let soundtrack;
 let killSound;
 let gameOverSound;
 let levelUpSound;
-let nextLevelSound;
+//let nextLevelSound;
 let dameDollaSound;
 
 // Leveling
@@ -266,14 +266,17 @@ function preload() {
 	}
 
 	// Load sounds
-	soundtrack = loadSound('/sounds/soundtrack.mp3');
     killSound = loadSound('/sounds/kill.mp3');
 	bruhSound = loadSound('/sounds/bruh.mp3');
     gameOverSound = loadSound('/sounds/game-over.mp3');
     levelUpSound = loadSound('/sounds/next-level.mp3');
 	dingSound = loadSound('/sounds/ding.mp3');
-	dameDollaSound = loadSound('/sounds/Hulu.mp3');
-
+    // soundtrack selections
+    ////soundtrack = loadSound('/sounds/soundtrack.mp3');
+	////dameDollaSound = loadSound('/sounds/Hulu.mp3');
+    soundtrack = loadSound('/sounds/Hulu.mp3');
+	dameDollaSound = loadSound('/sounds/soundtrack.mp3');
+    
 }
 
 
@@ -612,7 +615,6 @@ function draw() {
 			let team = nbaTeams[currentLevel.levelNumber - 1];
 			//text(team, width / 2, height / 2 + 50);
 			drawLabel(team, width / 2, height / 2 - 100, textSize(), "center");
-			nextLevelSound.play();
 		}
 		// (for transition timer)
 		if (levelTransition) {
