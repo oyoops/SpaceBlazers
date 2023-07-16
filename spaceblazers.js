@@ -59,6 +59,7 @@ let nbaTeams = [
     "Miami HEAT" // Heat must be last
 ];
 
+
 // Leveling
 class Level {
     constructor(levelNumber, asteroidLogic, asteroidCount) {
@@ -123,7 +124,6 @@ class Level {
         }
     }
 }
-
 
 
 // Define the levels' logic set
@@ -749,7 +749,6 @@ function Asteroid(r) {
 
 }
 
-
 // Bullet Class
 function Bullet(spos, epos) {
     this.pos = createVector(spos.x, spos.y);
@@ -799,7 +798,6 @@ function Bullet(spos, epos) {
         }
     }
 }
-
 
 // Particle Class
 function Particle(pos) {
