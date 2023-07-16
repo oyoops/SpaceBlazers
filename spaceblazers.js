@@ -291,7 +291,7 @@ function setup() {
 
 	// Dame Dolla button
 	textSize(32);
-	dameDollaButton = createButton('🔊');
+	dameDollaButton = createButton('🔊 Dame Dolla');
 	textSize(20);
 	dameDollaButton.position(10, height - dameDollaButton.height - 30);
     dameDollaButton.mousePressed(toggleDameSound);
@@ -370,8 +370,8 @@ function draw() {
 		drawLabel("You are Damian Lillard,", width / 2, height / 2 - 95, textSize(), "center");
 		textStyle(NORMAL);
 		drawLabel("11x NBA All-Star 🏆", width / 2, height / 2 - 75, textSize(), "center");
-		drawLabel("and greatest player in", width / 2, height / 2 - 55, textSize(), "center");
-		drawLabel("Portland history 💯", width / 2, height / 2 - 35, textSize(), "center");
+		drawLabel("and best player in", width / 2, height / 2 - 55, textSize(), "center");
+		drawLabel("franchise history! 💯", width / 2, height / 2 - 35, textSize(), "center");
 		textSize(20);
 		drawLabel("You recently made a very polite", width / 2, height / 2 + 40, textSize(), "center");
 		drawLabel("request to go pursue your dream 🙏", width / 2, height / 2 + 60, textSize(), "center");
@@ -886,11 +886,11 @@ function windowResized() {
 function toggleSound() {
     if (soundIsOn) {
         soundIsOn = false;
-        muteButton.html('Unmute');
+        //muteButton.html('Unmute');
         soundtrack.stop(); // stop the sound
     } else {
         soundIsOn = true;
-        muteButton.html('Mute');
+        //muteButton.html('Mute');
         soundtrack.loop(); // play the sound
     }
 }
