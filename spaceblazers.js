@@ -22,6 +22,7 @@ let levelTransition = false;
 let levelTransitionTimer = 0;
 let spaceImage;
 let muteButton;
+let dameDollaButton;
 let soundIsOn = true;
 let dameSoundIsOn = false;
 
@@ -67,7 +68,7 @@ let killSound;
 let gameOverSound;
 let levelUpSound;
 let nextLevelSound;
-
+let dameDollaSound;
 
 // Leveling
 class Level {
