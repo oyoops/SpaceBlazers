@@ -12,6 +12,7 @@ let invincible = false;
 let invincibleTimer = 0;
 let button;
 let tweetButton;
+let textModifier = "";
 let asteroidGenerationTime = 300; // 5 seconds
 let timeElapsed = 0;
 let score = 0;
@@ -526,6 +527,14 @@ function draw() {
 					soundtrack.stop();
 					dameDollaSound.stop();
 					gameOverSound.play();
+
+                    // Get Dame's opinion via OpenAI
+                    const getDameOpinion = async (team, score, textModifier) => {
+                        const response = await axios.get('/api/lillard-opinion', { params: { team, score, textModifier } });
+                        return response.data.opinion;
+                    };
+
+
 				// Otherwise, make the spaceship invincible for a short period of time
 				} else {
 					invincible = true;
@@ -920,3 +929,4 @@ function toggleDameSound() {
         soundtrack.loop(); // play the soundtrack
     }
 }
+
