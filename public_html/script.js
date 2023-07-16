@@ -201,7 +201,7 @@ topImage.addEventListener('click', async function() {
 
     try {
         console.log("my site = ",mySiteURL);
-        const response = await fetch(`https://${mySiteURL}:5555/generate-text/wrong`)
+        const response = await fetch(`https://${mySiteURL}:5556/generate-text/wrong`)
         
             .then(response => response.text())
 
@@ -382,7 +382,7 @@ bottomImage.addEventListener('click', async function() {
     try {
 
         console.log("my site = ",mySiteURL);
-        const response = await fetch(`https://${mySiteURL}:5555/generate-text/correct`, {
+        const response = await fetch(`https://${mySiteURL}:5556/generate-text/correct`, {
             method: "GET",
             mode: "cors", // cors mode
             headers: {
