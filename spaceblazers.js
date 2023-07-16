@@ -98,6 +98,10 @@ class Level {
                 if (frameCount > 180) { // 3 seconds
                     asteroid.follow(spaceship.pos, 2);
                 }
+                // Assign alternative image to half of the asteroids
+                if (Math.random() < 0.5) {
+                    asteroid.hitImg = asteroid_altImg;
+                }
                 break;
             case 6:
                 //asteroid.zigzag(10, 0.1);
@@ -257,6 +261,7 @@ function preload() {
     spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 100));
     asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     asteroid2Img = loadImage('imgs/asteroid2.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
+    asteroid_altImg = loadImage('imgs/asteroid_alt.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image:', err));
     //dingSound = loadSound('sounds/ding.mp3');
 
 	// Load NBA team logos
@@ -441,11 +446,11 @@ function draw() {
 		// Generate asteroids
 		asteroidCounter++;
         if (asteroidCounter >= asteroidGenerationRate && !levelTransition) {
-            let newAsteroid = new Asteroid(asteroidImg.width / 2);
+            let newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
             asteroids.push(newAsteroid);
             asteroidCounter = 0;
         }
-		
+        
 
         // Handle level transition
         if (levelTransition) {
@@ -705,7 +710,7 @@ function Spaceship(r, lives) {
 }
 
 // Asteroid Class
-function Asteroid(r) {
+function Asteroid(r, img) {
     let spawnEdge = floor(random(4)); // 0: top, 1: right, 2: bottom, 3: left
     if (spawnEdge === 0) {
         this.pos = createVector(random(width), -r);
@@ -724,7 +729,7 @@ function Asteroid(r) {
     this.hit = false;
     this.alpha = 255;
     this.gracePeriod = 60; // 1 second grace period
-    this.hitImg = asteroidImg;
+    this.hitImg = img;
 	this.show = function() {
 	    console.log("Showing asteroid");
 	    tint(255, this.alpha);
