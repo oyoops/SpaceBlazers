@@ -84,7 +84,7 @@ class Level {
                 asteroid.follow(spaceship.pos, 1);
                 break;
             case 3:
-		asteroid.follow(spaceship.pos, 2);
+				asteroid.follow(spaceship.pos, 2);
                 break;
             case 4:
                 if (frameCount > 180) { // 3 seconds
@@ -119,7 +119,7 @@ class Level {
                 //asteroid.vel.setMag(random(1, 2));
                 break;
 			case 11:
-				asteroid.zigzag();
+				asteroid.follow(spaceship.pos, 4);
 				//asteroid.vel = createVector(random(0, 1), random(0, 1));
 				//asteroid.vel.setMag(random(3, 4));
 				break;
@@ -265,6 +265,7 @@ function preload() {
 	// Load sounds
 	soundtrack = loadSound('/sounds/soundtrack.mp3');
     killSound = loadSound('/sounds/kill.mp3');
+	bruhSound = loadSound('/sounds/bruh.mp3');
     gameOverSound = loadSound('/sounds/game-over.mp3');
     levelUpSound = loadSound('/sounds/ding.mp3');
 	dingSound = loadSound('/sounds/ding.mp3');
@@ -488,6 +489,7 @@ function draw() {
 			}
 			// Asteroid hits spaceship
 			if (asteroids[i] !== undefined && asteroids[i].hits(spaceship) && !invincible) {
+				bruhSound.play();
 				spaceship.lives--;
 				asteroids[i].hit = true;
 				// If spaceship has no more lives, game over
@@ -548,18 +550,20 @@ function draw() {
 		textAlign(RIGHT);
 		textStyle(BOLD);
 		//text("GRIND: ", width - 45, 20);
-		drawLabel("GRIND: ", width - 70, 50, textSize(), "right");
+		////drawLabel("GRIND: ", width - 70, 50, textSize(), "right");
+		drawLabel("GRIND: ", 50, height - 50, textSize(), "right");
 		textStyle(NORMAL);
 
 		textSize(24);
 		textAlign(RIGHT);
 		for (let i = 0; i < spaceship.lives; i++) {
 			//text("❤️", width - 90 + i * 30, 50);
-			drawLabel("❤️", width - 100 + i * 30 - 30, 20 + 60, textSize(), "right");
+			////drawLabel("❤️", width - 100 + i * 30 - 30, 20 + 60, textSize(), "right");
+			drawLabel("❤️", 50 + i * 30 - 30, height - 80, textSize(), "right");
 		}
 		
 		// Draw score label
-		textSize(22);
+		textSize(20);
 		textAlign(LEFT);
 		textStyle(BOLD);
 		let scoreText;
@@ -574,9 +578,9 @@ function draw() {
 		// Draw team label
 		if (score > 0) {
 			let team = nbaTeams[currentLevel.levelNumber - 1];
-			textSize(18);
+			textSize(16);
 			drawLabel(team, 50, 70, textSize(), "left");
-			textSize(22);
+			textSize(20);
 		}
 		
 		//
