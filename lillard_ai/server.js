@@ -20,8 +20,8 @@ const options = {
     cert: fs.readFileSync('/etc/letsencrypt/live/dame.lillard.trade/fullchain.pem')
   };
   
-  https.createServer(options, app).listen(5556, () => {
-    console.log('Yo, yo, yo, HTTP\$ DameDolla\$erver running on port 5556...');
+  https.createServer(options, app).listen(process.env.PORT, () => {
+    console.log(`Yo, yo, yo, HTTP\$ DameDolla\$erver running on port ${process.env.PORT}...`);
   });
 
 // DANGEROUS??
