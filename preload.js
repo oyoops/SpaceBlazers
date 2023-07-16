@@ -1,9 +1,16 @@
 // Preload
+
 function preload() {
-    spaceshipImg = loadImage('assets/spaceship.png');
-    bulletImg = loadImage('assets/bullet.png');
-    asteroidImg = loadImage('assets/asteroid.png');
-    explosionSound = loadSound('assets/explosion.wav');
-    shootSound = loadSound('assets/shoot.wav');
-    backgroundSound = loadSound('assets/background.wav');
+    // Load images and sounds
+
+    spaceshipImg = loadImage('imgs/spaceship.png');
+    bulletImg = loadImage('imgs/bullet.png');
+    asteroidImg = loadImage('imgs/asteroid.png');
+
+    backgroundEpicSound = loadSound('sounds/soundtrack-epic.mp3');
+    shootSound = loadSound('sounds/shoot.mp3');
+    gameOverSound = loadSound('sounds/game-over.mp3');
+    takeDamageSound = loadSound('sounds/death.mp3');
+    giveDamageSound = loadSound('sounds/kill.mp3');
+    backgroundSound = loadSound('sounds/soundtrack.mp3');
 }
