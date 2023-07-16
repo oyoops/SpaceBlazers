@@ -21,6 +21,8 @@ let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approx
 let levelTransition = false;
 let levelTransitionTimer = 0;
 let spaceImage;
+let muteButton;
+let soundIsOn = true;
 
 let logo;
 let teamLogos = [];
@@ -273,6 +275,11 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     spaceship = new Spaceship(spaceshipImg.width / 2, 3);
+    
+	// Mute button
+	muteButton = createButton('Mute');
+    muteButton.position(width - muteButton.width - 10, height - muteButton.height - 10);
+    muteButton.mousePressed(toggleSound);
     
 	// Try again button (Hidden until game over))
 	button = createButton('Try again');
@@ -855,4 +862,16 @@ function resetGame() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+}
+
+function toggleSound() {
+    if (soundIsOn) {
+        soundIsOn = false;
+        muteButton.html('Unmute');
+        soundtrack.stop(); // stop the sound
+    } else {
+        soundIsOn = true;
+        muteButton.html('Mute');
+        soundtrack.loop(); // play the sound
+    }
 }
