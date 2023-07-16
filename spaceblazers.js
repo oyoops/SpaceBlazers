@@ -23,6 +23,7 @@ let levelTransitionTimer = 0;
 let spaceImage;
 let muteButton;
 let soundIsOn = true;
+let dameSoundIsOn = false;
 
 let logo;
 let teamLogos = [];
@@ -65,6 +66,7 @@ let soundtrack;
 let killSound;
 let gameOverSound;
 let levelUpSound;
+let nextLevelSound;
 
 
 // Leveling
@@ -267,8 +269,10 @@ function preload() {
     killSound = loadSound('/sounds/kill.mp3');
 	bruhSound = loadSound('/sounds/bruh.mp3');
     gameOverSound = loadSound('/sounds/game-over.mp3');
-    levelUpSound = loadSound('/sounds/ding.mp3');
+    levelUpSound = loadSound('/sounds/next-level.mp3');
 	dingSound = loadSound('/sounds/ding.mp3');
+	dameDollaSound = loadSound('/sounds/Hulu.mp3');
+
 }
 
 
@@ -278,9 +282,18 @@ function setup() {
     spaceship = new Spaceship(spaceshipImg.width / 2, 3);
     
 	// Mute button
-	muteButton = createButton('Mute');
-    muteButton.position(width - muteButton.width - 10, height - muteButton.height - 10);
+	textSize(32);
+	muteButton = createButton('🔇');
+	textSize(20);
+	muteButton.position(width - muteButton.width - 10, height - muteButton.height - 10);
     muteButton.mousePressed(toggleSound);
+
+	// Dame Dolla button
+	textSize(32);
+	dameDollaButton = createButton('🔊');
+	textSize(20);
+	dameDollaButton.position(10, height - dameDollaButton.height - 30);
+    dameDollaButton.mousePressed(toggleDameSound);
     
 	// Try again button (Hidden until game over))
 	button = createButton('Try again');
@@ -598,6 +611,7 @@ function draw() {
 			let team = nbaTeams[currentLevel.levelNumber - 1];
 			//text(team, width / 2, height / 2 + 50);
 			drawLabel(team, width / 2, height / 2 - 100, textSize(), "center");
+			nextLevelSound.play();
 		}
 		// (for transition timer)
 		if (levelTransition) {
@@ -879,3 +893,18 @@ function toggleSound() {
         soundtrack.loop(); // play the sound
     }
 }
+
+function toggleDameSound() {
+    if (dameSoundIsOn) {
+        dameSoundIsOn = false;
+        //dameSoundIsOn.html('X'); // change the button text
+        soundtrack.stop(); // stop the soundtrack
+		dameDollaSound.loop(); // play alternate soundtrack
+    } else {
+        dameSoundIsOn = true;
+        //dameSoundIsOn.html('Dame'); // change the button text
+		dameDollaSound.stop(); // stop the alternate soundtrack	
+        soundtrack.loop(); // play the soundtrack
+    }
+}
+dameDollaSound
