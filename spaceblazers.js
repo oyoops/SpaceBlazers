@@ -536,7 +536,7 @@ function draw() {
 					dameDollaSound.stop();
 					gameOverSound.play();
                     
-
+                    let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
                     dameOpinion = getDameOpinion(team, score, textModifier).then(result => {
                         console.log('dameOpinion:', dameOpinion);
                     
