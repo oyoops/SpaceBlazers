@@ -12,7 +12,6 @@ let invincible = false;
 let invincibleTimer = 0;
 let button;
 let tweetButton;
-let textModifier = "";
 let asteroidGenerationTime = 300; // 5 seconds
 let timeElapsed = 0;
 let score = 0;
@@ -26,6 +25,9 @@ let muteButton;
 let dameDollaButton;
 let soundIsOn = true;
 let dameSoundIsOn = false;
+let dameOpinion = '';
+let textModifier = '';
+let opinionIndex = 0;
 
 let logo;
 let teamLogos = [];
@@ -529,11 +531,21 @@ function draw() {
 					gameOverSound.play();
 
                     // Get Dame's opinion via OpenAI
-                    const getDameOpinion = async (team, score, textModifier) => {
+                    const dameOpinion = async (team, score, textModifier) => {
                         const response = await axios.get('/api/lillard-opinion', { params: { team, score, textModifier } });
                         return response.data.opinion;
                     };
-
+                    
+                    // Display Damian's opinion
+                    if (opinionIndex <= dameOpinion.length) {
+                        const displayText = dameOpinion.substring(0, opinionIndex);
+                        textSize(14);
+                        textFont('Courier New');
+                        text(displayText, 100, height / 2 - 20); // x, y are the coordinates where you want to display the text
+                        textFont('Arial')
+                        textSize(20);
+                        opinionIndex++;
+                    }
 
 				// Otherwise, make the spaceship invincible for a short period of time
 				} else {
@@ -930,3 +942,23 @@ function toggleDameSound() {
     }
 }
 
+
+
+/*
+function typeWriter(text, element, delay = 50) {
+    let i = 0;
+    const intervalId = setInterval(() => {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(intervalId);
+      }
+    }, delay);
+}
+*/
+
+getDamianOpinion(team, score).then(opinion => {
+    const opinionDiv = document.getElementById('opinion-text');
+    opinionDiv.textContent = opinion;
+});
