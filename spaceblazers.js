@@ -516,6 +516,8 @@ function draw() {
 					button.show(); // Try again button
 					tweetButton.show();  // Tweet button
 					noLoop();
+					soundtrack.stop();
+					dameDollaSound.stop();
 					gameOverSound.play();
 				// Otherwise, make the spaceship invincible for a short period of time
 				} else {
@@ -568,7 +570,7 @@ function draw() {
 		textStyle(BOLD);
 		//text("GRIND: ", width - 45, 20);
 		////drawLabel("GRIND: ", width - 70, 50, textSize(), "right");
-		drawLabel("GRIND: ", 50, height - 50, textSize(), "right");
+		drawLabel("GRIND: ", 100, height - 150, textSize(), "left");
 		textStyle(NORMAL);
 
 		textSize(24);
@@ -576,7 +578,7 @@ function draw() {
 		for (let i = 0; i < spaceship.lives; i++) {
 			//text("❤️", width - 90 + i * 30, 50);
 			////drawLabel("❤️", width - 100 + i * 30 - 30, 20 + 60, textSize(), "right");
-			drawLabel("❤️", 50 + i * 30 - 30, height - 80, textSize(), "right");
+			drawLabel("❤️", 100 + i * 30 - 30, height - 180, textSize(), "left");
 		}
 		
 		// Draw score label
@@ -878,7 +880,8 @@ function resetGame() {
     asteroidCounter = 0; // Reset the asteroid counter
     levelTransition = false; // Cancel any level transition
     levelTransitionTimer = 0; // Reset level transition timer
-	loop();
+	soundtrack.start(); // Restart the soundtrack
+	loop(); // Restart the draw loop
 }
 
 function windowResized() {
@@ -910,4 +913,3 @@ function toggleDameSound() {
         soundtrack.loop(); // play the soundtrack
     }
 }
-dameDollaSound
