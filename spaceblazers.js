@@ -27,7 +27,6 @@ let soundIsOn = true;
 let dameSoundIsOn = false;
 let dameOpinion = '';
 let textModifier = '';
-let opinionIndex = 0;
 
 let logo;
 let teamLogos = [];
@@ -72,6 +71,14 @@ let gameOverSound;
 let levelUpSound;
 //let nextLevelSound;
 let dameDollaSound;
+
+// Create the getDameOpinion function at the top of the file
+let getDameOpinion = (team, score, textModifier) => {
+    return axios.get('/api/lillard-opinion', { params: { team, score, textModifier } })
+        .then(response => response.data)
+        .catch(error => console.error(error));
+}
+
 
 // Leveling
 class Level {
@@ -286,7 +293,6 @@ function preload() {
 	dameDollaSound = loadSound('/sounds/soundtrack.mp3');
     
 }
-
 
 // Setup
 function setup() {
@@ -529,31 +535,31 @@ function draw() {
 					soundtrack.stop();
 					dameDollaSound.stop();
 					gameOverSound.play();
-
-                    // Get Dame's opinion via OpenAI
-                    const dameOpinion = async (team, score, textModifier) => {
-                        const response = await axios.get('/api/lillard-opinion', { params: { team, score, textModifier } });
-                        return response.data.opinion;
-                    };
                     
-                    // Display Damian's opinion
-                    if (typeof dameOpinion === 'string' || dameOpinion instanceof String) {
-                        console.log('dameOpinion is a string:', dameOpinion);
-                        if (opinionIndex <= dameOpinion.length) {
-                            const displayText = dameOpinion.substring(0, opinionIndex);
+
+                    dameOpinion = getDameOpinion(team, score, textModifier).then(result => {
+                        console.log('dameOpinion:', dameOpinion);
+                    
+                        // Display Damian's opinion
+                        if (typeof dameOpinion === 'string' || dameOpinion instanceof String) {
+                            console.log('dameOpinion is a string:', dameOpinion);
+                            const displayText = dameOpinion;
                             textSize(14);
                             textFont('Courier New');
                             text(displayText, 100, height / 2 - 20); // x, y are the coordinates where you want to display the text
                             textFont('Arial')
                             textSize(20);
-                            opinionIndex++;
-                        }                    
-                    } else {
-                        console.error('dameOpinion is not a string:', dameOpinion);
-                    }
-
-
-				// Otherwise, make the spaceship invincible for a short period of time
+                        } else {
+                            console.error('UH-OH! Damian Lillard gave a bad response: ', dameOpinion);
+                            const displayText = "Damian Lillard could not be reached for comment on the matter.";
+                            textSize(14);
+                            textFont('Courier New');
+                            text(displayText, 100, height / 2 - 20); // x, y are the coordinates where you want to display the text
+                            textFont('Arial')
+                            textSize(20);
+                        }
+                    });
+				// If NOT game over yet, then make the spaceship invincible for a short period of time
 				} else {
 					invincible = true;
 					invincibleTimer = 90; // 1.5 second of invincibility
@@ -969,3 +975,5 @@ function typeWriter(text, element, delay = 50) {
     opinionDiv.textContent = opinion;
 });
 */
+
+
