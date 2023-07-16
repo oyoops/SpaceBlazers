@@ -384,11 +384,11 @@ function draw() {
 		textSize(18);
 		drawLabel("Kill Crooked Cronins by shooting", width / 2 - 0, height / 2 + 100, textSize(), "center");
 		drawLabel("basketballs at them 🏀💀", width / 2 - 0, height / 2 + 120, textSize(), "center");
-		drawLabel("But if you make contact with a Crooked Cronin,", width / 2 + 0, height / 2 + 140, textSize(), "center");
-		drawLabel("you\'ll lose some of your GRIND! 😤", width / 2 + 0, height / 2 + 160, textSize(), "center");
+		drawLabel("But if you make contact with a Crooked Cronin,", width / 2 + 0, height / 2 + 170, textSize(), "center");
+		drawLabel("you\'ll lose some of your GRIND! 😤", width / 2 + 0, height / 2 + 190, textSize(), "center");
 		textSize(18);
-		drawLabel("Kill 150 Crooked Cronins before he takes", width / 2, height / 2 + 200, textSize(), "center"); 
-		drawLabel("all your GRIND to get traded to Miami! 🌊🌴", width / 2, height / 2 + 220, textSize(), "center");
+		drawLabel("Kill 150 Crooked Cronins before he takes", width / 2, height / 2 + 230, textSize(), "center"); 
+		drawLabel("all your GRIND to get traded to Miami! 🌊🌴", width / 2, height / 2 + 250, textSize(), "center");
 	
 	} else if (gameState === "play") {
         noCursor();
