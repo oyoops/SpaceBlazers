@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta property="og:title" content="Dame Trade Take Generator" />
+    <meta property="og:description" content="Get the facts about the rumored Portland-Miami trade straight from Dame himself." />
+    <meta property="og:image" content="https://lillard.trade/400x400.png" />
+    <meta property="og:url" content="https://lillard.trade" />
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <title>Damian Lillard | Trade Take Generator</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            font-family: Verdana, sans-serif;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            cursor: none;
+        }
+
+        .image-wrapper,
+        .result-wrapper {
+            height: 30vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #top-image,
+        #bottom-image {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        #face {
+            position: absolute;
+            pointer-events: none;
+            max-width: 150px;
+            max-height: 150px;
+        }
+
+        #result {
+            text-align: center;
+            font-family: 'Verdana', sans-serif;
+            font-size: 3em;
+            display: none;
+        }
+
+        #try-again {
+            display: none; /* Initially hidden */
+            font-family: Verdana, sans-serif;
+            font-size: 1em;
+        }
+
+        #share-twitter {
+            display: none; /* Initially hidden */
+            font-family: Verdana, sans-serif;
+            font-size: 1em;
+        }
+
+        #instructions {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-family: 'Verdana', sans-serif;
+            transform: translate(-50%, -50%);
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        #response-text {
+            position: absolute;
+            top: 25%;
+            left: 50%;  /* half of 100% for absolute center alignment */
+            transform: translate(-50%, -50%);
+            font-family: 'Verdana', monospace; /* Robotic-looking Google Font */
+            font-size: 0.8em;
+            text-align: justify;
+            width: 80%;
+            height: auto;
+            padding: 5 5px;  /* adding padding to the left and right */
+            box-sizing: border-box;  /* to include padding and border in element's total width and height */
+        }
+
+        #wrong {
+            position: fixed;
+            top: 55%;
+            left: 52%;
+            transform: translate(-50%, -50%);
+            font-size: 15em;  /* increased the size */
+            color: darkred;  /* deeper shade of red */
+            text-align: center;
+            animation: shake 2s;
+            border: 20px solid;
+            border-image: linear-gradient(45deg, rgba(255, 0, 0, 1), rgba(0,0,0,0.6)) 1;
+            border-radius: 30px;  /* slightly rounded corners */
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.4); /* Horizontal offset, vertical offset, blur radius, and color */
+        }
+
+        @keyframes shake {
+                0% { transform: translate(-50%, -50%) scale(1); }
+                25% { transform: translate(-50%, -50%) scale(1.1); }
+                50% { transform: translate(-50%, -50%) scale(1); }
+                75% { transform: translate(-50%, -50%) scale(0.9); }
+                100% { transform: translate(-50%, -50%) scale(1); }
+            }
+
+    </style>
+
+</head>
+
+<body>
+    <audio id="successSound" src="sounds/success.mp3" type="audio/mpeg" preload="auto"></audio>
+    <audio id="failureSound" src="sounds/failure.mp3" type="audio/mpeg" preload="auto"></audio>
+
+    <div id="wrong" style="display: none;">X</div>
+
+    <div id="response-text" style="display: none;"></div>
+
+    <div id="instructions">Where should <b>Damian Lillard</b> go?</div>
+
+    <div class="image-wrapper">
+        <img id="top-image" src="portland.png">
+    </div>
+
+    <div class="result-wrapper">
+        <div id="result"></div>
+        <button id="try-again">Try again</button>
+    </div>
+
+    <div id="typing">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Tweet Button -->
+    <a href="#" id="share-twitter" class="share-button">Tweet</a>
+
+    <div class="image-wrapper">
+        <img id="bottom-image" src="miami.png">
+    </div>
+
+    <img id="face" src="face_neutral.png">
+
+    <!-- Main Script -->
+    <script src="script.js"></script>
+    
+    <!-- Post-Load -->
+    <script>
+        // Wait until everything is loaded
+        window.onload = function() {    
+            // Extract the text content from response-text div
+            var responseTextElement = document.getElementById('response-text');
+            var result = responseTextElement.textContent;
+            // Tweet
+            var twitterLink = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(result);
+            document.getElementById('share-twitter').href = twitterLink;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0"></script>
+
+</body>
+</html>
