@@ -874,7 +874,7 @@ function resetGame() {
 	spaceship.pos = createVector(width / 2, height / 2);
 	asteroids = [];
 	for (let i = 0; i < 5; i++) {
-		asteroids.push(new Asteroid(asteroidImg.width / 2));
+		asteroids.push(new Asteroid(asteroidImg.width / 2, asteroidImg));
 	}
 	bullets = [];
 	gameState = "play";
