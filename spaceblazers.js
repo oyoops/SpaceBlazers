@@ -261,7 +261,7 @@ function preload() {
     spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 100));
     asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     asteroid2Img = loadImage('imgs/asteroid2.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
-    asteroid_altImg = loadImage('imgs/asteroid_alt.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image:', err));
+    asteroid_altImg = loadImage('imgs/celtics_fan.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image:', err));
     //dingSound = loadSound('sounds/ding.mp3');
 
 	// Load NBA team logos
@@ -450,7 +450,7 @@ function draw() {
             asteroids.push(newAsteroid);
             asteroidCounter = 0;
         }
-        
+
 
         // Handle level transition
         if (levelTransition) {
