@@ -1,4 +1,3 @@
-// Preload Images
 let spaceship;
 let spaceshipImg;
 let spaceshipImg2;
@@ -22,7 +21,7 @@ let asteroidGenerationRate = 60; // Generate an asteroid every 60 frames (approx
 let levelTransition = false;
 let levelTransitionTimer = 0;
 let spaceImage;
-//let dingSound;
+
 let logo;
 let teamLogos = [];
 // List of NBA teams
@@ -58,6 +57,12 @@ let nbaTeams = [
     "Denver Nuggets",
     "Miami HEAT" // Heat must be last
 ];
+
+let dingSound;
+let soundtrack;
+let killSound;
+let gameOverSound;
+let levelUpSound;
 
 
 // Leveling
@@ -255,6 +260,12 @@ function preload() {
    		teamLogos[i] = loadImage('imgs/logos/' + nbaTeams[i].toLowerCase().replace(/ /g, '-') + '.png', img => img.resize(100, 100), err => console.log('Error loading an NBA logo:', err));
 	}
 
+	// Load sounds
+	soundtrack = loadSound('/sounds/soundtrack.mp3');
+    killSound = loadSound('/sounds/kill.mp3');
+    gameOverSound = loadSound('/sounds/game-over.mp3');
+    levelUpSound = loadSound('/sounds/ding.mp3');
+	dingSound = loadSound('/sounds/ding.mp3');
 }
 
 
@@ -277,6 +288,9 @@ function setup() {
 
 	// Hide cursor
     noCursor();
+
+	// Start the soundtrack
+	soundtrack.loop();
 }
 
 
@@ -446,6 +460,7 @@ function draw() {
 					score++;
 					spaceship.img = spaceship2Img;
 					spaceship.timer = 90; // 1.5 seconds recovery timer
+					killSound.play();
 					break;
 				}
 			}
@@ -475,6 +490,7 @@ function draw() {
 					button.show(); // Try again button
 					tweetButton.show();  // Tweet button
 					noLoop();
+					gameOverSound.play();
 				// Otherwise, make the spaceship invincible for a short period of time
 				} else {
 					invincible = true;
@@ -499,6 +515,9 @@ function draw() {
 		
 				// Clear the asteroids array
 				asteroids = [];
+
+				// Play level up sound
+				levelUpSound.play();
 			} else {
 				console.log("You win!");
 				// Implement game completion logic here...
