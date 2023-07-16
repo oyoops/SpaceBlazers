@@ -572,7 +572,7 @@ function draw() {
 		textStyle(BOLD);
 		//text("GRIND: ", width - 45, 20);
 		////drawLabel("GRIND: ", width - 70, 50, textSize(), "right");
-		drawLabel("GRIND: ", 50, height - 180, textSize(), "left");
+		drawLabel("GRIND: ", 30, height - 180, textSize(), "left");
 		textStyle(NORMAL);
 
 		textSize(24);
