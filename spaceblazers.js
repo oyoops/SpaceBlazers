@@ -644,7 +644,13 @@ function draw() {
 		textSize(22);
 		textAlign(RIGHT);
 		textStyle(BOLD);
-		drawLabel("GRIND: ", 30, height - 180, textSize(), "left");
+        if (spaceship.lives > 0) {
+            drawLabel("GRIND: ", 30, height - 180, textSize(), "left");
+        } else {
+            textStyle(ITALIC);
+            drawLabel("You ran from the grind!", 30, height - 135, textSize(), "left");
+            textStyle(NORMAL);
+        }
 		textStyle(NORMAL);
 		textSize(24);
 		textAlign(RIGHT);
