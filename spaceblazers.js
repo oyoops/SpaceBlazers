@@ -30,7 +30,7 @@ let textModifier = '';
 
 let logo;
 let teamLogos = [];
-// List of NBA teams
+// List of NBA teams:
 let nbaTeams = [
     "Portland Trail Blazers", // Blazers must be first
     "Washington Wizards",
