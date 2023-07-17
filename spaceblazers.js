@@ -546,7 +546,8 @@ function draw() {
                     textSize(18);
                     textStyle(NORMAL);
                     textFont('Verdana');
-                    text("When asked about playing on the " + team + " next season, Dame replied,", width / 2, height / 4 * 2 + 75);
+                    text("When asked about playing on the", width / 2, height / 4 * 2 + 65);
+                    text(team + " next season, Dame replied,", width / 2, height / 4 * 2 + 85);
                     textAlign(LEFT);
                     textStyle(NORMAL);
 
