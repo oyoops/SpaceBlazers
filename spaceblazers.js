@@ -564,7 +564,7 @@ function draw() {
                             // print the AI's response
                             textSize(16);
                             textFont('comic sans ms');
-                            textStyle(ITALIC);
+                            textStyle(NORMAL);
                             textAlign(LEFT);
                             // break the AI's response into lines to fit the screen size
                             let y = height / 4 * 2 + 115;
