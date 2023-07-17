@@ -546,7 +546,7 @@ function draw() {
                     textSize(18);
                     textStyle(NORMAL);
                     textFont('Verdana');
-                    text("When asked about playing on the " + team + " next season, Dame replied,", width * sideMarginPercent, height / 4 * 2 + 75);
+                    text("When asked about playing on the " + team + " next season, Dame replied,", width /2, height / 4 * 2 + 75);
                     textAlign(LEFT);
                     textStyle(NORMAL);
 
@@ -562,7 +562,7 @@ function draw() {
                             // print the AI's response
                             textSize(18);
                             textFont('comic sans ms');
-                            textStyle(NORMAL);
+                            textStyle(ITALIC);
                             textAlign(LEFT);
                             // break the AI's response into lines to fit the screen size
                             let y = height / 4 * 2 + 110;
