@@ -46,10 +46,11 @@ module.exports = async (req, res) => {
                 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
             }
         });
-        console.log("Reponse: " + response);
         
+        
+        //console.log("JSON Obj Response: " + response);
         const generatedText = response.data.choices[0].message.content.trim();
-        console.log("Text: " + generatedText);
+        console.log("Response: " + generatedText);
         
         res.status(200).send(generatedText);
         //res.status(200).json(generatedText);
@@ -58,5 +59,5 @@ module.exports = async (req, res) => {
         console.error(error);
         res.status(500).json('D-AI-me Lillard is pretending you aren\'t there...');
     }
-    console.log("(reached end of Ask Dame)");
+    console.log("Dame took a phone call and walked away.");
 };
