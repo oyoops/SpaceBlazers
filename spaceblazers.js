@@ -543,27 +543,27 @@ function draw() {
 					gameOverSound.play();
                     
                     // Get the team Dame got traded to
-                    let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
+                    let team = score <= 30 ? nbaTeams[currentLevel.levelNumber - 1] : nbaTeams[nbaTeams.length - 1];
                     
+                    console.log('Asking Dame for his thoughts... ');
                     // Call the AI 'Ask Dame' function and handle the promise it returns
-                    getDameOpinion(team, score, textModifier).then(dameOpinion => {
-                        console.log('Asking Dame for his thoughts... ');
-                    
+                    getDameOpinion(team, score, textModifier).then(dameOpinion => {                    
                         // Display Damian's opinion
                         if (typeof dameOpinion === 'string' || dameOpinion instanceof String) {
                             console.log('dameOpinion is a string:', dameOpinion);
                             const displayText = dameOpinion;
                             textSize(14);
-                            textFont('Courier New');
-                            text(displayText, 100, height / 2 - 20); // x, y are the coordinates where you want to display the text
+                            textFont('Verdana');
+                            text(displayText, 100, height / 4 - 50); // x, y are the coordinates where you want to display the text
                             textFont('Arial')
                             textSize(20);
                         } else {
-                            console.error('UH-OH! Damian Lillard gave a bad response: ', dameOpinion);
-                            const displayText = "Damian Lillard could not be reached for comment on the matter.";
+                            console.error('UH-OH! Damian Lillard gave a bad response ---> ', dameOpinion);
+                            const displayText = "Joe Cronin took your GRIND!";
                             textSize(14);
-                            textFont('Courier New');
-                            text(displayText, 100, height / 2 - 20); // x, y are the coordinates where you want to display the text
+                            textFont('Verdana');
+                            textAlign(CENTER);
+                            text(displayText, width / 4, height / 2 - 50); // x, y are the coordinates where you want to display the text
                             textFont('Arial')
                             textSize(20);
                         }
