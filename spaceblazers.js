@@ -573,7 +573,7 @@ function draw() {
                     
                     // Show placeholder text before openAI response is received
                     textAlign(CENTER);
-                    text("Dame\'s opinion about the " + team + " is...", width / 2, height / 4 * 3);
+                    text("Dame\'s opinion about the " + team + " is...", 200, height / 4 * 3);
                     textAlign(RIGHT);
 
                     // Send prompt to openAI, then receive and show response
@@ -586,22 +586,24 @@ function draw() {
                             let line = '';
 
                             // print the AI's response
-                            textSize(16);
+                            textSize(14);
                             textFont('Verdana');
                             textStyle(ITALIC);
-                            textAlign(CENTER);                            let y = height / 4 * 3 + 20;
+                            textAlign(CENTER);
+                            let y = height / 4 * 3 + 20;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
                                 let testWidth = textWidth(testLine);
                                 if (testWidth > width - 200 && i > 0) {
-                                    text(line, 100, y);
+                                    textAlign(LEFT);
+                                    text(line, 200, y);
                                     line = words[i] + ' ';
                                     y += textAscent() + textDescent();
                                 } else {
                                     line = testLine;
                                 }
                             }
-                            text(line, 100, y);
+                            text(line, 200, y);
                             
                             // reset text style
                             textFont('Arial')
