@@ -655,7 +655,7 @@ function draw() {
         } else {
             textStyle(ITALIC);
             textSize(16);
-            drawLabel("You ran from the grind!", 40, height - 140, textSize(), "left");
+            drawLabel("You ran from the grind!", 40, height / 2 - 50, textSize(), "left");
             textStyle(NORMAL);
             textSize(22);
         }
