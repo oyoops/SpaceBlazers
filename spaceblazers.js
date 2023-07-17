@@ -562,7 +562,7 @@ function draw() {
                             textStyle(ITALIC);
                             textAlign(CENTER);
                             // break the AI's response into lines to fit the screen size
-                            let y = height / 4 * 3 + 20;
+                            let y = height / 3 * 3 + 50;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
                                 let testWidth = textWidth(testLine);
