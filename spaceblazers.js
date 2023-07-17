@@ -311,19 +311,19 @@ function setup() {
 	textSize(32);
 	dameDollaButton = createButton('🔊');
 	textSize(20);
-	dameDollaButton.position(10, height - dameDollaButton.height - 30);
+	dameDollaButton.position(10, height - dameDollaButton.height - 10);
     dameDollaButton.mousePressed(toggleDameSound);
     
 	// Try again button (Hidden until game over))
-	button = createButton('Try again');
-    button.width = 300;
+	button = createButton('Try again...');
+    ////button.width = 300;
     button.position(width / 2 - button.width / 2, height / 2 - button.height / 2 - 80); // Place above the Tweet button
     button.hide();
     button.mousePressed(resetGame);
 
     // Tweet button (Hidden until game over)
     tweetButton = createButton('Tweet my score');
-    tweetButton.width = 300;
+    ////tweetButton.width = 300;
     tweetButton.position(width / 2 - tweetButton.width / 2, height / 2 - tweetButton.height / 2 - 50);
     tweetButton.mousePressed(() => tweetScore(score));
     tweetButton.hide();
@@ -538,9 +538,9 @@ function draw() {
                     }); */
                     
                     // Show placeholder text before openAI response is received
-                    textAlign(RIGHT);
+                    textAlign(LEFT);
                     text("Dame\'s opinion about the " + team + " is...", 200, height / 4 * 3);
-                    textAlign(RIGHT);
+                    textAlign(LEFT);
 
                     // Send prompt to openAI, then receive and show response
                     getDameOpinion(team, score, textModifier).then(dameOpinion => {
@@ -575,7 +575,7 @@ function draw() {
                             textFont('Arial')
                             textSize(20);
                             textStyle(NORMAL);
-                            textAlign(RIGHT);
+                            textAlign(LEFT);
                         } else {
                             console.error('UH-OH! Damian Lillard gave a bad response ---> ', dameOpinion);
                             const displayText = "Joe Cronin took your GRIND!";
@@ -590,7 +590,7 @@ function draw() {
                             // reset text style
                             textFont('Arial')
                             textStyle(NORMAL);
-                            textStyle(RIGHT);
+                            textStyle(LEFT);
                             textSize(20);
                         }
                         console.log('Dame\'s opinion: ', dameOpinion);
