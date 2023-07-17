@@ -658,7 +658,7 @@ function draw() {
         } else {
             textStyle(NORMAL);
             textSize(22);
-            drawLabel("You ran from the grind!", width / 2, height / 2 - 300, textSize(), "center");
+            drawLabel("You ran from the grind!", width / 2, height / 2 - 200, textSize(), "center");
             textStyle(NORMAL);
             textSize(22);
         }
