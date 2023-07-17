@@ -537,17 +537,18 @@ function draw() {
                         console.log('Dame\'s opinion: ', dameOpinion);
                     }); */
                     
+                    console.log("Team: ",team);
+                                        
                     // Show placeholder text before openAI response is received
                     let sideMarginPercent = 0.20;
 
                     textAlign(LEFT);
-                    console.log(team);
+                    textSize(20);
                     textStyle(BOLD);
-                    textFont('comic sans ms');
-                    text("Dame\'s opinion on the " + team + " is...", width * sideMarginPercent, height / 4 * 2 + 65);
+                    textFont('Verdana');
+                    text("When asked how he felt about playing with the " + team + " next season, Dame replied,", width * sideMarginPercent, height / 4 * 2 + 75);
                     textAlign(LEFT);
                     textStyle(NORMAL);
-                    textFont('arial');
 
                     // Send prompt to openAI, then receive and show response
                     getDameOpinion(team, score, textModifier).then(dameOpinion => {
@@ -559,12 +560,12 @@ function draw() {
                             let line = '';
 
                             // print the AI's response
-                            textSize(20);
+                            textSize(22);
                             textFont('comic sans ms');
-                            textStyle(ITALIC);
+                            textStyle(REGULAR);
                             textAlign(LEFT);
                             // break the AI's response into lines to fit the screen size
-                            let y = height / 4 * 2 + 100;
+                            let y = height / 4 * 2 + 110;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
                                 let testWidth = textWidth(testLine);
