@@ -650,8 +650,8 @@ function draw() {
             drawLabel("GRIND: ", 30, height - 180, textSize(), "left");
         } else {
             textStyle(ITALIC);
-            textSize(20);
-            drawLabel("You ran from the grind!", 30, height / 2 - 25, textSize(), "left");
+            textSize(16);
+            drawLabel("You ran from the grind!", 40, height - 180, textSize(), "left");
             textStyle(NORMAL);
             textSize(22);
         }
