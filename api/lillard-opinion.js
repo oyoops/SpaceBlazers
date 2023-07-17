@@ -1,6 +1,5 @@
 // Import the necessary packages
 const axios = require('axios');
-const geoip = require('geoip-lite');
 
 // Export the serverless function
 module.exports = async (req, res) => {
