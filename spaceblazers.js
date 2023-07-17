@@ -572,8 +572,10 @@ function draw() {
                     }); */
                     
                     // Show placeholder text before openAI response is received
-                    text("Dame is thinking about this...", width / 2, height / 4 * 3);
-                    
+                    textAlign(CENTER);
+                    text("Dame\'s opinion about the" + team + "is...", width / 2, height / 4 * 3);
+                    textAlign(RIGHT);
+
                     // Send prompt to openAI, then receive and show response
                     getDameOpinion(team, score, textModifier).then(dameOpinion => {
                         // Display Damian's opinion
@@ -585,7 +587,7 @@ function draw() {
 
                             const words = dameOpinion.split(' ');
                             let line = '';
-                            let y = height / 2 + 30;
+                            let y = height / 4 * 3 + 180;
 
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
@@ -608,7 +610,7 @@ function draw() {
                             textSize(12);
                             textFont('Verdana');
                             textAlign(CENTER);
-                            text(displayText, width / 2, height / 2 - 20); // x, y are the coordinates where you want to display the text
+                            text(displayText, width / 2 + 20, height / 2); // x, y are the coordinates where you want to display the text
                             textFont('Arial')
                             textSize(20);
                         }
