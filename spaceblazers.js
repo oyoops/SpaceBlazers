@@ -543,9 +543,11 @@ function draw() {
                     textAlign(LEFT);
                     console.log(team);
                     textStyle(BOLD);
+                    textFont('comic sans ms');
                     text("Dame\'s opinion on the " + team + " is...", width * sideMarginPercent, height / 4 * 2 + 45);
                     textAlign(LEFT);
                     textStyle(NORMAL);
+                    textFont('arial');
 
                     // Send prompt to openAI, then receive and show response
                     getDameOpinion(team, score, textModifier).then(dameOpinion => {
