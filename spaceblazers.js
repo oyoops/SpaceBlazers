@@ -548,7 +548,7 @@ function draw() {
                     
                     // Call the AI 'Ask Dame' function and handle the promise it returns
                     console.log('Asking Dame for his thoughts... ');
-                    getDameOpinion(team, score, textModifier).then(dameOpinion => {                    
+                    /* getDameOpinion(team, score, textModifier).then(dameOpinion => {                    
                         // Display Damian's opinion
                         if (typeof dameOpinion === 'string' || dameOpinion instanceof String) {
                             console.log('dameOpinion is a string:', dameOpinion);
@@ -569,7 +569,52 @@ function draw() {
                             textSize(20);
                         }
                         console.log('Dame\'s opinion: ', dameOpinion);
+                    }); */
+                    
+                    // Show placeholder text before openAI response is received
+                    text("Dame is thinking about this...", width / 2, height / 4 * 3);
+                    
+                    // Send prompt to openAI, then receive and show response
+                    getDameOpinion(team, score, textModifier).then(dameOpinion => {
+                        // Display Damian's opinion
+                        if (typeof dameOpinion === 'string' || dameOpinion instanceof String) {
+                            console.log('dameOpinion is a string:', dameOpinion);
+
+                            textSize(12);
+                            textFont('Verdana');
+
+                            const words = dameOpinion.split(' ');
+                            let line = '';
+                            let y = height / 2 + 30;
+
+                            for (let i = 0; i < words.length; i++) {
+                                let testLine = line + words[i] + ' ';
+                                let testWidth = textWidth(testLine);
+                                if (testWidth > width - 200 && i > 0) {
+                                    text(line, 100, y);
+                                    line = words[i] + ' ';
+                                    y += textAscent() + textDescent();
+                                } else {
+                                    line = testLine;
+                                }
+                            }
+                            text(line, 100, y);
+                            
+                            textFont('Arial')
+                            textSize(20);
+                        } else {
+                            console.error('UH-OH! Damian Lillard gave a bad response ---> ', dameOpinion);
+                            const displayText = "Joe Cronin took your GRIND!";
+                            textSize(12);
+                            textFont('Verdana');
+                            textAlign(CENTER);
+                            text(displayText, width / 2, height / 2 - 20); // x, y are the coordinates where you want to display the text
+                            textFont('Arial')
+                            textSize(20);
+                        }
+                        console.log('Dame\'s opinion: ', dameOpinion);
                     });
+
 				// If NOT game over yet, then make the spaceship invincible for a short period of time
 				} else {
 					invincible = true;
