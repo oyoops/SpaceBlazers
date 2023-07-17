@@ -17,6 +17,9 @@ module.exports = async (req, res) => {
     if (geoObj !== null && geoObj.hasOwnProperty('city') && geoObj.hasOwnProperty('region')) {
         city = geoObj.city;
         region = geoObj.region;
+    } else {
+        city = "Portland";
+        region = "OR";
     }
 
     const prompt = `As Damian Lillard, your team choice is ${team}, with a score of ${score}, and the text modifier is ${textModifier}. You're currently in ${city}, ${region}.`;
