@@ -11,6 +11,6 @@
   "dependencies": {
     "axios": "^1.4.0",
     "cors": "^2.8.5",
-    "geo-ip:": "^1.4.7"
+    "geoip-lite:": "^1.4.7"
   }
 }
