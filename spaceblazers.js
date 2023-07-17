@@ -547,7 +547,7 @@ function draw() {
                         // Once Dame's opinion is received, verify it's actually a string
                         if (typeof dameOpinion === 'string' || dameOpinion instanceof String) {
 
-                            // break the AI's response into lines to fit the screen size
+                            // break the AI's response into words
                             const words = dameOpinion.split(' ');
                             let line = '';
 
@@ -556,20 +556,21 @@ function draw() {
                             textFont('Verdana');
                             textStyle(ITALIC);
                             textAlign(CENTER);
+                            // break the AI's response into lines to fit the screen size
                             let y = height / 4 * 3 + 20;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
                                 let testWidth = textWidth(testLine);
-                                if (testWidth > width - 200 && i > 0) {
+                                if (testWidth > width * 0.80 && i > 0) {
                                     textAlign(LEFT);
-                                    text(line, 200, y);
+                                    text(line, width * 0.20, y);
                                     line = words[i] + ' ';
                                     y += textAscent() + textDescent();
                                 } else {
                                     line = testLine;
                                 }
                             }
-                            text(line, 200, y);
+                            text(line, width * 0.20, y);
                             
                             // reset text style
                             textFont('Arial')
