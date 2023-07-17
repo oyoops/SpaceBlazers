@@ -544,7 +544,7 @@ function draw() {
                     console.log(team);
                     textStyle(BOLD);
                     textFont('comic sans ms');
-                    text("Dame\'s opinion on the " + team + " is...", width * sideMarginPercent, height / 4 * 2 + 45);
+                    text("Dame\'s opinion on the " + team + " is...", width * sideMarginPercent, height / 4 * 2 + 65);
                     textAlign(LEFT);
                     textStyle(NORMAL);
                     textFont('arial');
@@ -564,7 +564,7 @@ function draw() {
                             textStyle(ITALIC);
                             textAlign(LEFT);
                             // break the AI's response into lines to fit the screen size
-                            let y = height / 4 * 2 + 80;
+                            let y = height / 4 * 2 + 100;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
                                 let testWidth = textWidth(testLine);
