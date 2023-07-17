@@ -102,12 +102,12 @@ class Level {
                 break;
             case 4:
                 if (frameCount > 180) { // 3 seconds
-                    asteroid.follow(spaceship.pos, 1);
+                    asteroid.follow(spaceship.pos, 2);
                 }
                 break;
             case 5:
                 if (frameCount > 180) { // 3 seconds
-                    asteroid.follow(spaceship.pos, 2);
+                    asteroid.follow(spaceship.pos, 1,5);
                 }
                 // Assign alternative image to half of the asteroids
                 if (Math.random() < 0.5) {
@@ -301,14 +301,14 @@ function setup() {
     spaceship = new Spaceship(spaceshipImg.width / 2, 3);
     
 	// Mute button
-	textSize(32);
+	textSize(40);
 	muteButton = createButton('🔇');
 	textSize(20);
 	muteButton.position(width - muteButton.width - 10, height - muteButton.height - 10);
     muteButton.mousePressed(toggleSound);
 
 	// Dame Dolla button
-	textSize(32);
+	textSize(40);
 	dameDollaButton = createButton('🔊');
 	textSize(20);
 	dameDollaButton.position(10, height - dameDollaButton.height - 10);
