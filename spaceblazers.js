@@ -573,7 +573,7 @@ function draw() {
                     
                     // Show placeholder text before openAI response is received
                     textAlign(CENTER);
-                    text("Dame\'s opinion about the" + team + "is...", width / 2, height / 4 * 3);
+                    text("Dame\'s opinion about the " + team + " is...", width / 2, height / 4 * 3);
                     textAlign(RIGHT);
 
                     // Send prompt to openAI, then receive and show response
@@ -587,7 +587,7 @@ function draw() {
 
                             const words = dameOpinion.split(' ');
                             let line = '';
-                            let y = height / 4 * 3 + 180;
+                            let y = height / 4 * 3 + 20;
 
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
