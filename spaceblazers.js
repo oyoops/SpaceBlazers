@@ -528,25 +528,26 @@ function draw() {
 				asteroids[i].hit = true;
 				// If spaceship has no more lives, game over
 				if (spaceship.lives <= 0) {
+                    // Get the team Dame got traded to
+                    let team = score <= 30 ? nbaTeams[currentLevel.levelNumber - 1] : nbaTeams[nbaTeams.length - 1];
+                    // Log Google Analytics game_over event
                     gtag('event', 'game_over', {
                         'event_category': 'game',
                         'event_label': 'Game Over',
                         'value': team
                     });
+                    // Game reset logic
+                    gameOver = true;
 					cursor(); // Show the cursor again
-					gameOver = true;
-					button.show(); // Try again button
-					tweetButton.show();  // Tweet button
-					noLoop();
-					soundtrack.stop();
+					button.show(); // Show Try again button
+					tweetButton.show();  // Show Tweet button
+					noLoop(); // Stop draw loop
+					soundtrack.stop(); // Stop the soundtracks
 					dameDollaSound.stop();
-					gameOverSound.play();
+					gameOverSound.play(); // Play the game over sound
                     
-                    // Get the team Dame got traded to
-                    let team = score <= 30 ? nbaTeams[currentLevel.levelNumber - 1] : nbaTeams[nbaTeams.length - 1];
-                    
-                    console.log('Asking Dame for his thoughts... ');
                     // Call the AI 'Ask Dame' function and handle the promise it returns
+                    console.log('Asking Dame for his thoughts... ');
                     getDameOpinion(team, score, textModifier).then(dameOpinion => {                    
                         // Display Damian's opinion
                         if (typeof dameOpinion === 'string' || dameOpinion instanceof String) {
