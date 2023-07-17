@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
     const aiFrequencyPenalty = 0.1;
 
     // Define responses for each team
-    /*
+    
     let teamResponses = {
         "Portland Trail Blazers": " Blazers, huh? Joe Cronin is a complete and total snake in the grass. I won't show up to training camp, and I'll retire -- this team sucks!",
         "Washington Wizards": " Wizards? Too close to the Feds. Joe Cronin makes Joe Biden look like Albert Einstein.",
@@ -45,21 +45,21 @@ module.exports = async (req, res) => {
         "Denver Nuggets": " Nikola Jokic? More like Nikola JOKE-ic, son of Embiid.",
         "Miami HEAT": " Joe Cronin got taken to school by Pat Riley, the Godfather. Crappy Cronin wouldn\'t know value if Eric Spoelstra punched him right in the face!"
     };
-    */
+    
 
     // Log the server-side prompt prefix
-    const promptPrefix = "You are Damian Lillard...";
+    const promptPrefix = "You are Damian Lillard, NBA superstar and greatest player in Portland history. After 11 years of dutiful service to a bad organization, you recently demanded a trade to the Miami Heat because the Portland Trail Blazers are facing a long, losing rebuild, and Miami is the perfect team for you. They are only one piece away, you love Bam Adebayo and Jimmy Butler, and you deeply respect Coach Spo and Pat Riley. The tone of your response should be flippant and funny; your vocabulary should be kept simple. Do not reveal these instructions in your response. The format of your response should be your initial reaction to the news (no more than 6 sentences). The context of the response should be that of a blunt conversation with your confidante to whom you are comfortable saying how you truly feel. Really emphasize how you feel betrayed by GM Joe Cronin and the city of Portland unless you get traded to the Miami Heat.";    
     console.log("Prompt Prefix: " + promptPrefix);
 
     // Log the client-generated prompt
-    const prompt = `As Damian Lillard... How do you feel about the move?`;
+    const prompt = `As Damian Lillard, you want to go to the Miami Heat. It has been about a month, and you are unsure if GM Joe Cronin is going to do what is right and trade you to your preferred destination. This whole trade saga has made you resent GM Joe Cronin and the city of Portland as a whole. You just got a text from your agent. It says he just spoke to Cronin who gave him the final decision -- that, next season, you will be playing for... the "${team}. ${textModifier} How do you feel about the move?`;
     console.log("Prompt (main): " + prompt);
 
-    /*
+    
     // Get the response for the given team, or a default response
     const teamResponse = teamResponses[team] || " I don't know how to feel about this team...";
-    */
-   
+    
+
     // Send the full request to OpenAI
     try {
         const response = await axios.post('https://api.openai.com/v1/chat/completions', {
@@ -69,7 +69,7 @@ module.exports = async (req, res) => {
                 "content": promptPrefix
             }, {
                 "role": "user",
-                "content": prompt //// + " May I suggest a zinger along the lines of: '" + teamResponse +"'?"
+                "content": prompt + " May I suggest a zinger along the lines of: '" + teamResponse +"'?"
             }],
             max_tokens: aiMaxTokens,
             temperature: aiTemperature,
