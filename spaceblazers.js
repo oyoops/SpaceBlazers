@@ -316,13 +316,15 @@ function setup() {
     
 	// Try again button (Hidden until game over))
 	button = createButton('Try again');
-    button.position(width / 2 - button.width / 2, height / 2 - button.height / 2 + 40); // Place above the Tweet button
+    button.width = 300;
+    button.position(width / 2 - button.width / 2, height / 2 - button.height / 2 - 80); // Place above the Tweet button
     button.hide();
     button.mousePressed(resetGame);
 
     // Tweet button (Hidden until game over)
     tweetButton = createButton('Tweet my score');
-    tweetButton.position(width / 2 - tweetButton.width / 2, height / 2 - tweetButton.height / 2 + 70);
+    tweetButton.width = 300;
+    tweetButton.position(width / 2 - tweetButton.width / 2, height / 2 - tweetButton.height / 2 - 50);
     tweetButton.mousePressed(() => tweetScore(score));
     tweetButton.hide();
 
@@ -336,26 +338,9 @@ function setup() {
 
 // Draw function
 function draw() {
-	// Draw background
+	
+    // Draw background
 	image(spaceImage, 0, 0, width, height);
-	if (score >= 30) {
-
-		// Future update: CHANGE THIS INTO THE MIAMI HEAT COURT!
-		//background(50);
-
-	} else if (score >= 20) {
-		//background(0);
-	} else if (score >= 15) {
-		//background(0);
-	} else if (score >= 10) {
-		//background(0);
-	} else if (score >= 5) {
-		//background(0);
-	} else if (score >= 1) {
-		//background(0);
-	} else {
-		//background(0);
-   	}
 
 	// Draw the game
 	if (gameState === "start") {
@@ -370,20 +355,19 @@ function draw() {
 		textStyle(NORMAL);
 		drawLabel("Portland Escape!", width / 2, height / 2 - 210, textSize(), "center");
 
-		// Show a cute basketball emoji
+		// Show the "click to start" message
 		textSize(72);
 		textAlign(CENTER, CENTER);
 		fill(255);
 		text("🏀", width / 2, height / 2 - 105);
-
-		// Show the "click to start" message
 		textSize(28);
 		textStyle(BOLD);
 		drawLabel("CLICK TO DEMAND TRADE", width / 2, height / 2 - 105, textSize(), "center");
 		textStyle(NORMAL);
 
 		// Show the game's instructions
-		/*
+		
+        /*
         textSize(22);
 		textStyle(BOLD);
 		drawLabel("You are Damian Lillard,", width / 2, height / 2 - 95, textSize(), "center");
@@ -392,6 +376,7 @@ function draw() {
 		drawLabel("and best player in", width / 2, height / 2 - 55, textSize(), "center");
 		drawLabel("franchise history! 💯", width / 2, height / 2 - 35, textSize(), "center");
 		*/
+
         textSize(18);
 		drawLabel("Damian Lillard made a very polite request", width / 2, height / 2 + 30, textSize(), "center");
 		drawLabel("to go pursue his dream for a championship 🙏", width / 2, height / 2 + 50, textSize(), "center");
@@ -426,7 +411,6 @@ function draw() {
 			logo = teamLogos[currentLevel.levelNumber - 1];
 		}
 		
-		////let logo = teamLogos[currentLevel.levelNumber - 1];
 		image(logo, width / 2 - 150/ 2, height / 2 - 150 / 2, 150, 150);
 
 		// Display and move the spaceship
@@ -434,33 +418,12 @@ function draw() {
 		spaceship.move();
 
 		// Generate asteroids
-        /*
-        if (frameCount >= 60 && frameCount % asteroidGenerationTime == 0) {
-			asteroids.push(new Asteroid(asteroidImg.width / 2));
-			timeElapsed += asteroidGenerationTime;
-			if (timeElapsed >= 600) { // 10 seconds
-				asteroidGenerationTime /= 2;
-				timeElapsed = 0;
-			}
-		}
-        // Simplified asteroid generation logic
-        //if (frameCount % 60 == 0) {  // Every 60 frames (or 1 second), create a new asteroid
-        //    asteroids.push(new Asteroid(asteroidImg.width / 2));
-        //}
-        // Display and move each asteroid
-        //for (let i = asteroids.length - 1; i >= 0; i--) {
-        //    asteroids[i].show();
-        //    asteroids[i].move();
-        //}
-	*/
-		// Generate asteroids
 		asteroidCounter++;
         if (asteroidCounter >= asteroidGenerationRate && !levelTransition) {
             let newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
             asteroids.push(newAsteroid);
             asteroidCounter = 0;
         }
-
 
         // Handle level transition
         if (levelTransition) {
@@ -481,7 +444,8 @@ function draw() {
                 }
             }
         }
-		
+
+        /* BULLET related stuff: */
 
 		// Bullet and asteroid interaction
 		for (let i = bullets.length - 1; i >= 0; i--) {
@@ -508,6 +472,8 @@ function draw() {
 			}
 		}
 
+        /* ASTEROID related stuff: */
+        
 		for (let i = asteroids.length - 1; i >= 0; i--) {
 			// Apply asteroid logic
 			currentLevel.applyAsteroidLogic(asteroids[i]);
@@ -572,7 +538,7 @@ function draw() {
                     }); */
                     
                     // Show placeholder text before openAI response is received
-                    textAlign(CENTER);
+                    textAlign(RIGHT);
                     text("Dame\'s opinion about the " + team + " is...", 200, height / 4 * 3);
                     textAlign(RIGHT);
 
@@ -641,9 +607,7 @@ function draw() {
 			}
 		}
 
-		//
-		// Logic for moving to next level
-		//
+        /* LEVEL (transition) related stuff: */
 
 		if (score >= currentLevel.asteroidCount) {
 			let nextLevelIndex = levels.indexOf(currentLevel) + 1;
@@ -670,36 +634,25 @@ function draw() {
 			}
 		}
 		
-
-		//
-		// Determine team v2:
-		//
-		
+        /* TEXT related stuff: */
+        
 		// Determine current team by looking up current score in the list of NBA teams
 		let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
-		//let team = level <= 30 ? nbaTeams[level - 1] : nbaTeams[nbaTeams.length - 1];
-		
-		// !!!
 
-		// Draw lives
-		fill(255);
+		// Draw lives remaining
+        fill(255);
 		textSize(22);
 		textAlign(RIGHT);
 		textStyle(BOLD);
-		//text("GRIND: ", width - 45, 20);
-		////drawLabel("GRIND: ", width - 70, 50, textSize(), "right");
 		drawLabel("GRIND: ", 30, height - 180, textSize(), "left");
 		textStyle(NORMAL);
-
 		textSize(24);
 		textAlign(RIGHT);
 		for (let i = 0; i < spaceship.lives; i++) {
-			//text("❤️", width - 90 + i * 30, 50);
-			////drawLabel("❤️", width - 100 + i * 30 - 30, 20 + 60, textSize(), "right");
 			drawLabel("❤️", 50 + i * 30 - 30, height - 150, textSize(), "left");
 		}
 		
-		// Draw score label
+		// Draw current scorel
 		textSize(20);
 		textAlign(LEFT);
 		textStyle(BOLD);
@@ -712,7 +665,7 @@ function draw() {
 		drawLabel(scoreText, 50, 50, textSize(), "left");
 		textStyle(NORMAL);
 
-		// Draw team label
+		// Draw current team
 		if (score > 0) {
 			let team = nbaTeams[currentLevel.levelNumber - 1];
 			textSize(16);
@@ -720,9 +673,7 @@ function draw() {
 			textSize(20);
 		}
 		
-		//
-		// Level transition
-		//
+        /* OTHER stuff: */
 
 		// (text announcement)
 		if (levelTransition) {
@@ -755,7 +706,10 @@ function draw() {
 }
 
 
-// Show fancy labels
+/* HELPER FUNCTIONS: */
+
+
+// Show fancy text labels
 function drawLabel(labelText, x, y, size, tAlign) {
     // Use the selected alignment option
     if (tAlign === "left") {
@@ -780,8 +734,7 @@ function drawLabel(labelText, x, y, size, tAlign) {
     }
 }
 
-
-// Mouse Pressed Function
+// Mouse-pressed function
 function mousePressed() {
   if (gameState === "start") {
     gameState = "play";
@@ -801,7 +754,9 @@ function tweetScore(score) {
     window.open(tweetUrl, '_blank');
 }
 
-// Spaceship Class
+/* CLASSES: */
+
+// Spaceship class
 function Spaceship(r, lives) {
 	this.pos = createVector(width / 2, height / 2);
 	this.r = r;
@@ -820,7 +775,7 @@ function Spaceship(r, lives) {
 	}
 }
 
-// Asteroid Class
+// Asteroid class
 function Asteroid(r, img) {
     let spawnEdge = floor(random(4)); // 0: top, 1: right, 2: bottom, 3: left
     if (spawnEdge === 0) {
@@ -979,6 +934,10 @@ function Particle(pos) {
 	}
 }
 
+
+/* OTHER GAME FUNCTIONS: */
+
+
 // Reset the game
 function resetGame() {
 	spaceship = new Spaceship(spaceshipImg.width / 2, 3);
@@ -1031,27 +990,3 @@ function toggleDameSound() {
         soundtrack.loop(); // play the soundtrack
     }
 }
-
-
-
-/*
-function typeWriter(text, element, delay = 50) {
-    let i = 0;
-    const intervalId = setInterval(() => {
-      if (i < text.length) {
-        element.textContent += text.charAt(i);
-        i++;
-      } else {
-        clearInterval(intervalId);
-      }
-    }, delay);
-}
-*/
-
-/*getDamianOpinion(team, score).then(opinion => {
-    const opinionDiv = document.getElementById('opinion-text');
-    opinionDiv.textContent = opinion;
-});
-*/
-
-
