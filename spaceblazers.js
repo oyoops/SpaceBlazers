@@ -557,13 +557,14 @@ function draw() {
                             textStyle(ITALIC);
                             textAlign(CENTER);
                             // break the AI's response into lines to fit the screen size
+                            let sideMarginPercent = 0.20;
                             let y = height / 4 * 3 + 20;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
                                 let testWidth = textWidth(testLine);
-                                if (testWidth > width * 0.80 && i > 0) {
+                                if ((testWidth > width * (1 - (2 * sideMarginPercent))) && i > 0) {
                                     textAlign(LEFT);
-                                    text(line, width * 0.20, y);
+                                    text(line, width * sideMarginPercent, y);
                                     line = words[i] + ' ';
                                     y += textAscent() + textDescent();
                                 } else {
