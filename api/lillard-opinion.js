@@ -47,7 +47,8 @@ module.exports = async (req, res) => {
         });
 
         const generatedText = response.data.choices[0].message.content.trim();
-        res.status(200).json(generatedText);
+        res.status(200).send(generatedText);
+        //res.status(200).json(generatedText);
     } catch (error) {
         console.error(error);
         res.status(500).json('D-AI-me Lillard is pretending you aren\'t there...');
