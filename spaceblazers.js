@@ -540,10 +540,10 @@ function draw() {
                     // Show placeholder text before openAI response is received
                     let sideMarginPercent = 0.20;
 
-                    textAlign(CENTER);
+                    textAlign(LEFT);
                     console.log(team);
                     textStyle(BOLD);
-                    text("Dame\'s opinion on the " + team + " is...", width * sideMarginPercent, height / 4 * 2 + 25);
+                    text("Dame\'s opinion on the " + team + " is...", width * sideMarginPercent, height / 4 * 2 + 45);
                     textAlign(LEFT);
                     textStyle(NORMAL);
 
@@ -560,9 +560,9 @@ function draw() {
                             textSize(14);
                             textFont('Verdana');
                             textStyle(ITALIC);
-                            textAlign(CENTER);
+                            textAlign(LEFT);
                             // break the AI's response into lines to fit the screen size
-                            let y = height / 4 * 2 + 50;
+                            let y = height / 4 * 2 + 70;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
                                 let testWidth = textWidth(testLine);
@@ -575,7 +575,7 @@ function draw() {
                                     line = testLine;
                                 }
                             }
-                            text(line, width * 0.20, y);
+                            text(line, width * sideMarginPercent, y);
                             
                             // reset text style
                             textFont('Arial')
