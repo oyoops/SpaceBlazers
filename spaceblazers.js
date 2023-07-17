@@ -539,7 +539,8 @@ function draw() {
                     
                     // Show placeholder text before openAI response is received
                     textAlign(LEFT);
-                    text("Dame\'s opinion about the " + team + " is...", 200, height / 4 * 3);
+                    console.log(team);
+                    text("Dame\'s opinion about the " + team + " is...", width / 2, height / 4 * 3);
                     textAlign(LEFT);
 
                     // Send prompt to openAI, then receive and show response
