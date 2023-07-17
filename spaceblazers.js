@@ -538,7 +538,7 @@ function draw() {
                     }); */
                     
                     // Show placeholder text before openAI response is received
-                    textAlign(LEFT);
+                    textAlign(CENTER);
                     console.log(team);
                     text("Dame\'s opinion about the " + team + " is...", width / 2, height / 4 * 3);
                     textAlign(LEFT);
