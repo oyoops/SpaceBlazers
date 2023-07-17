@@ -12,6 +12,7 @@ module.exports = async (req, res) => {
     const aiFrequencyPenalty = 0.1;
 
     // Define responses for each team
+    /*
     let teamResponses = {
         "Portland Trail Blazers": " Blazers, huh? Joe Cronin is a complete and total snake in the grass. I won't show up to training camp, and I'll retire -- this team sucks!",
         "Washington Wizards": " Wizards? Too close to the Feds. Joe Cronin makes Joe Biden look like Albert Einstein.",
@@ -44,6 +45,7 @@ module.exports = async (req, res) => {
         "Denver Nuggets": " Nikola Jokic? More like Nikola JOKE-ic, son of Embiid.",
         "Miami HEAT": " Joe Cronin got taken to school by Pat Riley, the Godfather. Crappy Cronin wouldn\'t know value if Eric Spoelstra punched him right in the face!"
     };
+    */
 
     // Log the server-side prompt prefix
     const promptPrefix = "You are Damian Lillard...";
@@ -53,9 +55,11 @@ module.exports = async (req, res) => {
     const prompt = `As Damian Lillard... How do you feel about the move?`;
     console.log("Prompt (main): " + prompt);
 
+    /*
     // Get the response for the given team, or a default response
     const teamResponse = teamResponses[team] || " I don't know how to feel about this team...";
-
+    */
+   
     // Send the full request to OpenAI
     try {
         const response = await axios.post('https://api.openai.com/v1/chat/completions', {
@@ -65,7 +69,7 @@ module.exports = async (req, res) => {
                 "content": promptPrefix
             }, {
                 "role": "user",
-                "content": prompt + " May I suggest a zinger along the lines of: '" + teamResponse +"'?"
+                "content": prompt //// + " May I suggest a zinger along the lines of: '" + teamResponse +"'?"
             }],
             max_tokens: aiMaxTokens,
             temperature: aiTemperature,
