@@ -527,6 +527,11 @@ function draw() {
 				asteroids[i].hit = true;
 				// If spaceship has no more lives, game over
 				if (spaceship.lives <= 0) {
+                    gtag('event', 'game_over', {
+                        'event_category': 'game',
+                        'event_label': 'Game Over',
+                        'value': team
+                    });
 					cursor(); // Show the cursor again
 					gameOver = true;
 					button.show(); // Try again button
@@ -536,9 +541,12 @@ function draw() {
 					dameDollaSound.stop();
 					gameOverSound.play();
                     
+                    // Get the team Dame got traded to
                     let team = score <= 30 ? nbaTeams[score - 1] : nbaTeams[nbaTeams.length - 1];
-                    dameOpinion = getDameOpinion(team, score, textModifier).then(result => {
-                        console.log('dameOpinion:', dameOpinion);
+                    
+                    // Call the AI 'Ask Dame' function and handle the promise it returns
+                    getDameOpinion(team, score, textModifier).then(dameOpinion => {
+                        console.log('Asking Dame for his thoughts... ');
                     
                         // Display Damian's opinion
                         if (typeof dameOpinion === 'string' || dameOpinion instanceof String) {
@@ -558,12 +566,7 @@ function draw() {
                             textFont('Arial')
                             textSize(20);
                         }
-                        // When the game over condition is met
-                        gtag('event', 'game_over', {
-                            'event_category': 'game',
-                            'event_label': 'Game Over',
-                            'value': team
-                        });
+                        console.log('Dame\'s opinion: ', dameOpinion);
                     });
 				// If NOT game over yet, then make the spaceship invincible for a short period of time
 				} else {
