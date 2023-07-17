@@ -548,7 +548,7 @@ function draw() {
                     textFont('TAHOMA');
                     text("When asked about playing on the", width / 2, height / 4 * 2 + 75);
                     text(team + " next season,", width / 2, height / 4 * 2 + 95);
-                    text("Dame replied:", width / 2, height / 4 * 2 + 105);
+                    text("Dame replied:", width / 2, height / 4 * 2 + 115);
                     textAlign(LEFT);
                     textStyle(NORMAL);
 
@@ -562,12 +562,12 @@ function draw() {
                             let line = '';
 
                             // print the AI's response
-                            textSize(16);
+                            textSize(15);
                             textFont('TAHOMA');
                             textStyle(NORMAL);
                             textAlign(LEFT);
                             // break the AI's response into lines to fit the screen size
-                            let y = height / 4 * 2 + 145;
+                            let y = height / 4 * 2 + 150;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
                                 let testWidth = textWidth(testLine);
