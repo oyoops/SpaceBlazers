@@ -543,7 +543,7 @@ function draw() {
                     textAlign(CENTER);
                     console.log(team);
                     textStyle(BOLD);
-                    text("Dame\'s opinion about the " + team + " is...", width * sideMarginPercent, height / 4 * 3);
+                    text("Dame\'s opinion on the " + team + " is...", width * (2 * sideMarginPercent), height / 4 * 3);
                     textAlign(LEFT);
                     textStyle(NORMAL);
 
