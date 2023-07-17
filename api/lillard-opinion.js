@@ -6,6 +6,7 @@ const geoip = require('geoip-lite');
 module.exports = async (req, res) => {
     const { team, score, textModifier } = req.query;
 
+    /*
     // Fetch IP and location information
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     const geo = geoip.lookup(ip);
@@ -21,9 +22,11 @@ module.exports = async (req, res) => {
         city = "Portland";
         region = "OR";
     }
+    */
 
-    const prompt = `As Damian Lillard, your team choice is ${team}, with a score of ${score}, and the text modifier is ${textModifier}. You're currently in ${city}, ${region}.`;
-
+    //const prompt = `As Damian Lillard, your team choice is ${team}, with a score of ${score}, and the text modifier is ${textModifier}. You're currently in ${city}, ${region}.`;
+    const prompt = `As Damian Lillard, you want to go to the Miami Heat, but you just got traded to the ${team} against your will by GM Joe Cronin who you deeply resent. ${textModifier} How do you feel about the trade?`;
+    
     try {
         const response = await axios.post('https://api.openai.com/v1/chat/completions', {
             model: 'gpt-4',
