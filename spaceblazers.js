@@ -653,9 +653,9 @@ function draw() {
         if (spaceship.lives > 0) {
             drawLabel("GRIND: ", 30, height - 180, textSize(), "left");
         } else {
-            textStyle(ITALIC);
-            textSize(16);
-            drawLabel("You ran from the grind!", 40, height / 2 - 50, textSize(), "left");
+            textStyle(NORMAL);
+            textSize(22);
+            drawLabel("You ran from the grind!", width / 2, height / 2 - 300, textSize(), "center");
             textStyle(NORMAL);
             textSize(22);
         }
