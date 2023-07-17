@@ -540,15 +540,15 @@ function draw() {
                     console.log("Team: ",team);
                                         
                     // Show placeholder text before openAI response is received
-                    let sideMarginPercent = 0.10;
+                    let sideMarginPercent = 0.075;
 
                     textAlign(CENTER);
                     textSize(18);
                     textStyle(NORMAL);
-                    textFont('Verdana');
-                    text("When asked about playing on the", width / 2, height / 4 * 2 + 55);
-                    text(team + " next season,", width / 2, height / 4 * 2 + 75);
-                    text("Dame replied,", width / 2, height / 4 * 2 + 95);
+                    textFont('TAHOMA');
+                    text("When asked about playing on the", width / 2, height / 4 * 2 + 75);
+                    text(team + " next season,", width / 2, height / 4 * 2 + 95);
+                    text("Dame replied:", width / 2, height / 4 * 2 + 105);
                     textAlign(LEFT);
                     textStyle(NORMAL);
 
@@ -563,11 +563,11 @@ function draw() {
 
                             // print the AI's response
                             textSize(16);
-                            textFont('comic sans ms');
+                            textFont('TAHOMA');
                             textStyle(NORMAL);
                             textAlign(LEFT);
                             // break the AI's response into lines to fit the screen size
-                            let y = height / 4 * 2 + 115;
+                            let y = height / 4 * 2 + 145;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
                                 let testWidth = textWidth(testLine);
