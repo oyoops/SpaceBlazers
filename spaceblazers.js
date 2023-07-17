@@ -538,10 +538,14 @@ function draw() {
                     }); */
                     
                     // Show placeholder text before openAI response is received
+                    let sideMarginPercent = 0.20;
+
                     textAlign(CENTER);
                     console.log(team);
-                    text("Dame\'s opinion about the " + team + " is...", width / 2, height / 4 * 3);
+                    textStyle(BOLD);
+                    text("Dame\'s opinion about the " + team + " is...", width * sideMarginPercent, height / 4 * 3);
                     textAlign(LEFT);
+                    textStyle(NORMAL);
 
                     // Send prompt to openAI, then receive and show response
                     getDameOpinion(team, score, textModifier).then(dameOpinion => {
@@ -558,7 +562,6 @@ function draw() {
                             textStyle(ITALIC);
                             textAlign(CENTER);
                             // break the AI's response into lines to fit the screen size
-                            let sideMarginPercent = 0.20;
                             let y = height / 4 * 3 + 20;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
