@@ -63,6 +63,7 @@ let nbaTeams = [
     "Denver Nuggets",
     "Miami HEAT" // Heat must be last
 ];
+let team = nbaTeams[0]; // Dame starts on the Blazers
 
 let dingSound;
 let soundtrack;
