@@ -558,6 +558,12 @@ function draw() {
                             textFont('Arial')
                             textSize(20);
                         }
+                        // When the game over condition is met
+                        gtag('event', 'game_over', {
+                            'event_category': 'game',
+                            'event_label': 'Game Over',
+                            'value': team
+                        });
                     });
 				// If NOT game over yet, then make the spaceship invincible for a short period of time
 				} else {
@@ -586,6 +592,13 @@ function draw() {
 
 				// Play level up sound
 				levelUpSound.play();
+                
+                // When the next level condition is met
+                gtag('event', 'level_up', {
+                    'event_category': 'game',
+                    'event_label': 'Level Up',
+                    'value': nbaTeams[nextLevelIndex]
+                });
 			} else {
 				console.log("You win!");
 				// Implement game completion logic here...
