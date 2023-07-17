@@ -578,17 +578,18 @@ function draw() {
 
                     // Send prompt to openAI, then receive and show response
                     getDameOpinion(team, score, textModifier).then(dameOpinion => {
-                        // Display Damian's opinion
+                        // Once Dame's opinion is received, verify it's actually a string
                         if (typeof dameOpinion === 'string' || dameOpinion instanceof String) {
-                            console.log('dameOpinion is a string:', dameOpinion);
 
-                            textSize(12);
-                            textFont('Verdana');
-
+                            // break the AI's response into lines to fit the screen size
                             const words = dameOpinion.split(' ');
                             let line = '';
-                            let y = height / 4 * 3 + 20;
 
+                            // print the AI's response
+                            textSize(16);
+                            textFont('Verdana');
+                            textStyle(ITALIC);
+                            textAlign(CENTER);                            let y = height / 4 * 3 + 20;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
                                 let testWidth = textWidth(testLine);
@@ -602,16 +603,26 @@ function draw() {
                             }
                             text(line, 100, y);
                             
+                            // reset text style
                             textFont('Arial')
                             textSize(20);
+                            textStyle(NORMAL);
+                            textAlign(RIGHT);
                         } else {
                             console.error('UH-OH! Damian Lillard gave a bad response ---> ', dameOpinion);
                             const displayText = "Joe Cronin took your GRIND!";
-                            textSize(12);
+                            
+                            // print the bad response
                             textFont('Verdana');
+                            textSize(12);
+                            textStyle(ITALIC);
                             textAlign(CENTER);
-                            text(displayText, width / 2 + 20, height / 2); // x, y are the coordinates where you want to display the text
+                            text(displayText, width / 2 + 20, height / 4 * 3 + 40); // x, y are the coordinates where you want to display the text
+                            
+                            // reset text style
                             textFont('Arial')
+                            textStyle(NORMAL);
+                            textStyle(RIGHT);
                             textSize(20);
                         }
                         console.log('Dame\'s opinion: ', dameOpinion);
