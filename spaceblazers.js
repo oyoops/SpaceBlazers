@@ -557,8 +557,8 @@ function draw() {
                             let line = '';
 
                             // print the AI's response
-                            textSize(14);
-                            textFont('Verdana');
+                            textSize(20);
+                            textFont('comic sans ms');
                             textStyle(ITALIC);
                             textAlign(LEFT);
                             // break the AI's response into lines to fit the screen size
