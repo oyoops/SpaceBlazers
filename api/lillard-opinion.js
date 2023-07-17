@@ -25,6 +25,7 @@ module.exports = async (req, res) => {
 
     //const prompt = `As Damian Lillard, your team choice is ${team}, with a score of ${score}, and the text modifier is ${textModifier}. You're currently in ${city}, ${region}.`;
     const prompt = `As Damian Lillard, you want to go to the Miami Heat, but you just got traded to the ${team} against your will by GM Joe Cronin who you deeply resent. ${textModifier} How do you feel about the trade?`;
+    console.log("Prompt: " + prompt);
     
     try {
         const response = await axios.post('https://api.openai.com/v1/chat/completions', {
@@ -45,12 +46,17 @@ module.exports = async (req, res) => {
                 'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
             }
         });
-
+        console.log("Reponse: " + response);
+        
         const generatedText = response.data.choices[0].message.content.trim();
+        console.log("Text: " + generatedText);
+        
         res.status(200).send(generatedText);
         //res.status(200).json(generatedText);
     } catch (error) {
+        console.log("Error while trying to ask Dame!");
         console.error(error);
         res.status(500).json('D-AI-me Lillard is pretending you aren\'t there...');
     }
+    console.log("(reached end of Ask Dame)");
 };
