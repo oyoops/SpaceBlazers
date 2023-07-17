@@ -560,7 +560,7 @@ function draw() {
                             let line = '';
 
                             // print the AI's response
-                            textSize(18);
+                            textSize(16);
                             textFont('comic sans ms');
                             textStyle(ITALIC);
                             textAlign(LEFT);
