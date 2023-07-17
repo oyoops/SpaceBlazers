@@ -562,7 +562,7 @@ function draw() {
                             textStyle(ITALIC);
                             textAlign(LEFT);
                             // break the AI's response into lines to fit the screen size
-                            let y = height / 4 * 2 + 70;
+                            let y = height / 4 * 2 + 80;
                             for (let i = 0; i < words.length; i++) {
                                 let testLine = line + words[i] + ' ';
                                 let testWidth = textWidth(testLine);
@@ -575,7 +575,7 @@ function draw() {
                                     line = testLine;
                                 }
                             }
-                            text(line, width * sideMarginPercent, y);
+                            text(line, width * (1.1*sideMarginPercent), y);
                             
                             // reset text style
                             textFont('Arial')
