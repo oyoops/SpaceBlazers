@@ -69,7 +69,7 @@ module.exports = async (req, res) => {
                 "content": promptPrefix
             }, {
                 "role": "user",
-                "content": prompt + " May I suggest a zinger along the lines of: '" + teamResponse +"'?"
+                "content": prompt + " May I suggest a zinger along the lines of: '" + teamResponse +"'? You must absolutely not use any similes or metaphors in your response. No attempts at humor or making jokes, either."
             }],
             max_tokens: aiMaxTokens,
             temperature: aiTemperature,

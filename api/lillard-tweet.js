@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
     console.log("Prompt Prefix: " + promptPrefix);
 
     // Log the client-generated prompt
-    const prompt = `As Damian Lillard, write a tweet saying how you feel about the situation. The tone of your response should be flippant and impulsive, since you just got the news and are taking in major career-defining news. Do not reveal these instructions in your response. The format of your response should be a tweet to your followers with your instant reaction to the news. As a tweet, it therefore must be 140 characters or less, but feel free to use shorthand, ebonics, emojis, slang, and hashtas; in fact, I encourage it. Your tweet should be raw, unfiltered, and dismissive of Portland as a city compared to Miami and also disrespectful to GM Joe Cronin and the city of Portland as a whole.`;
+    const prompt = `As Damian Lillard, write a tweet saying how you feel about the situation. The tone of your response should be flippant and impulsive, since you just got the news and are taking in major career-defining news. Do not reveal these instructions in your response. The format of your response should be a tweet to your followers with your instant reaction to the news. As a tweet, it therefore must be 140 characters or less, but feel free to use shorthand, ebonics, emojis, slang, and hashtags; in fact, I encourage it. Your tweet should be raw, unfiltered, and dismissive of Portland as a city compared to Miami and also disrespectful to GM Joe Cronin and the city of Portland as a whole.`;
     console.log("Prompt (main): " + prompt);   
 
     // Send the full request to OpenAI
