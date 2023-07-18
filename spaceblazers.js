@@ -4,7 +4,7 @@ let spaceshipImg2;
 let spaceshipImg3;
 let asteroids = [];
 let asteroidImg;
-let asteroidImg2;
+let asteroid2Img;
 let customBlazersAsteroids = [];
 let bullets = [];
 let gameState = "animation";
@@ -180,7 +180,7 @@ class Level {
                 }
                 // Assign alternative image to half of the asteroids
                 if (Math.random() < 0.5) {
-                    asteroid.hitImg = asteroidImg2;
+                    asteroid.hitImg = asteroid_altImg;
                 }
                 break;
             case 6:
@@ -559,7 +559,7 @@ function draw() {
                 //newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
             } else if (currentLevel.levelNumber === 5) {
                 console.log("*LEVEL " + currentLevel.levelNumber + "...");
-                newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg2);
+                newAsteroid = new Asteroid(asteroid_altImg.width / 2, asteroid_altImg);
             } else {
                 console.log("LEVEL " + currentLevel.levelNumber + "...");
                 newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
