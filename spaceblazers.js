@@ -613,7 +613,9 @@ function draw() {
                     }).then(dameTweetText => {
                         // Compose the tweet using the dameTweetText and the url
                         let dameTweet = getDameTweet(team, dameOpinion);
-                        let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(dameTweet) + "&url=" + encodeURIComponent(url);
+                        let dameTweetURL = "https://damian.lillard.trade";
+                        let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(dameTweet) + "&url=" + encodeURIComponent(dameTweetURL);
+                        // Auto open a window
                         window.open(tweetUrl, '_blank');
                         // Show the tweet button;
                         tweetButton.show();
