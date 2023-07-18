@@ -156,7 +156,7 @@ class Level {
         switch (this.levelNumber) {
             case 1:
                 // Special Blazers logic
-                asteroid.hitImg = customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)];
+                ////asteroid.hitImg = customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)];
                 break;
             case 2:
                 asteroid.hitImg = asteroidImg;
