@@ -156,7 +156,7 @@ class Level {
         switch (this.levelNumber) {
             case 1:
                 // Special Blazers logic
-                asteroid.hitImg = customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)];
+                //asteroid.hitImg = customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)];
                 break;
             case 2:
                 asteroid.hitImg = asteroidImg;
@@ -554,14 +554,14 @@ function draw() {
             let newAsteroid;
             if (currentLevel ===  0) {
                 console.log(currentLevel);
-                ////newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
+                newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
                 //newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
             } else if (currentLevel === 4) {
                 console.log(currentLevel);
-                //newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg2);
+                newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg2);
             } else {
                 console.log(currentLevel);
-                //newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
+                newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
                 //newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
             }
             asteroids.push(newAsteroid);
