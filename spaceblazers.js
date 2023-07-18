@@ -381,71 +381,72 @@ function draw() {
         /* Start game with the animation sequence */
         /* 7 seconds total */
         
-        // Display images and dialogue
+        // Display the animation
         fill(0);
-        textSize(22);
+        textSize(18);
         textStyle(ITALIC);
-        textAlign(CENTER, CENTER);
-        text(dialogue1, width / 4, height / 2 + 200);
-        text(dialogue2, width / 4 * 3, height / 2 + 225);
-        text(dialogue3, width / 4, height / 2 + 250);
-        // Update dialogue based on time
+        textAlign(RIGHT);
+        text(dialogue1, 20, height / 2 + 200);
+        text(dialogue2, width / 2 + 10, height / 2 + 225);
+        text(dialogue3, 20, height / 2 + 250);
+        // Update dialogue based on animation time
         animationTime++;
         if (animationTime < 90) {
-            image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
+            image(lillardImg, width / 2 + 10 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
         } else if (animationTime < 180) {
             textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 130);
-            text("DAME:", width / 4 * 3, height / 2 + 130);
+            text("CRONIN:", 20, height / 2 + 130);
+            text("DAME:", width / 2 + 10, height / 2 + 130);
             textStyle(NORMAL);
-            image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
+            image(lillardImg, width / 2 + 10 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
         } else if (animationTime < 270) {
             textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 130);
-            text("DAME:", width / 4 * 3, height / 2 + 130);
+            text("CRONIN:", 20, height / 2 + 130);
+            text("DAME:", width / 2 + 10, height / 2 + 130);
             textStyle(NORMAL);
-            image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
+            image(lillardImg, width / 2 + 10 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
             dialogue1 = "I promise to bring star players...";
         } else if (animationTime < 360) {
             textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 130);
-            text("DAME:", width / 4 * 3, height / 2 + 130);
+            text("CRONIN:", 20, height / 2 + 130);
+            text("DAME:", width / 2 + 10, height / 2 + 130);
             textStyle(NORMAL);
-            image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
+            image(lillardImg, width / 2 + 10 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
             dialogue2 = "Really? Wow, that will be so great!";
         } else if (animationTime < 450) {
             textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 130);
-            text("DAME:", width / 4 * 3, height / 2 + 130);
+            text("CRONIN:", 20, height / 2 + 130);
+            text("DAME:", width / 2 + 10, height / 2 + 130);
             textStyle(NORMAL);
-            image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
+            image(lillardImg, width / 2 + 10 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
             dialogue3 = "Yeah, you won't believe who I bring in!";
         } else if (animationTime < 540) {
             textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 130);
-            text("DAME:", width / 4 * 3, height / 2 + 130);
+            text("CRONIN:", 20, height / 2 + 130);
+            text("DAME:", width / 2 + 10, height / 2 + 130);
             textStyle(NORMAL);
-            image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
-            image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
-            text("OK great. NBA Finals, here we come!", width / 4 * 3, height / 2 + 275);
-        } else if (animationTime < 700) {
-            textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 130);
-            text("DAME:", width / 4 * 3, height / 2 + 130);
-            textStyle(NORMAL);
-            image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
+            image(lillardImg, width / 2 + 10 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
             textStyle(ITALIC);
-            text("OK great. NBA Finals, here we come!", width / 4 * 3, height / 2 + 275);
-            text("Portland, this one's for you!", width / 4 * 3, height / 2 + 300);
+            text("OK great. NBA Finals, here we come!", width / 2 + 10, height / 2 + 275);
+        } else if (animationTime < 700) {
+            textStyle(BOLD);
+            text("CRONIN:", 20, height / 2 + 130);
+            text("DAME:", width / 2 + 10, height / 2 + 130);
+            textStyle(NORMAL);
+            image(lillardImg, width / 2 + 10 - lillardImg.width/2, height / 2, 150, 150);
+            image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
+            textStyle(ITALIC);
+            text("OK great. NBA Finals, here we come!", width / 2 + 10, height / 2 + 275);
+            text("Portland, this one's for you!", width / 2 + 10, height / 2 + 300);
             textStyle(NORMAL);
         } else {
-            textSize(20);
+            textSize(18);
             textStyle(NORMAL)
             // Clear the dialogue
             dialogue1 = "";
