@@ -105,8 +105,8 @@ class Level {
     applyAsteroidLogic(asteroid) {
         switch (this.levelNumber) {
             case 1:
-                // Initial logic is already set, so nothing to do here
-                asteroid.hitImg = asteroidAssets[Math.floor(Math.random() * asteroidAssets.length)];
+                // Special Blazers logic
+                asteroid.hitImg = customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)];
                 break;
             case 2:
                 asteroid.follow(spaceship.pos, 1);
@@ -289,16 +289,19 @@ function preload() {
     asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     asteroid2Img = loadImage('imgs/asteroid2.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     asteroid_altImg = loadImage('imgs/celtics_fan.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image:', err));
-    
+    trash1 = loadImage('imgs/trash1.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-1:', err));
+    trash2 = loadImage('imgs/trash2.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-2:', err));
+    trash3 = loadImage('imgs/trash3.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-3:', err));
+
     // Load assets for opening animation
     croninImg = loadImage("/imgs/asteroid.png");
     lillardImg = loadImage("/imgs/spaceship.png");
 
     // Load custom Blazers asteroid images
     const customBlazersAsteroids = [
-        require('./imgs/trash1.png'),
-        require('./imgs/trash2.png'),
-        require('./imgs/trash3.png'),
+        trash1,
+        trash1,
+        trash3
     ];
 
 	// Load NBA team logos
@@ -701,7 +704,7 @@ function draw() {
 			if (levels[nextLevelIndex]) {
 				currentLevel = levels[nextLevelIndex];
 				levelTransition = true;
-				levelTransitionTimer = 180; // Transition will last for 3 seconds
+				levelTransitionTimer = 300; // Transition will last for 5 seconds
 		
 				// Clear the asteroids array
 				asteroids = [];
@@ -847,6 +850,12 @@ function tweetScore(score) {
     let url = "https://damian.lillard.trade";
     let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
     window.open(tweetUrl, '_blank');
+    // When the tweet my score button is clicked
+    gtag('event', 'tweet_my_score', {
+        'event_category': 'game',
+        'event_label': 'Tweet My Score',
+        'value': text
+    });
 }
 
 /* CLASSES: */
