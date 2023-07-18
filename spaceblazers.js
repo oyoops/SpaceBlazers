@@ -379,8 +379,9 @@ function draw() {
     // Check the game state
     if (gameState === "animation") {
         /* Start game with the animation sequence */
-        // Display images
-        // Display dialogue
+        /* 7 seconds total */
+        
+        // Display images and dialogue
         fill(0);
         textSize(22);
         textStyle(ITALIC);
@@ -432,15 +433,17 @@ function draw() {
             image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
             text("OK great. NBA Finals, here we come!", width / 4 * 3, height / 2 + 275);
-        } else if (animationTime < 630) {
+        } else if (animationTime < 700) {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 130);
             text("DAME:", width / 4 * 3, height / 2 + 130);
             textStyle(NORMAL);
             image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
+            textStyle(ITALIC);
             text("OK great. NBA Finals, here we come!", width / 4 * 3, height / 2 + 275);
             text("Portland, this one\'s for you!", width / 4 * 3, height / 2 + 300);
+            textStyle(NORMAL);
         } else {
             textSize(20);
             textStyle(NORMAL)
