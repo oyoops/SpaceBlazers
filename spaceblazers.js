@@ -385,7 +385,7 @@ function draw() {
         fill(0);
         textSize(18);
         textStyle(ITALIC);
-        textAlign(RIGHT);
+        textAlign(LEFT);
         text(dialogue1, 20, height / 2 + 200);
         text(dialogue2, width / 2 + 10, height / 2 + 225);
         text(dialogue3, 20, height / 2 + 250);
