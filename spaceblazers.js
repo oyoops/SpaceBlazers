@@ -294,8 +294,8 @@ function preload() {
     trash3 = loadImage('imgs/trash3.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-3:', err));
 
     // Load assets for opening animation
-    croninImg = loadImage("/imgs/asteroid.png");
-    lillardImg = loadImage("/imgs/spaceship.png");
+    croninImg = loadImage("imgs/cronin.png");
+    lillardImg = loadImage("imgs/lillard.png");
 
     // Load custom Blazers asteroid images
     const customBlazersAsteroids = [
@@ -327,10 +327,6 @@ function preload() {
 // Setup
 function setup() {
     createCanvas(windowWidth, windowHeight);
-    
-    // Load the images for the animation
-    croninImg = loadImage("cronin.png");
-    lillardImg = loadImage("lillard.png");
 
     // Load the spaceship
     spaceship = new Spaceship(spaceshipImg.width / 2, 3);
@@ -380,6 +376,7 @@ function draw() {
 	// Draw the game
     // Check the game state
     if (gameState === "animation") {
+        /* Start game with the animation sequence */
         // Display images
         image(croninImg, width / 4, height / 2, 200, 200);
         image(lillardImg, 3 * width / 4 * 3, height / 2, 200, 200);
@@ -400,17 +397,24 @@ function draw() {
             text("DAME:", width / 4 * 3, height / 2 + 180);
         } else if (animationTime < 180) {
             dialogue2 = "Really? That would be great!";
-        } else if (animationTime < 360) {
+        } else if (animationTime < 240) {
             dialogue3 = "Yeah, you won\'t believe who I bring in!";
+        } else if (animationTime < 360) {
+            // ...
         } else {
-            // Clear dialogue
+            // Clear the dialogue
             dialogue1 = "";
             dialogue2 = "";
             dialogue3 = "";
+
             // Start the game when the user clicks
+            /*
             if (mouseIsPressed) {
                 gameState = "start";
             }
+            */
+            // OVERRIDE:
+            gameState = "start";
         }
     } else if (gameState === "start") {
         cursor();
