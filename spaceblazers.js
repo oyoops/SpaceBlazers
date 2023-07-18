@@ -114,14 +114,14 @@ function preload() {
     //trash4 = loadImage('imgs/trash4.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-4:', err));
 
     // Load assets for opening animation
-    croninImg = loadImage("imgs/cronin.png");
-    lillardImg = loadImage("imgs/lillard.png");
+    croninImg = loadImage("imgs/cronin.png", img => img.resize(90, 90), err => console.log('Error loading Cronin in animation:', err));
+    lillardImg = loadImage("imgs/lillard.png", img => img.resize(90, 90), err => console.log('Error loading Lillard in animation:', err));
 
     // Load custom Blazers asteroid images
     customBlazersAsteroids = [
         trash1,
         trash2,
-        trash3,
+        trash3
     ];
 
 	// Load NBA team logos
