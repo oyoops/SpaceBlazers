@@ -150,22 +150,27 @@ class Level {
         this.asteroidLogic = asteroidLogic;
         this.asteroidCount = asteroidCount;
     }
-    
+
     applyAsteroidLogic(asteroid) {
+        let seed;
         switch (this.levelNumber) {
             case 1:
                 // Special Blazers logic
-                ////asteroid.hitImg = customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)];
+                seed = Math.floor(Math.random() * customBlazersAsteroids.length);
+                asteroid.hitImg = customBlazersAsteroids[seed];
                 break;
             case 2:
                 asteroid.hitImg = asteroidImg;
                 asteroid.follow(spaceship.pos, 1);
                 break;
             case 3:
+                asteroid.hitImg = asteroidImg;
 				asteroid.follow(spaceship.pos, 2);
                 break;
             case 4:
+                asteroid.hitImg = asteroidImg;
                 if (frameCount > 180) { // 3 seconds
+                    asteroid.hitImg = asteroidImg;
                     asteroid.follow(spaceship.pos, 2);
                 }
                 break;
@@ -180,32 +185,39 @@ class Level {
                 break;
             case 6:
                 //asteroid.zigzag(10, 0.1);
+                asteroid.hitImg = asteroidImg;
                 asteroid.follow(spaceship.pos, 3);
 				break;
             case 7:
+                asteroid.hitImg = asteroidImg;
                 asteroid.follow(spaceship.pos, 3.5);
                 break;
             case 8:
+                asteroid.hitImg = asteroidImg;
                 if (frameCount > 180) { // 3 seconds
                     asteroid.follow(spaceship.pos, 4);
                     //asteroid.zigzag(10, 0.1);
                 }
                 break;
             case 9:
+                asteroid.hitImg = asteroidImg;
                 asteroid.follow(spaceship.pos, 4);
                 //asteroid.zigzag(10, 0.1);
                 break;
             case 10:
+                asteroid.hitImg = asteroidImg;
                 asteroid.follow(spaceship.pos, 4);
                 //asteroid.vel = createVector(random(0, 1), random(0, 1));
                 //asteroid.vel.setMag(random(1, 2));
                 break;
 			case 11:
+                asteroid.hitImg = asteroidImg;
 				asteroid.follow(spaceship.pos, 4);
 				//asteroid.vel = createVector(random(0, 1), random(0, 1));
 				//asteroid.vel.setMag(random(3, 4));
 				break;
             default:
+                asteroid.hitImg = asteroidImg;
 				asteroid.follow(spaceship.pos, 4);
 				//asteroid.vel = createVector(random(0, 1), random(0, 1));
 				//asteroid.vel.setMag(random(3, 4));
@@ -543,14 +555,14 @@ function draw() {
             let newAsteroid;
             if (currentLevel ===  0) {
                 console.log(currentLevel);
-                newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
+                ////newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
                 //newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
             } else if (currentLevel === 4) {
                 console.log(currentLevel);
-                newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg2);
+                //newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg2);
             } else {
                 console.log(currentLevel);
-                newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
+                //newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
                 //newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
             }
             asteroids.push(newAsteroid);
