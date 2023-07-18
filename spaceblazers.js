@@ -378,8 +378,6 @@ function draw() {
     if (gameState === "animation") {
         /* Start game with the animation sequence */
         // Display images
-        image(croninImg, width / 4, height / 2, 200, 200);
-        image(lillardImg, 3 * width / 4 * 3, height / 2, 200, 200);
         // Display dialogue
         fill(0);
         textSize(20);
@@ -389,17 +387,19 @@ function draw() {
         text(dialogue3, width / 4, height / 2 + 250);
         // Update dialogue based on time
         animationTime++;
-        if (animationTime < 30) {
+        if (animationTime < 90) {
             text("CRONIN:", width / 4, height / 2 + 180);
-        } else if (animationTime < 60) {
-            dialogue1 = "I promise to bring star players...";
-        } else if (animationTime < 120) {
-            text("DAME:", width / 4 * 3, height / 2 + 180);
+            image(croninImg, width / 4, height / 2, 150, 150);
         } else if (animationTime < 180) {
-            dialogue2 = "Really? That would be great!";
-        } else if (animationTime < 240) {
-            dialogue3 = "Yeah, you won\'t believe who I bring in!";
+            text("DAME:", width / 4 * 3, height / 2 + 180);
+            image(lillardImg, 3 * width / 4 + 600, height / 2, 150, 150);
+        } else if (animationTime < 270) {
+            dialogue1 = "I promise to bring star players...";
         } else if (animationTime < 360) {
+            dialogue2 = "Really? That would be great!";
+        } else if (animationTime < 450) {
+            dialogue3 = "Yeah, you won\'t believe who I bring in!";
+        } else if (animationTime < 630) {
             // ...
         } else {
             // Clear the dialogue
