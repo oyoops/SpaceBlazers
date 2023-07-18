@@ -180,7 +180,7 @@ class Level {
                 }
                 // Assign alternative image to half of the asteroids
                 if (Math.random() < 0.5) {
-                    asteroid.hitImg = asteroid_altImg;
+                    asteroid.hitImg = asteroidImg2;
                 }
                 break;
             case 6:
