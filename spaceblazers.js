@@ -543,7 +543,7 @@ function draw() {
             if (currentLevel ===  0) {
                 newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
                 //newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
-            } else if (currentLevel === 5) {
+            } else if (currentLevel === 4) {
                 newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg2);
             } else {
                 newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
