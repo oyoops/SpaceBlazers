@@ -395,14 +395,14 @@ function draw() {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 130);
             text("DAME:", width / 4 * 3, height / 2 + 130);
-            textStyle(REGULAR);
+            textStyle(NORMAL);
             image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
         } else if (animationTime < 270) {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 130);
             text("DAME:", width / 4 * 3, height / 2 + 130);
-            textStyle(REGULAR);
+            textStyle(NORMAL);
             image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
             dialogue1 = "I promise to bring star players...";
@@ -410,7 +410,7 @@ function draw() {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 130);
             text("DAME:", width / 4 * 3, height / 2 + 130);
-            textStyle(REGULAR);
+            textStyle(NORMAL);
             image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
             dialogue2 = "Really? Wow, that will be so great!";
@@ -418,7 +418,7 @@ function draw() {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 130);
             text("DAME:", width / 4 * 3, height / 2 + 130);
-            textStyle(REGULAR);
+            textStyle(NORMAL);
             image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
             dialogue3 = "Yeah, you won\'t believe who I bring in!";
@@ -426,7 +426,7 @@ function draw() {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 130);
             text("DAME:", width / 4 * 3, height / 2 + 130);
-            textStyle(REGULAR);
+            textStyle(NORMAL);
             image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
             text("OK great. NBA Finals, here we come!", width / 4 * 3, height / 2 + 275);
@@ -434,7 +434,7 @@ function draw() {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 130);
             text("DAME:", width / 4 * 3, height / 2 + 130);
-            textStyle(REGULAR);
+            textStyle(NORMAL);
             image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
             text("OK great. NBA Finals, here we come!", width / 4 * 3, height / 2 + 275);
