@@ -424,7 +424,7 @@ function draw() {
             textStyle(NORMAL);
             image(lillardImg, width / 4 * 3 - lillardImg.width/2, height / 2, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
-            dialogue3 = "Yeah, you won\'t believe who I bring in!";
+            dialogue3 = "Yeah, you won't believe who I bring in!";
         } else if (animationTime < 540) {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 130);
@@ -442,7 +442,7 @@ function draw() {
             image(croninImg, width / 4 - croninImg.width/2, height / 2, 150, 150);
             textStyle(ITALIC);
             text("OK great. NBA Finals, here we come!", width / 4 * 3, height / 2 + 275);
-            text("Portland, this one\'s for you!", width / 4 * 3, height / 2 + 300);
+            text("Portland, this one's for you!", width / 4 * 3, height / 2 + 300);
             textStyle(NORMAL);
         } else {
             textSize(20);
@@ -451,7 +451,7 @@ function draw() {
             dialogue1 = "";
             dialogue2 = "";
             dialogue3 = "";
-
+        
             // Start the game when the user clicks
             /*
             if (mouseIsPressed) {
@@ -461,6 +461,7 @@ function draw() {
             // OVERRIDE:
             gameState = "start";
         }
+        
     } else if (gameState === "start") {
         cursor();
 		
@@ -539,12 +540,14 @@ function draw() {
 		asteroidCounter++;
         if (asteroidCounter >= asteroidGenerationRate && !levelTransition) {
             let newAsteroid;
-            if (currentLevel <=  1) {
-                newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
+            if (currentLevel ===  0) {
+                newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
+                //newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
             } else if (currentLevel === 5) {
                 newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg2);
             } else {
-                newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
+                newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
+                //newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
             }
             asteroids.push(newAsteroid);
             asteroidCounter = 0;
