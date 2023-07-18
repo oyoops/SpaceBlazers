@@ -5,6 +5,7 @@ let spaceshipImg3;
 let asteroids = [];
 let asteroidImg;
 let asteroidImg2;
+let customBlazersAsteroids = [];
 let bullets = [];
 let gameState = "animation";
 let gameOver = false;
@@ -81,6 +82,7 @@ let dialogue1 = "";
 let dialogue2 = "";
 let dialogue3 = "";
 
+
 // getDameOpinion function must be first at the top of the file
 let getDameOpinion = (team, score, textModifier) => {
     return axios.get('/api/lillard-opinion', { params: { team, score, textModifier } })
@@ -92,6 +94,52 @@ let getDameTweet = (team, thoughts) => {
     return axios.get('/api/lillard-tweet', { params: { team, thoughts } })
         .then(response => response.data)
         .catch(error => console.error(error));
+}
+
+// Preload
+function preload() {
+    console.log("Demanding a trade from Joe Cronin...");
+	
+    // Load maib game assets
+    spaceImage = loadImage('imgs/background.jpg');
+    spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(100, 100));
+    spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(100, 100));
+    spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 100));
+    asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
+    asteroid2Img = loadImage('imgs/asteroid2.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
+    asteroid_altImg = loadImage('imgs/celtics_fan.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image:', err));
+    trash1 = loadImage('imgs/trash1.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-1:', err));
+    trash2 = loadImage('imgs/trash2.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-2:', err));
+    trash3 = loadImage('imgs/trash3.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-3:', err));
+
+    // Load assets for opening animation
+    croninImg = loadImage("imgs/cronin.png");
+    lillardImg = loadImage("imgs/lillard.png");
+
+    // Load custom Blazers asteroid images
+    customBlazersAsteroids = [
+        trash1,
+        trash1,
+        trash3
+    ];
+
+	// Load NBA team logos
+	for (let i = 0; i < nbaTeams.length; i++) {
+		console.log(nbaTeams[i].toLowerCase().replace(/ /g, '-'));
+   		teamLogos[i] = loadImage('imgs/logos/' + nbaTeams[i].toLowerCase().replace(/ /g, '-') + '.png', img => img.resize(100, 100), err => console.log('Error loading an NBA logo:', err));
+	}
+
+	// Load sounds
+    killSound = loadSound('/sounds/kill.mp3');
+	bruhSound = loadSound('/sounds/bruh.mp3');
+    gameOverSound = loadSound('/sounds/game-over.mp3');
+    levelUpSound = loadSound('/sounds/next-level.mp3');
+	dingSound = loadSound('/sounds/ding.mp3');
+    // soundtrack selections
+    ////soundtrack = loadSound('/sounds/soundtrack.mp3');
+	////dameDollaSound = loadSound('/sounds/Hulu.mp3');
+    soundtrack = loadSound('/sounds/Hulu.mp3');
+	dameDollaSound = loadSound('/sounds/soundtrack.mp3');
 }
 
 // Leveling
@@ -275,54 +323,6 @@ let levels = [
     // Add more levels as needed...
 ];
 let currentLevel = levels[0]; // Start at level 1
-
-
-// Preload
-function preload() {
-    console.log("Demanding a trade from Joe Cronin...");
-	
-    // Load maib game assets
-    spaceImage = loadImage('imgs/background.jpg');
-    spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(100, 100));
-    spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(100, 100));
-    spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 100));
-    asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
-    asteroid2Img = loadImage('imgs/asteroid2.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
-    asteroid_altImg = loadImage('imgs/celtics_fan.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image:', err));
-    trash1 = loadImage('imgs/trash1.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-1:', err));
-    trash2 = loadImage('imgs/trash2.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-2:', err));
-    trash3 = loadImage('imgs/trash3.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-3:', err));
-
-    // Load assets for opening animation
-    croninImg = loadImage("imgs/cronin.png");
-    lillardImg = loadImage("imgs/lillard.png");
-
-    // Load custom Blazers asteroid images
-    const customBlazersAsteroids = [
-        trash1,
-        trash1,
-        trash3
-    ];
-
-	// Load NBA team logos
-	for (let i = 0; i < nbaTeams.length; i++) {
-		console.log(nbaTeams[i].toLowerCase().replace(/ /g, '-'));
-   		teamLogos[i] = loadImage('imgs/logos/' + nbaTeams[i].toLowerCase().replace(/ /g, '-') + '.png', img => img.resize(100, 100), err => console.log('Error loading an NBA logo:', err));
-	}
-
-	// Load sounds
-    killSound = loadSound('/sounds/kill.mp3');
-	bruhSound = loadSound('/sounds/bruh.mp3');
-    gameOverSound = loadSound('/sounds/game-over.mp3');
-    levelUpSound = loadSound('/sounds/next-level.mp3');
-	dingSound = loadSound('/sounds/ding.mp3');
-    // soundtrack selections
-    ////soundtrack = loadSound('/sounds/soundtrack.mp3');
-	////dameDollaSound = loadSound('/sounds/Hulu.mp3');
-    soundtrack = loadSound('/sounds/Hulu.mp3');
-	dameDollaSound = loadSound('/sounds/soundtrack.mp3');
-    
-}
 
 // Setup
 function setup() {
