@@ -397,9 +397,9 @@ function draw() {
         textSize(18);
         textStyle(ITALIC);
         textAlign(LEFT);
-        text(dialogue1, 20, height / 2 + 100);
-        text(dialogue2, width / 2 + 10, height / 2 + 125);
-        text(dialogue3, 20, height / 2 + 150);
+        text(dialogue1, width / 4, height / 2 + 100);
+        text(dialogue2, width / 2 + 60, height / 2 + 125);
+        text(dialogue3, width / 4, height / 2 + 150);
         // Update dialogue based on animation time
         animationTime++;
         if (animationTime < 90) {
