@@ -522,9 +522,9 @@ function draw() {
 		asteroidCounter++;
         if (asteroidCounter >= asteroidGenerationRate && !levelTransition) {
             let newAsteroid;
-            if (levelIndex <=  1) {
+            if (currentLevel <=  1) {
                 newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
-            } else if (levelIndex === 5) {
+            } else if (currentLevel === 5) {
                 newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg2);
             } else {
                 newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
