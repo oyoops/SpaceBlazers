@@ -149,6 +149,7 @@ class Level {
         this.levelNumber = levelNumber;
         this.asteroidLogic = asteroidLogic;
         this.asteroidCount = asteroidCount;
+        this.hitImg = asteroidImg;
     }
 
     applyAsteroidLogic(asteroid) {
