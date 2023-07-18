@@ -111,7 +111,7 @@ function preload() {
     trash1 = loadImage('imgs/trash1.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-1:', err));
     trash2 = loadImage('imgs/trash2.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-2:', err));
     trash3 = loadImage('imgs/trash3.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-3:', err));
-    //trash4 = loadImage('imgs/trash4.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-4:', err));
+    trash4 = loadImage('imgs/trash4.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-4:', err));
 
     // Load assets for opening animation
     croninImg = loadImage("imgs/cronin.png", img => img.resize(90, 90), err => console.log('Error loading Cronin in animation:', err));
@@ -121,7 +121,8 @@ function preload() {
     customBlazersAsteroids = [
         trash1,
         trash2,
-        trash3
+        trash3,
+        trash4
     ];
 
 	// Load NBA team logos
