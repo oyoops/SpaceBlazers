@@ -114,8 +114,8 @@ function preload() {
     trash4 = loadImage('imgs/trash4.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image Blazer-Trashbag-4:', err));
 
     // Load assets for opening animation
-    croninImg = loadImage("imgs/cronin.png", img => img.resize(90, 90), err => console.log('Error loading Cronin in animation:', err));
-    lillardImg = loadImage("imgs/lillard.png", img => img.resize(90, 90), err => console.log('Error loading Lillard in animation:', err));
+    croninImg = loadImage("imgs/cronin.png", img => img.resize(110, 110), err => console.log('Error loading Cronin in animation:', err));
+    lillardImg = loadImage("imgs/lillard.png", img => img.resize(110, 110), err => console.log('Error loading Lillard in animation:', err));
 
     // Load custom Blazers asteroid images
     customBlazersAsteroids = [
@@ -409,14 +409,14 @@ function draw() {
         } else if (animationTime < 180) {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 10, height / 2 + 30);
+            text("DAME:", width / 2 + 30, height / 2 + 30);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 100, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 100, 150, 150);
         } else if (animationTime < 270) {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 10, height / 2 + 30);
+            text("DAME:", width / 2 + 30, height / 2 + 30);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 100, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 100, 150, 150);
@@ -424,7 +424,7 @@ function draw() {
         } else if (animationTime < 360) {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 10, height / 2 + 30);
+            text("DAME:", width / 2 + 30, height / 2 + 30);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 100, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 100, 150, 150);
@@ -432,7 +432,7 @@ function draw() {
         } else if (animationTime < 450) {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 10, height / 2 + 30);
+            text("DAME:", width / 2 + 30, height / 2 + 30);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 100, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 100, 150, 150);
@@ -440,7 +440,7 @@ function draw() {
         } else if (animationTime < 540) {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 10, height / 2 + 30);
+            text("DAME:", width / 2 + 30, height / 2 + 30);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 100, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 100, 150, 150);
@@ -449,7 +449,7 @@ function draw() {
         } else if (animationTime < 700) {
             textStyle(BOLD);
             text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 10, height / 2 + 30);
+            text("DAME:", width / 2 + 30, height / 2 + 30);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 100, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 100, 150, 150);
