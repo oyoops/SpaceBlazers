@@ -395,7 +395,7 @@ function draw() {
         
         // Display the animation
         fill(0);
-        textSize(18);
+        textSize(22);
         textStyle(ITALIC);
         textAlign(LEFT);
         text(dialogue1, width / 4, height / 2 + 100);
@@ -408,57 +408,69 @@ function draw() {
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 40, 150, 150);
         } else if (animationTime < 180) {
             textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 30, height / 2 + 30);
+            textSize(32);
+            text("CRONIN:", width / 4, height / 2 + 50);
+            text("DAME:", width / 2 + 30, height / 2 + 50);
+            textSize(22);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 40, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 40, 150, 150);
         } else if (animationTime < 270) {
             textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 30, height / 2 + 30);
+            textSize(32);
+            text("CRONIN:", width / 4, height / 2 + 50);
+            text("DAME:", width / 2 + 30, height / 2 + 50);
+            textSize(22);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 40, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 40, 150, 150);
             dialogue1 = "I promise to bring star players...";
         } else if (animationTime < 360) {
             textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 30, height / 2 + 30);
+            textSize(32);
+            text("CRONIN:", width / 4, height / 2 + 50);
+            text("DAME:", width / 2 + 30, height / 2 + 50);
+            textSize(22);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 40, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 40, 150, 150);
             dialogue2 = "Really? Wow, that will be so great!";
         } else if (animationTime < 450) {
             textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 30, height / 2 + 30);
+            textSize(32);
+            text("CRONIN:", width / 4, height / 2 + 50);
+            text("DAME:", width / 2 + 30, height / 2 + 50);
+            textSize(22);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 40, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 40, 150, 150);
             dialogue3 = "Yeah, you won't believe who I bring in!";
         } else if (animationTime < 540) {
             textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 30, height / 2 + 30);
+            textSize(32);
+            text("CRONIN:", width / 4, height / 2 + 50);
+            text("DAME:", width / 2 + 30, height / 2 + 50);
+            textSize(22);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 40, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 40, 150, 150);
             textStyle(ITALIC);
-            text("OK great. NBA Finals, here we come!", width / 2 + 10, height / 2 + 175);
+            text("OK great. NBA Finals, here we come!", width / 2 + 45, height / 2 + 175);
         } else if (animationTime < 700) {
             textStyle(BOLD);
-            text("CRONIN:", width / 4, height / 2 + 30);
-            text("DAME:", width / 2 + 30, height / 2 + 30);
+            textSize(32);
+            text("CRONIN:", width / 4, height / 2 + 50);
+            text("DAME:", width / 2 + 30, height / 2 + 50);
+            textSize(22);
             textStyle(NORMAL);
             image(lillardImg, width / 2 + 60 - lillardImg.width/2, height / 4 - 40, 150, 150);
             image(croninImg, width / 4 - croninImg.width/2, height / 4 - 40, 150, 150);
             textStyle(ITALIC);
-            text("OK great. NBA Finals, here we come!", width / 2 + 10, height / 2 + 175);
-            text("Portland, this one's for you!", width / 2 + 10, height / 2 + 200);
+            text("OK great. NBA Finals, here we come!", width / 2 + 45, height / 2 + 175);
+            text("Portland, this one's for you!", width / 2 + 45, height / 2 + 200);
             textStyle(NORMAL);
         } else {
-            textSize(18);
+            textSize(22);
             textStyle(NORMAL)
             // Clear the dialogue
             dialogue1 = "";
