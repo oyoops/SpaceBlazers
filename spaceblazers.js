@@ -73,13 +73,18 @@ let levelUpSound;
 //let nextLevelSound;
 let dameDollaSound;
 
-// Create the getDameOpinion function at the top of the file
+// getDameOpinion function must be first at the top of the file
 let getDameOpinion = (team, score, textModifier) => {
     return axios.get('/api/lillard-opinion', { params: { team, score, textModifier } })
         .then(response => response.data)
         .catch(error => console.error(error));
 }
-
+// getDameTweet function must be second at the top of the file
+let getDameTweet = (team, thoughts) => {
+    return axios.get('/api/lillard-tweet', { params: { team, thoughts } })
+        .then(response => response.data)
+        .catch(error => console.error(error));
+}
 
 // Leveling
 class Level {
@@ -605,6 +610,13 @@ function draw() {
                             textSize(20);
                         }
                         console.log('Dame\'s opinion: ', dameOpinion);
+                    }).then(dameTweetText => {
+                        // Compose the tweet using the dameTweetText and the url
+                        let dameTweet = getDameTweet(team, dameOpinion);
+                        let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(dameTweet) + "&url=" + encodeURIComponent(url);
+                        window.open(tweetUrl, '_blank');
+                        // Show the tweet button;
+                        tweetButton.show();
                     });
 
 				// If NOT game over yet, then make the spaceship invincible for a short period of time
