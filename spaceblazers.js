@@ -615,11 +615,11 @@ function draw() {
                         let dameTweet = getDameTweet(team, dameOpinion);
                         let dameTweetURL = "https://damian.lillard.trade";
                         console.log(dameTweet);
-                        let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(dameTweet) + "&url=" + encodeURIComponent(dameTweetURL);
+                        ////////let tweetUrl = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(dameTweet) + "&url=" + encodeURIComponent(dameTweetURL);
                         // Auto open a window
-                        window.open(tweetUrl, '_blank');
+                        ////////window.open(tweetUrl, '_blank');
                         // Show the tweet button;
-                        tweetButton.show();
+                        ////////tweetButton.show();
                     });
 
 				// If NOT game over yet, then make the spaceship invincible for a short period of time
