@@ -158,6 +158,7 @@ class Level {
                 ////asteroid.hitImg = customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)];
                 break;
             case 2:
+                asteroid.hitImg = asteroidImg;
                 asteroid.follow(spaceship.pos, 1);
                 break;
             case 3:
