@@ -388,37 +388,43 @@ function draw() {
         // Update dialogue based on time
         animationTime++;
         if (animationTime < 90) {
-            image(lillardImg, 3 * width / 4 + 600, height / 2, 150, 150);
+            image(lillardImg, width / 4 * 3, height / 2, 150, 150);
             image(croninImg, width / 4, height / 2, 150, 150);
         } else if (animationTime < 180) {
             text("CRONIN:", width / 4, height / 2 + 180);
             text("DAME:", width / 4 * 3, height / 2 + 180);
-            image(lillardImg, 3 * width / 4 + 600, height / 2, 150, 150);
+            image(lillardImg, width / 4 * 3, height / 2, 150, 150);
             image(croninImg, width / 4, height / 2, 150, 150);
         } else if (animationTime < 270) {
             text("CRONIN:", width / 4, height / 2 + 180);
             text("DAME:", width / 4 * 3, height / 2 + 180);
-            image(lillardImg, 3 * width / 4 + 600, height / 2, 150, 150);
+            image(lillardImg, width / 4 * 3, height / 2, 150, 150);
             image(croninImg, width / 4, height / 2, 150, 150);
             dialogue1 = "I promise to bring star players...";
         } else if (animationTime < 360) {
             text("CRONIN:", width / 4, height / 2 + 180);
             text("DAME:", width / 4 * 3, height / 2 + 180);
-            image(lillardImg, 3 * width / 4 + 600, height / 2, 150, 150);
+            image(lillardImg, width / 4 * 3, height / 2, 150, 150);
             image(croninImg, width / 4, height / 2, 150, 150);
-            dialogue2 = "Really? That would be great!";
+            dialogue2 = "Really? Wow, that will be so great!";
         } else if (animationTime < 450) {
             text("CRONIN:", width / 4, height / 2 + 180);
             text("DAME:", width / 4 * 3, height / 2 + 180);
-            image(lillardImg, 3 * width / 4 + 600, height / 2, 150, 150);
+            image(lillardImg, width / 4 * 3, height / 2, 150, 150);
             image(croninImg, width / 4, height / 2, 150, 150);
             dialogue3 = "Yeah, you won\'t believe who I bring in!";
+        } else if (animationTime < 540) {
+            text("CRONIN:", width / 4, height / 2 + 180);
+            text("DAME:", width / 4 * 3, height / 2 + 180);
+            image(lillardImg, width / 4 * 3, height / 2, 150, 150);
+            image(croninImg, width / 4, height / 2, 150, 150);
+            text("OK great. NBA Finals, here we come!", width / 4 * 3, height / 2 + 275);
         } else if (animationTime < 630) {
             text("CRONIN:", width / 4, height / 2 + 180);
             text("DAME:", width / 4 * 3, height / 2 + 180);
-            image(lillardImg, 3 * width / 4 + 600, height / 2, 150, 150);
+            image(lillardImg, width / 4 * 3, height / 2, 150, 150);
             image(croninImg, width / 4, height / 2, 150, 150);
-            text("Portland, this one\'s for you!", width / 4 * 3, height / 2 + 275);
+            text("Portland, this one\'s for you!", width / 4 * 3, height / 2 + 300);
         } else {
             // Clear the dialogue
             dialogue1 = "";
