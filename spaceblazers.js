@@ -521,7 +521,14 @@ function draw() {
 		// Generate asteroids
 		asteroidCounter++;
         if (asteroidCounter >= asteroidGenerationRate && !levelTransition) {
-            let newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
+            let newAsteroid;
+            if (levelIndex <=  1) {
+                newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg);
+            } else if (levelIndex === 5) {
+                newAsteroid = new Asteroid(asteroidImg.width / 2, asteroidImg2);
+            } else {
+                newAsteroid = new Asteroid(asteroidImg.width / 2, customBlazersAsteroids[Math.floor(Math.random() * customBlazersAsteroids.length)]);
+            }
             asteroids.push(newAsteroid);
             asteroidCounter = 0;
         }
