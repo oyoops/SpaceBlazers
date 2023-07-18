@@ -6,7 +6,7 @@ let asteroids = [];
 let asteroidImg;
 let asteroidImg2;
 let bullets = [];
-let gameState = "start";
+let gameState = "animation";
 let gameOver = false;
 let invincible = false;
 let invincibleTimer = 0;
@@ -73,6 +73,14 @@ let levelUpSound;
 //let nextLevelSound;
 let dameDollaSound;
 
+// animation assets
+let croninImg;
+let lillardImg;
+let animationTime = 0;
+let dialogue1 = "";
+let dialogue2 = "";
+let dialogue3 = "";
+
 // getDameOpinion function must be first at the top of the file
 let getDameOpinion = (team, score, textModifier) => {
     return axios.get('/api/lillard-opinion', { params: { team, score, textModifier } })
@@ -98,6 +106,7 @@ class Level {
         switch (this.levelNumber) {
             case 1:
                 // Initial logic is already set, so nothing to do here
+                asteroid.hitImg = asteroidAssets[Math.floor(Math.random() * asteroidAssets.length)];
                 break;
             case 2:
                 asteroid.follow(spaceship.pos, 1);
@@ -174,7 +183,7 @@ Level 10 - Asteroids move randomly (this is unpredictable and will be the hardes
 */
 let levels = [
     new Level(1, function(asteroid) {
-        // Level 1 logic
+        //
     }, 5),
     new Level(2, function(asteroid) {
         // Level 2 logic
@@ -271,14 +280,26 @@ let currentLevel = levels[0]; // Start at level 1
 // Preload
 function preload() {
     console.log("Demanding a trade from Joe Cronin...");
-	spaceImage = loadImage('imgs/background.jpg');
+	
+    // Load maib game assets
+    spaceImage = loadImage('imgs/background.jpg');
     spaceshipImg = loadImage('imgs/spaceship.png', img => img.resize(100, 100));
     spaceship2Img = loadImage('imgs/spaceship2.png', img => img.resize(100, 100));
     spaceship3Img = loadImage('imgs/spaceship3.png', img => img.resize(100, 100));
     asteroidImg = loadImage('imgs/asteroid.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     asteroid2Img = loadImage('imgs/asteroid2.png', img => img.resize(100, 0), err => console.log('Error loading asteroid image:', err));
     asteroid_altImg = loadImage('imgs/celtics_fan.png', img => img.resize(100, 0), err => console.log('Error loading alternative asteroid image:', err));
-    //dingSound = loadSound('sounds/ding.mp3');
+    
+    // Load assets for opening animation
+    croninImg = loadImage("/imgs/asteroid.png");
+    lillardImg = loadImage("/imgs/spaceship.png");
+
+    // Load custom Blazers asteroid images
+    const customBlazersAsteroids = [
+        require('./imgs/trash1.png'),
+        require('./imgs/trash2.png'),
+        require('./imgs/trash3.png'),
+    ];
 
 	// Load NBA team logos
 	for (let i = 0; i < nbaTeams.length; i++) {
@@ -303,6 +324,12 @@ function preload() {
 // Setup
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    
+    // Load the images for the animation
+    croninImg = loadImage("cronin.png");
+    lillardImg = loadImage("lillard.png");
+
+    // Load the spaceship
     spaceship = new Spaceship(spaceshipImg.width / 2, 3);
     
 	// Mute button
@@ -348,7 +375,41 @@ function draw() {
 	image(spaceImage, 0, 0, width, height);
 
 	// Draw the game
-	if (gameState === "start") {
+    // Check the game state
+    if (gameState === "animation") {
+        // Display images
+        image(croninImg, width / 4, height / 2, 200, 200);
+        image(lillardImg, 3 * width / 4 * 3, height / 2, 200, 200);
+        // Display dialogue
+        fill(0);
+        textSize(20);
+        textAlign(CENTER, CENTER);
+        text(dialogue1, width / 4, height / 2 + 200);
+        text(dialogue2, width / 4 * 3, height / 2 + 225);
+        text(dialogue3, width / 4, height / 2 + 250);
+        // Update dialogue based on time
+        animationTime++;
+        if (animationTime < 30) {
+            text("CRONIN:", width / 4, height / 2 + 180);
+        } else if (animationTime < 60) {
+            dialogue1 = "I promise to bring star players...";
+        } else if (animationTime < 120) {
+            text("DAME:", width / 4 * 3, height / 2 + 180);
+        } else if (animationTime < 180) {
+            dialogue2 = "Really? That would be great!";
+        } else if (animationTime < 360) {
+            dialogue3 = "Yeah, you won\'t believe who I bring in!";
+        } else {
+            // Clear dialogue
+            dialogue1 = "";
+            dialogue2 = "";
+            dialogue3 = "";
+            // Start the game when the user clicks
+            if (mouseIsPressed) {
+                gameState = "start";
+            }
+        }
+    } else if (gameState === "start") {
         cursor();
 		
 		// Show the title
